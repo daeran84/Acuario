@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>417</width>
+    <height>254</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>417</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="btn_salir"/>
+   </widget>
+   <widget class="QMenu" name="menuGestion">
+    <property name="title">
+     <string>Gestion</string>
+    </property>
+    <addaction name="btn_animales_acuaticos"/>
+    <addaction name="actionPlantas_acuaticas"/>
+    <addaction name="btn_entrenadoes"/>
+   </widget>
+   <widget class="QMenu" name="menuReportes">
+    <property name="title">
+     <string>Reportes</string>
+    </property>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuGestion"/>
+   <addaction name="menuReportes"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="btn_salir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="btn_animales_acuaticos">
+   <property name="text">
+    <string>Animales acuaticos</string>
+   </property>
+  </action>
+  <action name="actionPlantas_acuaticas">
+   <property name="text">
+    <string>Plantas acuaticas</string>
+   </property>
+  </action>
+  <action name="btn_entrenadoes">
+   <property name="text">
+    <string>Entrenadores</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

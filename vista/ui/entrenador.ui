@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Entrenadores</class>
+ <widget class="QWidget" name="Entrenadores">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>423</width>
+    <height>383</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>383</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>423</width>
+    <height>383</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>401</width>
+     <height>171</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>401</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>340</y>
+     <width>401</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="btn_incertar">
+      <property name="text">
+       <string>Incertar</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_actualizar">
+      <property name="text">
+       <string>Actualizar</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_eliminar">
+      <property name="text">
+       <string>Eliminar</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_cerrar">
+      <property name="text">
+       <string>Cerrar</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>402</width>
+     <height>123</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>Nombre y Apellidos:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>Carnet de Identidad:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="label_14">
+      <property name="text">
+       <string>Fecha de Nacimiento:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_12">
+      <property name="text">
+       <string>Sexo</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QRadioButton" name="check_masculino">
+      <property name="text">
+       <string>Masculino</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QRadioButton" name="check_femenino">
+      <property name="text">
+       <string>Femenino</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QLabel" name="label_15">
+      <property name="text">
+       <string>Años de experiencia:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QLineEdit" name="txt_experiencia"/>
+    </item>
+    <item row="2" column="2">
+     <widget class="QDateEdit" name="date_nacimiento"/>
+    </item>
+    <item row="2" column="3">
+     <widget class="QLabel" name="label_13">
+      <property name="text">
+       <string>Edad:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QSpinBox" name="txt_edad"/>
+    </item>
+    <item row="1" column="2" colspan="3">
+     <widget class="QLineEdit" name="txt_ci"/>
+    </item>
+    <item row="0" column="2" colspan="3">
+     <widget class="QLineEdit" name="txt_nombre_apellidos"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
