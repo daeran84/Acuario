@@ -66,3 +66,7 @@ class Entrenador:
     @anios_experiencia.setter
     def anios_experiencia(self, value):
         self.__anios_experiencia = value
+
+    def es_ci_entrenador(self, ci):
+        return int(self.ci) == int(ci)
+

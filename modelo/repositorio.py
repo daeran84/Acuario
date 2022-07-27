@@ -1,3 +1,6 @@
+from modelo.entrenador import Entrenador
+from datetime import date
+
 class Repositorio:
     def __init__(self):
         self.__lista_especies = []
@@ -55,8 +58,15 @@ class Repositorio:
 
     # Functions for Lista_entrenadores
 
-    def incertar_entrenador(self):
-        pass
+    def ci_entrenador(self, ci):
+        for i in range(len(self.lista_entrenadores)):
+            if self.lista_entrenadores[i].es_ci_entrenador(int(ci)):
+                return i
+
+    def incertar_entrenador(self, entrenador):
+        #if self.ci_entrenador(entrenador.ci):
+        #    raise Exception('El Entrenador ya existe')
+        self.lista_entrenadores.append(entrenador)
 
     def actualizar_entrenador(self):
         pass
