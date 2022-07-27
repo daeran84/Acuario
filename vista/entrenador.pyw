@@ -14,9 +14,9 @@ class VentanaEntrenador(QDialog):
         # Buttons & table data configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        #self.btn_insertar.clicked.connect(self.__controlador.incertar_entrenador)
-        #self.btn_modificar.clicked.connect(self.__controlador.actualizar_entrenador)
-        #self.btn_eliminar.clicked.connect(self.__controlador.eliminar_entrenador)
+        self.btn_incertar.clicked.connect(self.__controlador.incertar_entrenador)
+        self.btn_actualizar.clicked.connect(self.__controlador.actualizar_entrenador)
+        self.btn_eliminar.clicked.connect(self.__controlador.eliminar_entrenador)
         #self.tabla_entrenadores.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
         #self.tabla_entrenadores.setColumnCount(8)
         #self.tabla_entrenadores.setHorizontalHeaderLabels(
@@ -28,51 +28,60 @@ class VentanaEntrenador(QDialog):
         #self.date_nacimiento.setDate(QDate.currentDate())
 
     # PROPS of fields
-    
-    """@property
-    def valor_nombre_apellidos(self):
-        return self.valor_nombre_apellidos.text().strip()
-    
-    @valor_nombre_apellidos.setter
-    def valor_nombre_apellidos(self, value):
-        self.valor_nombre_apellidos.setText(value)
-    
-    @property
-    def valor_nombre_artistico(self):
-        return self.valor_nombre_artistico.text().strip()
-    
-    @valor_nombre_artistico.setter
-    def valor_nombre_artistico(self, value):
-        self.valor_nombre_artistico.setText(value)
-        
-    @property
-    def valor_ci(self):
-        return self.valor_ci.text().strip()
-    
-    @valor_ci.setter
-    def valor_ci(self, value):
-        self.valor_ci.setText(value)
-    
-    @property
-    def valor_experiencia(self):
-        return self.valor_ci.text().strip()
-    
-    @valor_experiencia.setter
-    def valor_experiencia(self, value):
-        self.valor_ci.setText.strip(value)
 
     @property
-    def date_nacimiento(self):
+    def ci(self):
+        return self.valor_ci.text().strip()
+
+    @ci.setter
+    def ci(self, value):
+        self.valor_ci.setText(value)
+
+    @property
+    def nombre_apellidos(self):
+        return self.velor_nombre_apellidos.text().strip()
+
+    @nombre_apellidos.setter
+    def nombre_apellidos(self, value):
+        self.velor_nombre_apellidos.setText(value)
+
+    @property
+    def nombre_artistico(self):
+        return self.valor_nombre_artistico.text().strip()
+
+    @nombre_artistico.setter
+    def nombre_artistico(self, value):
+        self.valor_nombre_artistico.setText(value)
+
+    @property
+    def edad(self):
+        return self.valor_edad.text().strip()
+
+    @edad.setter
+    def edad(self, value):
+        self.valor_edad.setText(value)
+
+    @property
+    def sexo(self):
+        return self.valor_sexo.text().strip()
+
+    @sexo.setter
+    def sexo(self, value):
+        self.valor_sexo.setText(value)
+
+    @property
+    def fecha_nacimiento(self):
         return self.date_nacimiento.date()
 
-    @date_nacimiento.setter
-    def date_nacimiento(self, value):
+    @fecha_nacimiento.setter
+    def fecha_nacimiento(self, value):
         self.date_nacimiento.setDate(value)
 
     @property
-    def valor_edad(self):
-        return self.valor_edad.text().strip()
+    def anios_experiencia(self):
+        return self.valor_experiencia.text().strip()
 
-    @valor_edad.setter
-    def valor_edad(self, value):
-        self.valor_edad.setText.strip(value)"""
+    @anios_experiencia.setter
+    def anios_experiencia(self, value):
+        self.valor_experiencia.setText(value)
+

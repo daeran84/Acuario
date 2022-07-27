@@ -19,16 +19,16 @@ class ControladorEntrenador:
     # Functions for list management
 
     def cargar_datos(self):
-        pass
+        print('cargando datos')
 
     def incertar_entrenador(self):
-        pass
+        print('incertar')
 
     def actualizar_entrenador(self):
-        pass
+        print('actualizar')
 
     def eliminar_entrenador(self):
-        pass
+        print('eliminar')
 
     def llenar_formulario_x_tabla(self):
-        pass
+        print('tabla')
