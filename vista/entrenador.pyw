@@ -18,7 +18,10 @@ class VentanaEntrenador(QDialog):
         self.btn_actualizar.clicked.connect(self.__controlador.actualizar_entrenador)
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_entrenador)
         #self.tabla_entrenadores.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
-        #self.tabla_entrenadores.setColumnCount(8)
+
+        #self.tabla_entrenadores.setColumnCount(7)
+        #self.tabla.entrenadores.setHorizontalHeaderLabels(['Nombre', 'CI', 'Nombre Artistico', 'edad', 'sexo', 'Fecha nacimiento', 'Años de Experiencia'])
+
         #self.tabla_entrenadores.setHorizontalHeaderLabels(
         #    ['Nombre', 'CI', 'Fecha de Inicio', '# Metros Cuadrados', '# Cuartos',
         #     'Direccion', 'Cochera',
@@ -84,4 +87,48 @@ class VentanaEntrenador(QDialog):
     @anios_experiencia.setter
     def anios_experiencia(self, value):
         self.valor_experiencia.setText(value)
+
+    def validar_controles(self):
+        msg = 'El atributo {} es obligatorio.'
+        c_i = self.ci
+        na = self.nombre_apellidos
+        nar = self.nombre_artistico
+
+        if len(c_i) == 0:
+            raise Exception(msg.format('carnet de identidad'))
+        if len(c_i) != 11:
+            raise Exception('El carnet de identidad debe tener 11 digitos')
+        if not c_i.digit():
+            raise Exception('El carnet de identidad solo puede tener digitos')
+        if not na.isalpha():
+            raise Exception('El nombre solo puede tener letras')
+        if len(na) == 0:
+            raise Exception(msg.format('nombre completo'))
+        if not nar.isalpha():
+            raise Exception('El nombre artistico solo puede tener letras')
+        if len(nar) == 0:
+            raise Exception(msg.format('nombre artistico'))
+
+    def restablecer_datos(self):
+        self.ci = ''
+        self.nombre_apellidos = ''
+        self.nombre_artistico = ''
+        self.edad = 20
+        self.fecha_nacimiento = datetime.date(int(2022), int(1), int(1))
+        self.anios_experiencia = 0
+
+    def mostrar_error(self, msg):
+        QMessageBox.critical(self, 'Error', msg)
+
+    def vaciar_tabla(self):
+        while self.tabla_entrenadores.rowCount() > 0:
+            self.tabla_entrenadores.removeRow(0)
+
+    def agregar_elemento_tabla(self, fila, columna, texto):
+        self.tabla_entrenadores.setItem(fila, columna, QTableWidgetItem(texto))
+
+
+
+
+
 

@@ -9,6 +9,7 @@ class Entrenador:
         self.__fecha_nacimiento = fecha_nacimiento
         self.__anios_experiencia = anios_experiencia
 
+    # PROPS
 
     @property
     def ci(self):

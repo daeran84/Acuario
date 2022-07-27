@@ -36,7 +36,35 @@
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="4" column="2">
-     <widget class="QDateEdit" name="date_nacimiento"/>
+     <widget class="QDateEdit" name="date_nacimiento">
+      <property name="dateTime">
+       <datetime>
+        <hour>0</hour>
+        <minute>0</minute>
+        <second>0</second>
+        <year>2022</year>
+        <month>1</month>
+        <day>1</day>
+       </datetime>
+      </property>
+      <property name="minimumDateTime">
+       <datetime>
+        <hour>0</hour>
+        <minute>0</minute>
+        <second>0</second>
+        <year>1955</year>
+        <month>1</month>
+        <day>1</day>
+       </datetime>
+      </property>
+      <property name="maximumDate">
+       <date>
+        <year>2022</year>
+        <month>1</month>
+        <day>1</day>
+       </date>
+      </property>
+     </widget>
     </item>
     <item row="5" column="2">
      <widget class="QRadioButton" name="check_femenino">
@@ -114,7 +142,14 @@
      </widget>
     </item>
     <item row="2" column="4">
-     <widget class="QSpinBox" name="valor_edad"/>
+     <widget class="QSpinBox" name="valor_edad">
+      <property name="minimum">
+       <number>20</number>
+      </property>
+      <property name="maximum">
+       <number>65</number>
+      </property>
+     </widget>
     </item>
     <item row="4" column="3">
      <widget class="QLabel" name="label_15">
@@ -124,7 +159,11 @@
      </widget>
     </item>
     <item row="4" column="4">
-     <widget class="QSpinBox" name="valor_experiencia"/>
+     <widget class="QSpinBox" name="valor_experiencia">
+      <property name="maximum">
+       <number>40</number>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
