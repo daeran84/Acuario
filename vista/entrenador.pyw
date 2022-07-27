@@ -27,7 +27,7 @@ class VentanaEntrenador(QDialog):
         #self.date_nacimiento.setMaximumDate(QDate.currentDate())
         #self.date_nacimiento.setDate(QDate.currentDate())
 
-    # PROPS of fields
+    # PROPS of fields working
 
     @property
     def ci(self):
