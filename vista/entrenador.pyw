@@ -14,7 +14,7 @@ class VentanaEntrenador(QDialog):
         # Buttons & table data configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.btn_incertar.clicked.connect(self.__controlador.incertar_entrenador)
+        self.btn_incertar.clicked.connect(self.__controlador.insertar_entrenador)
         self.btn_actualizar.clicked.connect(self.__controlador.actualizar_entrenador)
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_entrenador)
         #self.tabla_entrenadores.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
@@ -42,11 +42,11 @@ class VentanaEntrenador(QDialog):
 
     @property
     def nombre_apellidos(self):
-        return self.velor_nombre_apellidos.text().strip()
+        return self.valor_nombre_apellidos.text().strip()
 
     @nombre_apellidos.setter
     def nombre_apellidos(self, value):
-        self.velor_nombre_apellidos.setText(value)
+        self.valor_nombre_apellidos.setText(value)
 
     @property
     def nombre_artistico(self):
@@ -66,11 +66,18 @@ class VentanaEntrenador(QDialog):
 
     @property
     def sexo(self):
-        return self.valor_sexo.text().strip()
+        if self.check_masculino.isChecked():
+            sex = 'M'
+        else:
+            sex = 'F'
+        return sex
 
     @sexo.setter
     def sexo(self, value):
-        self.valor_sexo.setText(value)
+        if value == 'M':
+            self.check_masculino.setChecked(True)
+        else:
+            self.check_femenino.setChecked(True)
 
     @property
     def fecha_nacimiento(self):
@@ -88,26 +95,26 @@ class VentanaEntrenador(QDialog):
     def anios_experiencia(self, value):
         self.valor_experiencia.setText(value)
 
-    def validar_controles(self):
+    def validar_datos(self):
         msg = 'El atributo {} es obligatorio.'
         c_i = self.ci
         na = self.nombre_apellidos
         nar = self.nombre_artistico
 
-        if len(c_i) == 0:
-            raise Exception(msg.format('carnet de identidad'))
-        if len(c_i) != 11:
-            raise Exception('El carnet de identidad debe tener 11 digitos')
-        if not c_i.digit():
-            raise Exception('El carnet de identidad solo puede tener digitos')
-        if not na.isalpha():
-            raise Exception('El nombre solo puede tener letras')
         if len(na) == 0:
             raise Exception(msg.format('nombre completo'))
-        if not nar.isalpha():
-            raise Exception('El nombre artistico solo puede tener letras')
+        if not na.isalpha():
+            raise Exception('El nombre solo puede tener letras')
         if len(nar) == 0:
             raise Exception(msg.format('nombre artistico'))
+        if not nar.isalpha():
+            raise Exception('El nombre artistico solo puede tener letras')
+        if len(c_i) == 0:
+            raise Exception(msg.format('carnet de identidad'))
+        if not c_i.isdigit():
+            raise Exception('El carnet de identidad solo puede tener digitos')
+        if len(c_i) != 11:
+            raise Exception('El carnet de identidad debe tener 11 digitos')
 
     def restablecer_datos(self):
         self.ci = ''
@@ -116,6 +123,7 @@ class VentanaEntrenador(QDialog):
         self.edad = 20
         self.fecha_nacimiento = datetime.date(int(2022), int(1), int(1))
         self.anios_experiencia = 0
+        self.sexo = 'M'
 
     def mostrar_error(self, msg):
         QMessageBox.critical(self, 'Error', msg)

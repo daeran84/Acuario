@@ -180,7 +180,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QTableView" name="tableView">
+  <widget class="QTableView" name="tabla_entrenadores">
    <property name="geometry">
     <rect>
      <x>10</x>

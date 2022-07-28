@@ -67,6 +67,7 @@ class Repositorio:
         #if self.ci_entrenador(entrenador.ci):
         #    raise Exception('El Entrenador ya existe')
         self.lista_entrenadores.append(entrenador)
+        print(self.__lista_entrenadores)
 
     def actualizar_entrenador(self):
         pass
