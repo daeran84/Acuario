@@ -35,6 +35,30 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+    <item row="4" column="0" colspan="2">
+     <widget class="QLabel" name="label_14">
+      <property name="text">
+       <string>Fecha de Nacimiento:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLineEdit" name="valor_ci">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" colspan="3">
+     <widget class="QLineEdit" name="valor_nombre_apellidos"/>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>Carnet de Identidad:</string>
+      </property>
+     </widget>
+    </item>
     <item row="4" column="2">
      <widget class="QDateEdit" name="date_nacimiento">
       <property name="dateTime">
@@ -73,27 +97,37 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="2" colspan="3">
-     <widget class="QLineEdit" name="valor_nombre_apellidos"/>
-    </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="QLabel" name="label_10">
+    <item row="1" column="0" colspan="2">
+     <widget class="QLabel" name="label_16">
       <property name="text">
-       <string>Carnet de Identidad:</string>
+       <string>Nombre Artistico:</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="2">
-     <widget class="QLineEdit" name="valor_ci">
+    <item row="2" column="3">
+     <widget class="QLabel" name="label_13">
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
       <property name="text">
-       <string/>
+       <string>Edad:</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="0" colspan="2">
-     <widget class="QLabel" name="label_14">
+    <item row="1" column="2" colspan="3">
+     <widget class="QLineEdit" name="valor_nombre_artistico"/>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="label_11">
       <property name="text">
-       <string>Fecha de Nacimiento:</string>
+       <string>Nombre y Apellidos:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_12">
+      <property name="text">
+       <string>Sexo</string>
       </property>
      </widget>
     </item>
@@ -107,47 +141,10 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="label_12">
-      <property name="text">
-       <string>Sexo</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="2">
-     <widget class="QLabel" name="label_11">
-      <property name="text">
-       <string>Nombre y Apellidos:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="2">
-     <widget class="QLabel" name="label_16">
-      <property name="text">
-       <string>Nombre Artistico:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2" colspan="3">
-     <widget class="QLineEdit" name="valor_nombre_artistico"/>
-    </item>
-    <item row="2" column="3">
-     <widget class="QLabel" name="label_13">
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="text">
-       <string>Edad:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="4">
-     <widget class="QSpinBox" name="valor_edad">
-      <property name="minimum">
-       <number>20</number>
-      </property>
+    <item row="4" column="4">
+     <widget class="QSpinBox" name="valor_experiencia">
       <property name="maximum">
-       <number>65</number>
+       <number>40</number>
       </property>
      </widget>
     </item>
@@ -158,10 +155,13 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="4">
-     <widget class="QSpinBox" name="valor_experiencia">
+    <item row="2" column="4">
+     <widget class="QSpinBox" name="valor_edad">
+      <property name="minimum">
+       <number>18</number>
+      </property>
       <property name="maximum">
-       <number>40</number>
+       <number>65</number>
       </property>
      </widget>
     </item>
@@ -180,7 +180,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QTableView" name="tabla_entrenadores">
+  <widget class="QTableWidget" name="tabla_entrenadores">
    <property name="geometry">
     <rect>
      <x>10</x>

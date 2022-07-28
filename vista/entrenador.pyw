@@ -17,18 +17,11 @@ class VentanaEntrenador(QDialog):
         self.btn_incertar.clicked.connect(self.__controlador.insertar_entrenador)
         self.btn_actualizar.clicked.connect(self.__controlador.actualizar_entrenador)
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_entrenador)
-        #self.tabla_entrenadores.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
-
-        #self.tabla_entrenadores.setColumnCount(7)
-        #self.tabla.entrenadores.setHorizontalHeaderLabels(['Nombre', 'CI', 'Nombre Artistico', 'edad', 'sexo', 'Fecha nacimiento', 'Años de Experiencia'])
-
-        #self.tabla_entrenadores.setHorizontalHeaderLabels(
-        #    ['Nombre', 'CI', 'Fecha de Inicio', '# Metros Cuadrados', '# Cuartos',
-        #     'Direccion', 'Cochera',
-        #     'Tipo de Techo'])
-        #self.tabla_entrenadores.resizeColumnsToContents()
-        #self.date_nacimiento.setMaximumDate(QDate.currentDate())
-        #self.date_nacimiento.setDate(QDate.currentDate())
+        self.tabla_entrenadores.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
+        self.tabla_entrenadores.setColumnCount(7)
+        self.tabla_entrenadores.setHorizontalHeaderLabels(['Nombre', 'Nombre Artistico', 'CI', 'Edad', 'Sexo', 'Fecha de nacimiento', 'Años de experiencia'])
+        self.tabla_entrenadores.horizontalHeaderItem(3).setToolTip('Carnet de Identidad')
+        self.tabla_entrenadores.resizeColumnsToContents()
 
     # PROPS of fields working
 
@@ -62,7 +55,7 @@ class VentanaEntrenador(QDialog):
 
     @edad.setter
     def edad(self, value):
-        self.valor_edad.setText(value)
+        self.valor_edad.setValue(value)
 
     @property
     def sexo(self):
@@ -93,7 +86,7 @@ class VentanaEntrenador(QDialog):
 
     @anios_experiencia.setter
     def anios_experiencia(self, value):
-        self.valor_experiencia.setText(value)
+        self.valor_experiencia.setValue(value)
 
     def validar_datos(self):
         msg = 'El atributo {} es obligatorio.'
@@ -103,8 +96,6 @@ class VentanaEntrenador(QDialog):
 
         if len(na) == 0:
             raise Exception(msg.format('nombre completo'))
-        if not na.isalpha():
-            raise Exception('El nombre solo puede tener letras')
         if len(nar) == 0:
             raise Exception(msg.format('nombre artistico'))
         if not nar.isalpha():
@@ -134,7 +125,6 @@ class VentanaEntrenador(QDialog):
 
     def agregar_elemento_tabla(self, fila, columna, texto):
         self.tabla_entrenadores.setItem(fila, columna, QTableWidgetItem(texto))
-
 
 
 

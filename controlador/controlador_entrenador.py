@@ -7,40 +7,52 @@ from datetime import date
 class ControladorEntrenador:
 
     def __init__(self, repo):
-        self.vista = VentanaEntrenador(self)
-        self.repositorio = repo
+        self.__vista = VentanaEntrenador(self)
+        self.__repositorio = repo
+
+        """entr_ini = Entrenador('84101118140', 'Camilo Rioseco Rodriguez', 'Camilo', 37, 'M', '1984-11-10', 0)
+        self.__repositorio.incertar_entrenador(entr_ini)
+        print(self.__repositorio.lista_entrenadores)"""
 
     # Window main functions
 
     def iniciar(self):
-        self.vista.setWindowTitle('Entrenadores')
-        self.vista.show()
+        self.__vista.setWindowTitle('Entrenadores')
+        self.cargar_datos()
+        self.__vista.show()
 
     def cerrar(self):
-        self.vista.close()
+        self.__vista.close()
 
     # Functions for list management
 
     def cargar_datos(self):
-        print('cargando datos')
+        self.__vista.vaciar_tabla()
+        for entrenadores in self.__repositorio.lista_entrenadores:
+            i = self.__vista.tabla_entrenadores.rowCount()
+            self.__vista.tabla_entrenadores.rowCount(i)
+            self.__vista.agregar_elemento_tabla(i, 0, entrenadores.nombre)
 
-    def insertar_entrenador(self):
+
+        pass
+
+    def insertar_entrenador(self):  # OK
         try:
-            self.vista.validar_datos()
-            ci = self.vista.ci
-            nombre = self.vista.nombre_apellidos
-            nombre_art = self.vista.nombre_artistico
-            edad = self.vista.edad
-            sexo = self.vista.sexo
-            nac = self.vista.fecha_nacimiento
+            self.__vista.validar_datos()
+            ci = self.__vista.ci
+            nombre = self.__vista.nombre_apellidos
+            nombre_art = self.__vista.nombre_artistico
+            edad = self.__vista.edad
+            sexo = self.__vista.sexo
+            nac = self.__vista.fecha_nacimiento
             nacimiento = date(nac.getDate()[0], nac.getDate()[1], nac.getDate()[2])
-            experiencia = self.vista.anios_experiencia
+            experiencia = self.__vista.anios_experiencia
             entrenador = Entrenador(ci, nombre, nombre_art, edad, sexo, nacimiento, experiencia)
-            self.repositorio.incertar_entrenador(entrenador)
-
+            self.__repositorio.incertar_entrenador(entrenador)
+            self.cargar_datos()
+            self.__vista.restablecer_datos()
         except Exception as e:
-            self.vista.mostrar_error(e.args[0])
-
+            self.__vista.mostrar_error(e.args[0])
 
     def actualizar_entrenador(self):
         print('actualizar')
