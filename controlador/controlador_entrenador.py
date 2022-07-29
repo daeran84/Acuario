@@ -26,7 +26,7 @@ class ControladorEntrenador:
 
     # Functions for list management
 
-    def cargar_datos(self):
+    def cargar_datos(self):  # OK
         try:
             self.__vista.vaciar_tabla()
             for entrenadores in self.__repositorio.lista_entrenadores:
@@ -63,10 +63,40 @@ class ControladorEntrenador:
             self.__vista.mostrar_error(e.args[0])
 
     def actualizar_entrenador(self):
-        print('actualizar')
+        try:
+            ind = self.__vista.tabla_entrenadores.currentRow()
+            if ind == -1:
+                raise Exception('Debe seleccionar una fila para actualizarla')
+                ci_ant = self.__vista.tabla_entrenadores.item(ind, 2).text()
+                self.__vista.validar_datos()
+                ci = self.__vista.ci
+                nombre = self.__vista.nombre_apellidos
+                nombre_art = self.__vista.nombre_artistico
+                edad = self.__vista.edad
+                sexo = self.__vista.sexo
+                nac = self.__vista.fecha_nacimiento
+                nacimiento = date(nac.getDate()[0], nac.getDate()[1], nac.getDate()[2])
+                experiencia = self.__vista.anios_experiencia
+                entrenador = Entrenador(ci, nombre, nombre_art, edad, sexo, nacimiento, experiencia)
+                self.__repositorio.actualizar_entrenador(ci_ant, entrenador)
+                self.cargar_datos()
+                self.__vista.restablecer_datos()
+
+        except Exception as e:
+            self.__vista.mostrar_error(e.args[0])
+
 
     def eliminar_entrenador(self):
         print('eliminar')
 
     def llenar_formulario_x_tabla(self):
-        print('tabla')
+        try:
+            ind = self.__vista.tabla_entrenadores.currentRow()
+            if ind != -1:
+                ci = self.__vista.tabla_entrenadores.item
+                nombre = self.__vista.nombre_apellidos
+                nombre_art = self.__vista.nombre_artistico
+                edad = self.__vista.edad
+                sexo = self.__vista.sexo
+        except Exception as e:
+            self.__vista.mostrar_error(e.args[0])
