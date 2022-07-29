@@ -64,10 +64,9 @@ class Repositorio:
                 return i
 
     def incertar_entrenador(self, entrenador):
-        #if self.ci_entrenador(entrenador.ci):
-        #    raise Exception('El Entrenador ya existe')
+        if self.ci_entrenador(entrenador.ci) != None:
+            raise Exception('El Entrenador ya existe')
         self.lista_entrenadores.append(entrenador)
-        print(self.__lista_entrenadores)
 
     def actualizar_entrenador(self):
         pass

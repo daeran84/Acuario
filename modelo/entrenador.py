@@ -70,5 +70,5 @@ class Entrenador:
     def es_ci_entrenador(self, ci):
         return int(self.ci) == int(ci)
 
-#    def __repr__(self):
-#        return f'Nombre: {self.__nombre_apellidos}\n Nombre Artistico: {self.__nombre_artistico}\n Carnet de Identidad: {self.__ci}\n Fecha de nacimiento: {self.__fecha_nacimiento}\n Edad: {self.__edad}\n Sexo: {self.__sexo}\n Años de experiencia: {self.__anios_experiencia}'
+    def __repr__(self):
+        return f'Nombre: {self.__nombre_apellidos}\n Nombre Artistico: {self.__nombre_artistico}\n Carnet de Identidad: {self.__ci}\n Fecha de nacimiento: {self.__fecha_nacimiento}\n Edad: {self.__edad}\n Sexo: {self.__sexo}\n Años de experiencia: {self.__anios_experiencia}'

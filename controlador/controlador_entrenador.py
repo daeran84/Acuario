@@ -27,14 +27,22 @@ class ControladorEntrenador:
     # Functions for list management
 
     def cargar_datos(self):
-        self.__vista.vaciar_tabla()
-        for entrenadores in self.__repositorio.lista_entrenadores:
-            i = self.__vista.tabla_entrenadores.rowCount()
-            self.__vista.tabla_entrenadores.rowCount(i)
-            self.__vista.agregar_elemento_tabla(i, 0, entrenadores.nombre)
-
-
-        pass
+        try:
+            self.__vista.vaciar_tabla()
+            for entrenadores in self.__repositorio.lista_entrenadores:
+                print(entrenadores.fecha_nacimiento)
+                i = self.__vista.tabla_entrenadores.rowCount()
+                self.__vista.tabla_entrenadores.insertRow(i)
+                self.__vista.agregar_elemento_tabla(i, 0, entrenadores.nombre_apellidos)
+                self.__vista.agregar_elemento_tabla(i, 1, entrenadores.nombre_artistico)
+                self.__vista.agregar_elemento_tabla(i, 2, entrenadores.ci)
+                self.__vista.agregar_elemento_tabla(i, 3, entrenadores.edad)
+                self.__vista.agregar_elemento_tabla(i, 4, entrenadores.sexo)
+                self.__vista.agregar_elemento_tabla(i, 5, str(entrenadores.fecha_nacimiento))
+                self.__vista.agregar_elemento_tabla(i, 6, entrenadores.anios_experiencia)
+                self.__vista.tabla_entrenadores.resizeColumnsToContents()
+        except Exception as e:
+            self.__vista.mostrar_error(e.args[0])
 
     def insertar_entrenador(self):  # OK
         try:
