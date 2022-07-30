@@ -67,20 +67,20 @@ class ControladorEntrenador:
             ind = self.__vista.tabla_entrenadores.currentRow()
             if ind == -1:
                 raise Exception('Debe seleccionar una fila para actualizarla')
-                ci_ant = self.__vista.tabla_entrenadores.item(ind, 2).text()
-                self.__vista.validar_datos()
-                ci = self.__vista.ci
-                nombre = self.__vista.nombre_apellidos
-                nombre_art = self.__vista.nombre_artistico
-                edad = self.__vista.edad
-                sexo = self.__vista.sexo
-                nac = self.__vista.fecha_nacimiento
-                nacimiento = date(nac.getDate()[0], nac.getDate()[1], nac.getDate()[2])
-                experiencia = self.__vista.anios_experiencia
-                entrenador = Entrenador(ci, nombre, nombre_art, edad, sexo, nacimiento, experiencia)
-                self.__repositorio.actualizar_entrenador(ci_ant, entrenador)
-                self.cargar_datos()
-                self.__vista.restablecer_datos()
+            ci_ant = self.__vista.tabla_entrenadores.item(ind, 2).text()
+            self.__vista.validar_datos()
+            ci = self.__vista.ci
+            nombre = self.__vista.nombre_apellidos
+            nombre_art = self.__vista.nombre_artistico
+            edad = self.__vista.edad
+            sexo = self.__vista.sexo
+            nac = self.__vista.fecha_nacimiento
+            nacimiento = date(nac.getDate()[0], nac.getDate()[1], nac.getDate()[2])
+            experiencia = self.__vista.anios_experiencia
+            entrenador = Entrenador(ci, nombre, nombre_art, edad, sexo, nacimiento, experiencia)
+            self.__repositorio.actualizar_entrenador(ci_ant, entrenador)
+            self.cargar_datos()
+            self.__vista.restablecer_datos()
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
@@ -89,14 +89,51 @@ class ControladorEntrenador:
     def eliminar_entrenador(self):
         print('eliminar')
 
-    def llenar_formulario_x_tabla(self):
+    def llenar_formulario_x_tabla(self): # OK
         try:
+            # Verificando que este selecionado una fila en la tabla
             ind = self.__vista.tabla_entrenadores.currentRow()
             if ind != -1:
-                ci = self.__vista.tabla_entrenadores.item
-                nombre = self.__vista.nombre_apellidos
-                nombre_art = self.__vista.nombre_artistico
-                edad = self.__vista.edad
-                sexo = self.__vista.sexo
+                # Obteniendo datos de las columnas
+                nombre = self.__vista.tabla_entrenadores.item(ind, 0).text()
+                nombre_art = self.__vista.tabla_entrenadores.item(ind, 1).text()
+                ci = self.__vista.tabla_entrenadores.item(ind, 2).text()
+                edad = self.__vista.tabla_entrenadores.item(ind, 3).text()
+                sexo = self.__vista.tabla_entrenadores.item(ind, 4).text()
+                nac = self.__vista.tabla_entrenadores.item(ind, 5).text().split('-')
+                nacimiento = QDate(int(nac[0]), int(nac[1]), int(nac[2]))
+                experiencia = self.__vista.tabla_entrenadores.item(ind, 6).text()
+
+                # dando valores a las variables
+                self.__vista.nombre_apellidos = nombre
+                self.__vista.nombre_artistico = nombre_art
+                self.__vista.ci = ci
+                self.__vista.edad = int(edad)
+                self.__vista.sexo = sexo
+                self.__vista.fecha_nacimiento = nacimiento
+                self.__vista.anios_experiencia = int(experiencia)
+
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
