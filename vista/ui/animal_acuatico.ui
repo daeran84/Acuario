@@ -58,17 +58,34 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_animal_acuatico">
-    <item row="1" column="1">
+    <item row="2" column="1">
      <widget class="QLineEdit" name="txt_nombre_cientifico"/>
     </item>
-    <item row="1" column="0">
+    <item row="2" column="0">
      <widget class="QLabel" name="label_3">
       <property name="text">
        <string>Nombre cientifico:</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="txt_familia"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>ID:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="txt_habitat_natural">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
      <widget class="QLabel" name="label_2">
       <property name="text">
        <string>Familia:</string>
@@ -78,69 +95,55 @@
     <item row="0" column="1">
      <widget class="QLineEdit" name="txt_id"/>
     </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>ID:</string>
-      </property>
-     </widget>
+    <item row="7" column="1">
+     <widget class="QSpinBox" name="txt_edad"/>
     </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="txt_habitat_natural">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="txt_familia"/>
-    </item>
-    <item row="3" column="0">
+    <item row="4" column="0">
      <widget class="QLabel" name="label_4">
       <property name="text">
        <string>Habitat natural:</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="txt_nombre">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1">
-     <widget class="QSpinBox" name="txt_edad"/>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Nombre:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QLineEdit" name="txt_categoria">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
     <item row="7" column="0">
-     <widget class="QLabel" name="label_7">
-      <property name="text">
-       <string>Categoria:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
      <widget class="QLabel" name="label_6">
       <property name="text">
        <string>Edad:</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="0" colspan="2">
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Categoria:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QComboBox" name="comboBox">
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="editable">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Nombre:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="txt_nombre">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
      <widget class="QCheckBox" name="check_cautiverio">
       <property name="text">
        <string>Reproducido en cautiverio</string>
@@ -258,13 +261,6 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
-     <widget class="QLabel" name="mostrar_edad">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
     <item row="4" column="3" colspan="2">
      <widget class="QLabel" name="fecha_nacimiento">
       <property name="text">
@@ -321,6 +317,13 @@
      <widget class="QPushButton" name="btn_actualizar_list_entrenadores">
       <property name="text">
        <string>Actualizar lista de Entrenadores</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLabel" name="mostrar_edad">
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
