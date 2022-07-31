@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>724</width>
+    <width>752</width>
     <height>588</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>724</width>
+    <width>752</width>
     <height>588</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>724</width>
+    <width>752</width>
     <height>588</height>
    </size>
   </property>
@@ -29,9 +29,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>260</y>
-     <width>701</width>
-     <height>281</height>
+     <y>270</y>
+     <width>731</width>
+     <height>271</height>
     </rect>
    </property>
   </widget>
@@ -40,7 +40,7 @@
     <rect>
      <x>10</x>
      <y>250</y>
-     <width>701</width>
+     <width>731</width>
      <height>16</height>
     </rect>
    </property>
@@ -59,7 +59,7 @@
    </property>
    <layout class="QGridLayout" name="gridLayout_animal_acuatico">
     <item row="2" column="1">
-     <widget class="QLineEdit" name="txt_nombre_cientifico"/>
+     <widget class="QLineEdit" name="anim_nombre_cientifico"/>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_3">
@@ -67,9 +67,6 @@
        <string>Nombre cientifico:</string>
       </property>
      </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="txt_familia"/>
     </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
@@ -93,7 +90,7 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="txt_id"/>
+     <widget class="QLineEdit" name="anim_id"/>
     </item>
     <item row="7" column="1">
      <widget class="QSpinBox" name="txt_edad"/>
@@ -120,7 +117,7 @@
      </widget>
     </item>
     <item row="8" column="1">
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="comboBox_anim_familia_2">
       <property name="focusPolicy">
        <enum>Qt::ClickFocus</enum>
       </property>
@@ -137,7 +134,7 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="txt_nombre">
+     <widget class="QLineEdit" name="anim_nombre">
       <property name="text">
        <string/>
       </property>
@@ -150,12 +147,22 @@
       </property>
      </widget>
     </item>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="comboBox_anim_familia">
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="editable">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>190</x>
      <y>550</y>
      <width>391</width>
      <height>31</height>
@@ -192,138 +199,135 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>360</x>
-     <y>22</y>
-     <width>351</width>
-     <height>231</height>
+     <y>20</y>
+     <width>380</width>
+     <height>201</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout_espectaculos">
-    <item row="0" column="0" colspan="4">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="2">
      <widget class="QCheckBox" name="check_espectaculos">
       <property name="text">
        <string>Participa en espectaculos</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="4">
+    <item row="0" column="2">
      <widget class="QLabel" name="label_8">
       <property name="text">
        <string>Fecha de inicio:</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="5">
-     <widget class="QDateEdit" name="date_fecha_inicio"/>
-    </item>
-    <item row="1" column="0" colspan="2">
-     <widget class="QLabel" name="label_9">
-      <property name="text">
-       <string>Entrenador</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0" colspan="3">
+    <item row="2" column="0" colspan="2">
      <widget class="QLabel" name="nombre_apellidos">
       <property name="text">
        <string>Nombre y Apellidos:</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="3" colspan="3">
-     <widget class="QLabel" name="mostrar_nombre_apellidos">
+    <item row="3" column="0" colspan="2">
+     <widget class="QLabel" name="btn_nombre_artistico">
       <property name="text">
-       <string/>
+       <string>Nombre Artístico:</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="0" colspan="3">
+    <item row="4" column="0" colspan="2">
      <widget class="QLabel" name="carnet_identidad">
       <property name="text">
        <string>Carnet de Identidad:</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="3" colspan="3">
-     <widget class="QLabel" name="mostrar_carnet_identidad">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
+    <item row="5" column="0">
      <widget class="QLabel" name="edad">
       <property name="text">
        <string>Edad:</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="3" colspan="2">
-     <widget class="QLabel" name="fecha_nacimiento">
-      <property name="text">
-       <string>Fecha de Nacimiento:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="5">
-     <widget class="QLabel" name="mostrar_fecha_nacimiento">
+    <item row="5" column="1">
+     <widget class="QLabel" name="mostrar_edad">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
+    <item row="6" column="0">
      <widget class="QLabel" name="sexo">
       <property name="text">
        <string>Sexo:</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="1">
+    <item row="6" column="1">
      <widget class="QLabel" name="mostrar_sexo">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
-    <item row="5" column="3" colspan="2">
+    <item row="5" column="2">
+     <widget class="QLabel" name="fecha_nacimiento">
+      <property name="text">
+       <string>Fecha de Nacimiento:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
      <widget class="QLabel" name="experiencia">
       <property name="text">
        <string>Años de experiencia:</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="5">
+    <item row="2" column="2" colspan="2">
+     <widget class="QLabel" name="mostrar_nombre_apellidos">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2" colspan="2">
+     <widget class="QLabel" name="mostrar_nombre_artistico">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QDateEdit" name="valor_edad"/>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="mostrar_carnet_identidad">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QLabel" name="mostrar_nacimiento">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
      <widget class="QLabel" name="mostrar_experiencia">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
-    <item row="1" column="2" colspan="4">
-     <widget class="QComboBox" name="combo_entrenadores"/>
-    </item>
-    <item row="6" column="0" colspan="3">
-     <widget class="QPushButton" name="btn_administrar_entrenadores">
+    <item row="1" column="1" colspan="2">
+     <widget class="QPushButton" name="btn_seleccionar">
       <property name="text">
-       <string>Administrar Entrenadores</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="3" colspan="3">
-     <widget class="QPushButton" name="btn_actualizar_list_entrenadores">
-      <property name="text">
-       <string>Actualizar lista de Entrenadores</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLabel" name="mostrar_edad">
-      <property name="text">
-       <string/>
+       <string>Seleccionar Entrenador</string>
       </property>
      </widget>
     </item>

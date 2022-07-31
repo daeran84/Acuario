@@ -26,7 +26,6 @@ class ControladorEntrenador:
         try:
             self.__vista.vaciar_tabla()
             for entrenadores in self.__repositorio.lista_entrenadores:
-                print(entrenadores.fecha_nacimiento)
                 i = self.__vista.tabla_entrenadores.rowCount()
                 self.__vista.tabla_entrenadores.insertRow(i)
                 self.__vista.agregar_elemento_tabla(i, 0, entrenadores.nombre_apellidos)

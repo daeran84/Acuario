@@ -12,10 +12,18 @@ class VentanaAnimalAcuatico(QDialog):
         # Auxiliary window call & buttons configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.btn_administrar_entrenadores.clicked.connect(self.__controlador.admin_entrenadores)
+        # self.btn_administrar_entrenadores.clicked.connect(self.__controlador.admin_entrenadores)
+    
+    #  PROPS of field values
+    
+    @property
+    def anim_id(self):
+        return self.anim_id.text().strip()
+    
+    @anim_id.setter
+    def anim_id(self, value):
         
-
-    # PROPS of field values
+    
 
     # Validation & mandatory field check
 

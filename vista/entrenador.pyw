@@ -112,7 +112,7 @@ class VentanaEntrenador(QDialog):
         self.nombre_apellidos = ''
         self.nombre_artistico = ''
         self.edad = 20
-        self.fecha_nacimiento = datetime.date(int(2022), int(1), int(1))
+        self.fecha_nacimiento = datetime.date(int(1965), int(1), int(1))
         self.anios_experiencia = 0
         self.sexo = 'M'
 
