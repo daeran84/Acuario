@@ -10,10 +10,6 @@ class ControladorEntrenador:
         self.__vista = VentanaEntrenador(self)
         self.__repositorio = repo
 
-        """entr_ini = Entrenador('84101118140', 'Camilo Rioseco Rodriguez', 'Camilo', 37, 'M', '1984-11-10', 0)
-        self.__repositorio.incertar_entrenador(entr_ini)
-        print(self.__repositorio.lista_entrenadores)"""
-
     # Window main functions
 
     def iniciar(self):
@@ -85,8 +81,7 @@ class ControladorEntrenador:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-
-    def eliminar_entrenador(self):
+    def eliminar_entrenador(self):  # OK
         try:
             ind = self.__vista.tabla_entrenadores.currentRow()
             if ind == -1:
@@ -98,6 +93,7 @@ class ControladorEntrenador:
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
+
     def llenar_formulario_x_tabla(self): # OK
         try:
             # Obteniendo la fila a mostrar

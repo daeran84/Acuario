@@ -13,6 +13,7 @@ class VentanaAnimalAcuatico(QDialog):
 
         self.btn_cerrar.clicked.connect(self.close)
         self.btn_administrar_entrenadores.clicked.connect(self.__controlador.admin_entrenadores)
+        
 
     # PROPS of field values
 

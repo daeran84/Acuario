@@ -119,11 +119,11 @@ class VentanaEntrenador(QDialog):
     def mostrar_error(self, msg):
         QMessageBox.critical(self, 'Error', msg)
 
-    def vaciar_tabla(self):
+    def vaciar_tabla(self):  # OK
         while self.tabla_entrenadores.rowCount() > 0:
             self.tabla_entrenadores.removeRow(0)
 
-    def agregar_elemento_tabla(self, fila, columna, texto):
+    def agregar_elemento_tabla(self, fila, columna, texto):  # OK
         self.tabla_entrenadores.setItem(fila, columna, QTableWidgetItem(texto))
 
 
