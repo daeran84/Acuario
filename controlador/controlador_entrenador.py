@@ -62,7 +62,7 @@ class ControladorEntrenador:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def actualizar_entrenador(self):
+    def actualizar_entrenador(self):  # OK
         try:
             ind = self.__vista.tabla_entrenadores.currentRow()
             if ind == -1:
@@ -87,13 +87,23 @@ class ControladorEntrenador:
 
 
     def eliminar_entrenador(self):
-        print('eliminar')
+        try:
+            ind = self.__vista.tabla_entrenadores.currentRow()
+            if ind == -1:
+                raise Exception('Debe seleccionar una fila para eliminarla')
+            ci = self.__vista.tabla_entrenadores.item(ind, 2).text()
+            self.__repositorio.eliminar_entrenador(ci)
+            self.cargar_datos()
+            self.__vista.restablecer_datos()
 
+        except Exception as e:
+            self.__vista.mostrar_error(e.args[0])
     def llenar_formulario_x_tabla(self): # OK
         try:
-            # Verificando que este selecionado una fila en la tabla
+            # Obteniendo la fila a mostrar
             ind = self.__vista.tabla_entrenadores.currentRow()
             if ind != -1:
+
                 # Obteniendo datos de las columnas
                 nombre = self.__vista.tabla_entrenadores.item(ind, 0).text()
                 nombre_art = self.__vista.tabla_entrenadores.item(ind, 1).text()

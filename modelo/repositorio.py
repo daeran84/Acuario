@@ -58,24 +58,27 @@ class Repositorio:
 
     # Functions for Lista_entrenadores
 
-    def ci_entrenador(self, ci):  # OK
+    def id_entrenador(self, ci):  # OK
         for i in range(len(self.lista_entrenadores)):
             if self.lista_entrenadores[i].es_ci_entrenador(int(ci)):
                 return i
 
     def incertar_entrenador(self, entrenador):  # OK
-        if self.ci_entrenador(entrenador.ci) != None:
+        if self.id_entrenador(entrenador.ci) != None:
             raise Exception('El Entrenador ya existe')
         self.lista_entrenadores.append(entrenador)
 
-    def actualizar_entrenador(self, ci_ant, entrenador):
-        ind_ant = self.ci_entrenador(ci_ant)
+    def actualizar_entrenador(self, ci_ant, entrenador):  # OK
+        ind_ant = self.id_entrenador(ci_ant)
         if ind_ant == None:
             raise Exception('El entrenador no existe')
-        ind_new = self.ci_entrenador(entrenador.ci)
+        ind_new = self.id_entrenador(entrenador.ci)
         if (ind_new != None and ind_new != ind_ant):
             raise Exception('El entrenador existe en el controlador')
         self.lista_entrenadores[ind_ant] = entrenador
 
-    def eliminar_entrenador(self):
-        pass
+    def eliminar_entrenador(self, ci):
+        ind = self.id_entrenador(ci)
+        if ind == None:
+            raise Exception('El entrenador no existe')
+        self.lista_entrenadores.remove(self.lista_entrenadores[ind])
