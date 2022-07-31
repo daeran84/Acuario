@@ -25,7 +25,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTableView" name="table_animal_acuatico">
+  <widget class="QTableWidget" name="tabla_animal_acuatico">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -81,9 +81,6 @@
        <string>Familia:</string>
       </property>
      </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="anim_id"/>
     </item>
     <item row="7" column="1">
      <widget class="QSpinBox" name="anim_edad"/>
@@ -160,6 +157,11 @@
       </property>
       <item>
        <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
         <string>Peces</string>
        </property>
       </item>
@@ -230,6 +232,11 @@
       </property>
       <item>
        <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
         <string>delfines</string>
        </property>
       </item>
@@ -265,6 +272,9 @@
       </item>
      </widget>
     </item>
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="anim_id"/>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
@@ -278,21 +288,21 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton_incertar">
+     <widget class="QPushButton" name="btn_insertar">
       <property name="text">
        <string>Incertar</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_actualizar">
+     <widget class="QPushButton" name="btn_actualizar">
       <property name="text">
        <string>Actualizar</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_eliminar">
+     <widget class="QPushButton" name="btn_eliminar">
       <property name="text">
        <string>Eliminar</string>
       </property>
@@ -307,7 +317,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -332,108 +342,108 @@
      </widget>
     </item>
     <item row="2" column="0" colspan="2">
-     <widget class="QLabel" name="nombre_apellidos">
+     <widget class="QLabel" name="lb1">
       <property name="text">
        <string>Nombre y Apellidos:</string>
       </property>
      </widget>
     </item>
     <item row="3" column="0" colspan="2">
-     <widget class="QLabel" name="btn_nombre_artistico">
+     <widget class="QLabel" name="lb2">
       <property name="text">
        <string>Nombre Artístico:</string>
       </property>
      </widget>
     </item>
     <item row="4" column="0" colspan="2">
-     <widget class="QLabel" name="carnet_identidad">
+     <widget class="QLabel" name="lb3">
       <property name="text">
        <string>Carnet de Identidad:</string>
       </property>
      </widget>
     </item>
     <item row="5" column="0">
-     <widget class="QLabel" name="edad">
+     <widget class="QLabel" name="lb4">
       <property name="text">
        <string>Edad:</string>
       </property>
      </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QLabel" name="mostrar_edad">
+     <widget class="QLabel" name="entrenador_edad">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item row="6" column="0">
-     <widget class="QLabel" name="sexo">
+     <widget class="QLabel" name="lb5">
       <property name="text">
        <string>Sexo:</string>
       </property>
      </widget>
     </item>
     <item row="6" column="1">
-     <widget class="QLabel" name="mostrar_sexo">
+     <widget class="QLabel" name="entrenador_sexo">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item row="5" column="2">
-     <widget class="QLabel" name="fecha_nacimiento">
+     <widget class="QLabel" name="lb6">
       <property name="text">
        <string>Fecha de Nacimiento:</string>
       </property>
      </widget>
     </item>
     <item row="6" column="2">
-     <widget class="QLabel" name="experiencia">
+     <widget class="QLabel" name="lb7">
       <property name="text">
        <string>Años de experiencia:</string>
       </property>
      </widget>
     </item>
     <item row="2" column="2" colspan="2">
-     <widget class="QLabel" name="mostrar_nombre_apellidos">
+     <widget class="QLabel" name="entrenador_nombre_apellidos">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item row="3" column="2" colspan="2">
-     <widget class="QLabel" name="mostrar_nombre_artistico">
+     <widget class="QLabel" name="entrenador_nombre_artistico">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item row="0" column="3">
-     <widget class="QDateEdit" name="valor_edad"/>
+     <widget class="QDateEdit" name="valor_inicio"/>
     </item>
     <item row="4" column="2">
-     <widget class="QLabel" name="mostrar_carnet_identidad">
+     <widget class="QLabel" name="entrenador_carnet_identidad">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item row="5" column="3">
-     <widget class="QLabel" name="mostrar_nacimiento">
+     <widget class="QLabel" name="entrenador_nacimiento">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item row="6" column="3">
-     <widget class="QLabel" name="mostrar_experiencia">
+     <widget class="QLabel" name="entrenador_experiencia">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item row="1" column="1" colspan="2">
-     <widget class="QPushButton" name="btn_seleccionar">
+     <widget class="QPushButton" name="btn_seleccionar_entrenador">
       <property name="text">
        <string>Seleccionar Entrenador</string>
       </property>

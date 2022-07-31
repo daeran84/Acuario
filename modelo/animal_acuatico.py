@@ -3,8 +3,8 @@ from especie_acuatica import EspecieAcuatica
 
 class AnimalAquatico(EspecieAcuatica):
 
-    def __init__(self, identificador, nombre_cientifico, familia, habitat_natural, nombre, reproducido_en_cautiverio, edad, categoria):
-        EspecieAcuatica.__init__(self, identificador, nombre_cientifico, familia, habitat_natural)
+    def __init__(self, id, nombre_cientifico, familia, habitat_natural, nombre, reproducido_en_cautiverio, edad, categoria):
+        EspecieAcuatica.__init__(self, id, nombre_cientifico, familia, habitat_natural)
         self.__nombre = nombre
         self.__reproducido_en_cautiverio = reproducido_en_cautiverio
         self.__edad = edad

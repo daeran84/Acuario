@@ -1,18 +1,18 @@
 class EspecieAcuatica:
 
-    def __init__(self,identificador, nombre_cientifico, familia, habitat_natural):
-        self.__identificador = identificador
+    def __init__(self, id, nombre_cientifico, familia, habitat_natural):
+        self.__id = id
         self.__nombre_cientifico = nombre_cientifico
         self.__familia = familia
         self.__habitat_natural = habitat_natural
 
     @property
-    def identificador(self):
-        return self.__identificador
+    def id(self):
+        return self.__id
 
-    @identificador.setter
-    def identificador(self, value):
-        self.__identificador = value
+    @id.setter
+    def id(self, value):
+        self.__idr = value
 
 
     @property
