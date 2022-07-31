@@ -75,13 +75,6 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="txt_habitat_natural">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
     <item row="3" column="0">
      <widget class="QLabel" name="label_2">
       <property name="text">
@@ -93,7 +86,7 @@
      <widget class="QLineEdit" name="anim_id"/>
     </item>
     <item row="7" column="1">
-     <widget class="QSpinBox" name="txt_edad"/>
+     <widget class="QSpinBox" name="anim_edad"/>
     </item>
     <item row="4" column="0">
      <widget class="QLabel" name="label_4">
@@ -113,16 +106,6 @@
      <widget class="QLabel" name="label_7">
       <property name="text">
        <string>Categoria:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="1">
-     <widget class="QComboBox" name="comboBox_anim_familia_2">
-      <property name="focusPolicy">
-       <enum>Qt::ClickFocus</enum>
-      </property>
-      <property name="editable">
-       <bool>false</bool>
       </property>
      </widget>
     </item>
@@ -147,6 +130,96 @@
       </property>
      </widget>
     </item>
+    <item row="4" column="1">
+     <widget class="QComboBox" name="comboBox_anim_habitat">
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="editable">
+       <bool>false</bool>
+      </property>
+      <item>
+       <property name="text">
+        <string>Mar</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rio</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QComboBox" name="comboBox_anim_categoria">
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="editable">
+       <bool>false</bool>
+      </property>
+      <item>
+       <property name="text">
+        <string>Peces</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Mamíferos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Reptiles</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Artrópodos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Moluscos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Anélidos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Platelmintos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Nematodos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Equinodermos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cnidarios</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Poríferos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Aves</string>
+       </property>
+      </item>
+     </widget>
+    </item>
     <item row="3" column="1">
      <widget class="QComboBox" name="comboBox_anim_familia">
       <property name="focusPolicy">
@@ -155,6 +228,41 @@
       <property name="editable">
        <bool>false</bool>
       </property>
+      <item>
+       <property name="text">
+        <string>delfines</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>lobos marinos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>peces pequeños</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>crustáceos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tortugas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tiburones</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>otros</string>
+       </property>
+      </item>
      </widget>
     </item>
    </layout>
