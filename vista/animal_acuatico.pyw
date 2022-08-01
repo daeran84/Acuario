@@ -20,7 +20,7 @@ class VentanaAnimalAcuatico(QDialog):
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_animal_acuatico)
         self.tabla_animal_acuatico.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
         self.tabla_animal_acuatico.setColumnCount(11)
-        self.tabla_animal_acuatico.setHorizontalHeaderLabels(['ID', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Nombre', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'ID Entrenador'])
+        self.tabla_animal_acuatico.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'ID Entrenador'])
         self.tabla_animal_acuatico.resizeColumnsToContents()
 
     #  PROPS of field values
@@ -199,7 +199,7 @@ class VentanaAnimalAcuatico(QDialog):
         self.entr_nomb_art = ''
         self.entr_ci = ''
         self.entr_sexo = ''
-        self.entr_nac = ''
+        #self.entr_nac = ''
         self.entr_exp = ''
 
     def vaciar_tabla(self):

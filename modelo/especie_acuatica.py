@@ -40,4 +40,7 @@ class EspecieAcuatica:
     @habitat_natural.setter
     def habitat_natural(self, value):
         self.__habitat_natural = value
+
+    def es_id_especie(self, id):
+        return int(self.id) == int(id)
     

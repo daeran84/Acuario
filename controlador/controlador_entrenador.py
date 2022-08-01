@@ -36,6 +36,7 @@ class ControladorEntrenador:
                 self.__vista.agregar_elemento_tabla(i, 5, str(entrenadores.fecha_nacimiento))
                 self.__vista.agregar_elemento_tabla(i, 6, entrenadores.anios_experiencia)
                 self.__vista.tabla_entrenadores.resizeColumnsToContents()
+
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
@@ -51,9 +52,10 @@ class ControladorEntrenador:
             nacimiento = date(nac.getDate()[0], nac.getDate()[1], nac.getDate()[2])
             experiencia = self.__vista.anios_experiencia
             entrenador = Entrenador(ci, nombre, nombre_art, edad, sexo, nacimiento, experiencia)
-            self.__repositorio.incertar_entrenador(entrenador)
+            self.__repositorio.insertar_entrenador(entrenador)
             self.cargar_datos()
             self.__vista.restablecer_datos()
+
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 

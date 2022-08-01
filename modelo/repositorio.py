@@ -1,5 +1,4 @@
-from modelo.entrenador import Entrenador
-from datetime import date
+from modelo.animal_acuatico import AnimalAquatico
 
 class Repositorio:
     def __init__(self):
@@ -35,19 +34,35 @@ class Repositorio:
 
     # Functions for lista_especies
 
-    def incertar_animal_acuatico(self):
+    def especie_acuatica(self):
+        acuatica_id = []
+        for esp in self.__lista_especies:
+            if isinstance(esp, AnimalAquatico):
+                acuatica_id.append(esp)
+        return acuatica_id
+
+
+    def id_especie(self, id):
+        for i in range(len(self.__lista_especies)):
+            if self.__lista_especies[i].es_id_especie(int(id)):
+                return i
+
+    def insertar_especie_acuatica(self, especie):
+        if self.id_especie(especie.id) != None:
+            raise Exception('La especie acuática ya existe')
+        self.__lista_especies.append(especie)
+        print(self.__lista_especies)
+
+    def actualizar_especie_acuatica(self):
         pass
 
-    def actualizar_animal_acuatico(self):
-        pass
-
-    def eliminar_animal_acuatico(self):
+    def eliminar_especie_acuatica(self):
         pass
 
     # Functions for lista_espectaculos
 
 
-    def incertar_espectaculo(self):
+    def insertar_espectaculo(self):
         pass
 
     def actualizar_espectaculo(self):
@@ -63,7 +78,7 @@ class Repositorio:
             if self.lista_entrenadores[i].es_ci_entrenador(int(ci)):
                 return i
 
-    def incertar_entrenador(self, entrenador):  # OK
+    def insertar_entrenador(self, entrenador):  # OK
         if self.id_entrenador(entrenador.ci) != None:
             raise Exception('El Entrenador ya existe')
         self.lista_entrenadores.append(entrenador)
