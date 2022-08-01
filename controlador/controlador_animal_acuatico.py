@@ -67,7 +67,8 @@ class ControladorAnimalAcuatico:
             inicio = ''
             entr = ''
             if espectaculo == 'Si':
-                inicio = self.__vista.inicio_espect
+                fecha = self.__vista.inicio_espect
+                inicio = date(fecha.getDate()[0], fecha.getDate()[1], fecha.getDate()[2])
                 entr = self.__vista.entr_ci
             animal = AnimalAquatico(id, nombre, nombre_c, familia, habitat, edad, categoria, cautiverio, espectaculo, inicio, entr)
             self.__repositorio.insertar_especie_acuatica(animal)

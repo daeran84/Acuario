@@ -105,6 +105,7 @@ class VentanaAnimalAcuatico(QDialog):
             espect = 'Si'
         else:
             espect = 'No'
+        return espect
             
     @espectaculo.setter
     def espectaculo(self, value):
