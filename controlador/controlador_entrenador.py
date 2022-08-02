@@ -95,7 +95,7 @@ class ControladorEntrenador:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def llenar_formulario_x_tabla(self): # OK
+    def llenar_formulario_x_tabla(self):  # OK
         try:
             # Obteniendo la fila a mostrar
             ind = self.__vista.tabla_entrenadores.currentRow()

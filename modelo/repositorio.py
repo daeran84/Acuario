@@ -1,5 +1,6 @@
 from modelo.animal_acuatico import AnimalAquatico
 
+
 class Repositorio:
     def __init__(self):
         self.__lista_especies = []
@@ -34,30 +35,41 @@ class Repositorio:
 
     # Functions for lista_especies
 
-    def animal_acuatico(self):
+    def planta_acuatica(self):
+        pass
+
+    def animal_acuatico(self):  # OK
         acuatica_id = []
         for esp in self.__lista_especies:
             if isinstance(esp, AnimalAquatico):
                 acuatica_id.append(esp)
         return acuatica_id
 
-
-    def id_especie(self, id):
+    def ind_especie(self, id_esp):  # OK
         for i in range(len(self.__lista_especies)):
-            if self.__lista_especies[i].es_id_especie(int(id)):
+            if self.__lista_especies[i].es_id_especie(id_esp):
                 return i
 
-    def insertar_especie_acuatica(self, especie):
-        if self.id_especie(especie.id) != None:
+    def insertar_especie(self, especie):  # OK
+        if self.ind_especie(especie.id) != None:
             raise Exception('La especie acuática ya existe')
         self.__lista_especies.append(especie)
         print(self.__lista_especies)
 
-    def actualizar_especie_acuatica(self):
-        pass
+    def actualizar_especie(self, id_esp, especie):  # OK
+        ind_ant = self.ind_especie(id_esp)
+        if ind_ant == None:
+            raise Exception('Ese registro no existe')
+        ind_new = self.ind_especie(especie.id)
+        if (ind_new != None and ind_new != ind_ant):
+            raise Exception('Ese registro existe en el controlador')
+        self.__lista_especies[ind_ant] = especie
 
-    def eliminar_especie_acuatica(self):
-        pass
+    def eliminar_especie(self, id_esp):  # OK
+        ind = self.ind_especie(id_esp)
+        if ind == None:
+            raise Exception('Ese registro no existe')
+        self.__lista_especies.remove(self.__lista_especies[ind])
 
     # Functions for lista_espectaculos
 
@@ -92,7 +104,7 @@ class Repositorio:
             raise Exception('El entrenador existe en el controlador')
         self.lista_entrenadores[ind_ant] = entrenador
 
-    def eliminar_entrenador(self, ci):
+    def eliminar_entrenador(self, ci):  # OK
         ind = self.id_entrenador(ci)
         if ind == None:
             raise Exception('El entrenador no existe')
