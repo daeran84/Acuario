@@ -22,6 +22,7 @@ class VentanaAnimalAcuatico(QDialog):
         self.tabla_animal_acuatico.setColumnCount(11)
         self.tabla_animal_acuatico.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'ID Entrenador'])
         self.tabla_animal_acuatico.resizeColumnsToContents()
+        #self.__controlador.cargar_combobox()
 
     #  PROPS of field values
     

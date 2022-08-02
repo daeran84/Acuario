@@ -1,6 +1,8 @@
 from vista.animal_acuatico import VentanaAnimalAcuatico
 from modelo.animal_acuatico import AnimalAquatico
+from modelo.entrenador import Entrenador
 from PyQt5.QtCore import QDate
+from PyQt5 import QtCore
 from datetime import date
 
 
@@ -26,6 +28,10 @@ class ControladorAnimalAcuatico:
 
     # Functions for list management
 
+    def cargar_combobox(self):
+        for entrenador in self.__repositorio.lista_entrenadores:
+            self.__vista.cbx_selec_entr.addItem(entrenador.nombre_apellidos)
+
     def last_id(self):
         print(1)
         return 1
@@ -33,7 +39,7 @@ class ControladorAnimalAcuatico:
     def cargar_datos(self):  # OK
         try:
             self.__vista.vaciar_tabla()
-            for anim in self.__repositorio.especie_acuatica():
+            for anim in self.__repositorio.animal_acuatico():
                 i = self.__vista.tabla_animal_acuatico.rowCount()
                 self.__vista.tabla_animal_acuatico.insertRow(i)
                 self.__vista.agregar_elemento_tabla(i, 0, anim.id)
@@ -68,7 +74,7 @@ class ControladorAnimalAcuatico:
             entr = ''
             if espectaculo == 'Si':
                 fecha = self.__vista.inicio_espect
-                inicio = date(fecha.getDate()[0], fecha.getDate()[1], fecha.getDate()[2])
+                inicio = fecha.toString(QtCore.Qt.ISODate)
                 entr = self.__vista.entr_ci
             animal = AnimalAquatico(id, nombre, nombre_c, familia, habitat, edad, categoria, cautiverio, espectaculo, inicio, entr)
             self.__repositorio.insertar_especie_acuatica(animal)

@@ -34,7 +34,7 @@ class Repositorio:
 
     # Functions for lista_especies
 
-    def especie_acuatica(self):
+    def animal_acuatico(self):
         acuatica_id = []
         for esp in self.__lista_especies:
             if isinstance(esp, AnimalAquatico):
