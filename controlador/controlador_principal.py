@@ -4,6 +4,7 @@ from modelo.repositorio import Repositorio
 from vista.ventana_principal import VentanaPrincipal
 from controlador.controlador_animal_acuatico import ControladorAnimalAcuatico
 from controlador.controlador_entrenador import ControladorEntrenador
+from controlador.controlador_planta_acuatica import ControladorPlantaAcuatica
 
 
 class ControladorPrincipal:
@@ -28,3 +29,6 @@ class ControladorPrincipal:
         pen = ControladorEntrenador(self.__repositorio)
         pen.iniciar()
 
+    def gestion_planta_ac(self):
+        pen = ControladorPlantaAcuatica(self.__repositorio)
+        pen.iniciar()

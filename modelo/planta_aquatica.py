@@ -1,4 +1,4 @@
-from especie_acuatica import EspecieAcuatica
+from modelo.especie_acuatica import EspecieAcuatica
 
 
 class PlantaAquatica(EspecieAcuatica):

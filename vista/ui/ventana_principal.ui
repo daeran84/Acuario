@@ -34,7 +34,7 @@
      <string>Gestion</string>
     </property>
     <addaction name="btn_animales_acuaticos"/>
-    <addaction name="actionPlantas_acuaticas"/>
+    <addaction name="btn_plantas_acuaticas"/>
     <addaction name="btn_entrenadoes"/>
    </widget>
    <widget class="QMenu" name="menuReportes">
@@ -57,7 +57,7 @@
     <string>Animales acuaticos</string>
    </property>
   </action>
-  <action name="actionPlantas_acuaticas">
+  <action name="btn_plantas_acuaticas">
    <property name="text">
     <string>Plantas acuaticas</string>
    </property>

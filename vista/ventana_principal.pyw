@@ -16,6 +16,7 @@ class VentanaPrincipal(QMainWindow):
         self.btn_salir.triggered.connect(self.close)
         self.btn_animales_acuaticos.triggered.connect(self.__controlador.gestion_anim_ac)
         self.btn_entrenadoes.triggered.connect(self.__controlador.gestion_entrenadores)
+        self.btn_plantas_acuaticas.triggered.connect(self.__controlador.gestion_planta_ac)
 
     # Start, close and message functions, nothing more should appear next #
 

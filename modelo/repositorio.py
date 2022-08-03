@@ -1,4 +1,5 @@
 from modelo.animal_acuatico import AnimalAquatico
+from modelo.planta_aquatica import PlantaAquatica
 
 
 class Repositorio:
@@ -36,14 +37,18 @@ class Repositorio:
     # Functions for lista_especies
 
     def planta_acuatica(self):
-        pass
+        plantas = []
+        for esp in self.lista_especies:
+            if isinstance(esp, PlantaAquatica):
+                plantas.append(esp)
+        return plantas
 
     def animal_acuatico(self):  # OK
-        acuatica_id = []
-        for esp in self.__lista_especies:
+        animales = []
+        for esp in self.lista_especies:
             if isinstance(esp, AnimalAquatico):
-                acuatica_id.append(esp)
-        return acuatica_id
+                animales.append(esp)
+        return animales
 
     def ind_especie(self, id_esp):  # OK
         for i in range(len(self.__lista_especies)):
