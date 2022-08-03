@@ -203,7 +203,7 @@
     <item>
      <widget class="QPushButton" name="btn_incertar">
       <property name="text">
-       <string>Incertar</string>
+       <string>Insertar</string>
       </property>
      </widget>
     </item>

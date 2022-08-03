@@ -2,23 +2,26 @@
 <ui version="4.0">
  <class>animal_acuatico</class>
  <widget class="QWidget" name="animal_acuatico">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>752</width>
+    <width>763</width>
     <height>588</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>752</width>
+    <width>763</width>
     <height>588</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>752</width>
+    <width>763</width>
     <height>588</height>
    </size>
   </property>
@@ -30,7 +33,7 @@
     <rect>
      <x>10</x>
      <y>270</y>
-     <width>731</width>
+     <width>741</width>
      <height>271</height>
     </rect>
    </property>
@@ -290,7 +293,7 @@
     <item>
      <widget class="QPushButton" name="btn_insertar">
       <property name="text">
-       <string>Incertar</string>
+       <string>Insertar</string>
       </property>
      </widget>
     </item>
@@ -317,151 +320,263 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QFrame" name="frame">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>50</y>
+     <width>401</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>392</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="1" colspan="2">
+      <widget class="QComboBox" name="cbx_selec_entr"/>
+     </item>
+     <item row="2" column="3">
+      <widget class="QPushButton" name="btn_act_combobox">
+       <property name="text">
+        <string>Actualizar</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="entrenador_edad">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QLabel" name="entrenador_carnet_identidad">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="3">
+      <widget class="QLabel" name="entrenador_nacimiento">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="3">
+      <widget class="QLabel" name="entrenador_experiencia">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="lb4">
+       <property name="text">
+        <string>Edad:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0" colspan="2">
+      <widget class="QLabel" name="lb2">
+       <property name="text">
+        <string>Nombre Artístico:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="entrenador_sexo">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <widget class="QLabel" name="lb7">
+       <property name="text">
+        <string>Años de experiencia:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="lb5">
+       <property name="text">
+        <string>Sexo:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2" colspan="2">
+      <widget class="QLabel" name="entrenador_nombre_apellidos">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2" colspan="2">
+      <widget class="QLabel" name="entrenador_nombre_artistico">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLabel" name="lb6">
+       <property name="text">
+        <string>Fecha de Nacimiento:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="2">
+      <widget class="QLabel" name="lb1">
+       <property name="text">
+        <string>Nombre y Apellidos:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" colspan="2">
+      <widget class="QLabel" name="lb3">
+       <property name="text">
+        <string>Carnet de Identidad:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="btn_adm_entrenador">
+       <property name="text">
+        <string>Entrenadores</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>360</x>
      <y>20</y>
-     <width>392</width>
-     <height>201</height>
+     <width>391</width>
+     <height>21</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="8" column="2">
-     <widget class="QLabel" name="lb7">
-      <property name="text">
-       <string>Años de experiencia:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="lb5">
-      <property name="text">
-       <string>Sexo:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="1">
-     <widget class="QLabel" name="entrenador_sexo">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="2">
-     <widget class="QLabel" name="lb6">
-      <property name="text">
-       <string>Fecha de Nacimiento:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QDateEdit" name="valor_inicio"/>
-    </item>
-    <item row="4" column="2" colspan="2">
-     <widget class="QLabel" name="entrenador_nombre_apellidos">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2" colspan="2">
-     <widget class="QLabel" name="entrenador_nombre_artistico">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0" colspan="2">
-     <widget class="QLabel" name="lb2">
-      <property name="text">
-       <string>Nombre Artístico:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="2">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
      <widget class="QCheckBox" name="check_espectaculos">
       <property name="text">
        <string>Participa en espectaculos</string>
       </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="label_8">
-      <property name="text">
-       <string>Fecha de inicio:</string>
+      <property name="tristate">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
-    <item row="4" column="0" colspan="2">
-     <widget class="QLabel" name="lb1">
-      <property name="text">
-       <string>Nombre y Apellidos:</string>
+    <item>
+     <widget class="QFrame" name="frame_2">
+      <property name="enabled">
+       <bool>false</bool>
       </property>
-     </widget>
-    </item>
-    <item row="6" column="0" colspan="2">
-     <widget class="QLabel" name="lb3">
-      <property name="text">
-       <string>Carnet de Identidad:</string>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QLabel" name="entrenador_edad">
-      <property name="text">
-       <string/>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
       </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="lb4">
-      <property name="text">
-       <string>Edad:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="2">
-     <widget class="QLabel" name="entrenador_carnet_identidad">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="3">
-     <widget class="QLabel" name="entrenador_nacimiento">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="3">
-     <widget class="QLabel" name="entrenador_experiencia">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QPushButton" name="btn_seleccionar_entrenador">
-      <property name="text">
-       <string>Seleccionar Entrenador</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1" colspan="2">
-     <widget class="QComboBox" name="cbx_selec_entr"/>
-    </item>
-    <item row="3" column="3">
-     <widget class="QPushButton" name="btn_act_combobox">
-      <property name="text">
-       <string>Actualizar</string>
-      </property>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>0</y>
+         <width>163</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Fecha de inicio:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDateEdit" name="valor_inicio">
+          <property name="dateTime">
+           <datetime>
+            <hour>0</hour>
+            <minute>0</minute>
+            <second>0</second>
+            <year>1965</year>
+            <month>1</month>
+            <day>1</day>
+           </datetime>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
   </widget>
+  <zorder>frame</zorder>
+  <zorder>tabla_animal_acuatico</zorder>
+  <zorder>line</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>check_espectaculos</zorder>
+  <zorder>label_8</zorder>
+  <zorder>valor_inicio</zorder>
+  <zorder>frame_2</zorder>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>check_espectaculos</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>frame</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>415</x>
+     <y>27</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>729</x>
+     <y>215</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>check_espectaculos</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>frame_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>417</x>
+     <y>26</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -1,6 +1,6 @@
 from vista.animal_acuatico import VentanaAnimalAcuatico
 from modelo.animal_acuatico import AnimalAquatico
-from modelo.entrenador import Entrenador
+from controlador.controlador_entrenador import ControladorEntrenador
 from PyQt5.QtCore import QDate
 from PyQt5 import QtCore
 from datetime import date
@@ -11,6 +11,7 @@ class ControladorAnimalAcuatico:
     def __init__(self, repo):
         self.__vista = VentanaAnimalAcuatico(self)
         self.__repositorio = repo
+        self.cargar_datos_combobox()
 
     # Window main functions
     def iniciar(self):
@@ -22,17 +23,31 @@ class ControladorAnimalAcuatico:
 
     # Windows calls functions
 
-#    def admin_entrenadores(self):
-#        pen = ControladorEntrenador(self.__repositorio)
-#       pen.iniciar()
+    def admin_entrenadores(self):
+        pen = ControladorEntrenador(self.__repositorio)
+        pen.iniciar()
 
     # Functions for list management
 
-    def cargar_combobox(self):
+    def cargar_datos_combobox(self):
+        nombres = []
         for entrenador in self.__repositorio.lista_entrenadores:
-            self.__vista.cbx_selec_entr.addItem(entrenador.nombre_apellidos)
+            nombres.append(entrenador.nombre_apellidos)
+        self.__vista.combo_entr = nombres
 
+    def datos_entrenador_x_combo(self):
+        try:
+            nombre_entr = self.__vista.cbx_selec_entr
+            self.__repositorio.ind_entr_x_nombre(nombre_entr)
 
+        except Exception as e:
+            self.__vista.mostrar_error(e.args[0])
+
+    def nombres_entrenadores(self):
+        nombres = []
+        for entrenador in self.__repositorio.lista_entrenadores:
+            nombres.append(entrenador.nombre_apellidos)
+        return nombres
 
     def last_id(self):
         print(1)
@@ -116,9 +131,6 @@ class ControladorAnimalAcuatico:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-
-
-
     def eliminar_animal_acuatico(self):  # ok
         try:
             ind = self.__vista.tabla_animal_acuatico.currentRow()
@@ -159,17 +171,14 @@ class ControladorAnimalAcuatico:
                 self.__vista.nombre_cientifico = nombre_c
                 self.__vista.anim_familia = familia
                 self.__vista.anim_habitat = habitat
-                self.__vista.cautiverio = False
-                if caut == 'Si':
-                    self.__vista.cautiverio = True
+                self.__vista.cautiverio = caut
                 self.__vista.edad = int(edad)
                 self.__vista.anim_categoria = categ
-                self.__vista.espectaculo = False
+                self.__vista.espectaculo = espect
                 if espect == 'Si':
                     self.__vista.espectaculo = True
-                if inicio != '':
                     self.__vista.inicio_espect = inicio
-                self.__vista.entr_ci = id_entr
+                    self.__vista.entr_ci = id_entr
 
 
         except Exception as e:

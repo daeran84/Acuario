@@ -85,6 +85,11 @@ class Repositorio:
 
     # Functions for Lista_entrenadores
 
+    def ind_entr_x_nombre(self, nombre_entr):
+        for i in range(len(self.__lista_entrenadores)):
+            if self.__lista_entrenadores[i].es_nombre_entrenador(nombre_entr):
+                return i
+
     def id_entrenador(self, ci):  # OK
         for i in range(len(self.lista_entrenadores)):
             if self.lista_entrenadores[i].es_ci_entrenador(int(ci)):

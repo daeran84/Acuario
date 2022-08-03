@@ -14,7 +14,7 @@ class VentanaAnimalAcuatico(QDialog):
         # Auxiliary window call & buttons configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        # self.btn_seleccionar_entrenador.clicked.connect(self.__controlador.)
+        self.btn_adm_entrenador.clicked.connect(self.__controlador.admin_entrenadores)
         self.btn_insertar.clicked.connect(self.__controlador.insertar_animal_acuatico)
         self.btn_actualizar.clicked.connect(self.__controlador.actualizar_animal_acuatico)
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_animal_acuatico)
@@ -22,10 +22,23 @@ class VentanaAnimalAcuatico(QDialog):
         self.tabla_animal_acuatico.setColumnCount(11)
         self.tabla_animal_acuatico.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'ID Entrenador'])
         self.tabla_animal_acuatico.resizeColumnsToContents()
-        #self.__controlador.cargar_combobox()
+        self.btn_act_combobox.clicked.connect(self.__controlador.cargar_datos_combobox)
+        self.cbx_selec_entr.activated[str].connect(self.__controlador.datos_entrenador_x_combo)
+
 
     #  PROPS of field values
-    
+
+    @property
+    def combo_entr(self):
+        return self.cbx_selec_entr.currentText()
+
+    @combo_entr.setter
+    def combo_entr(self, value):
+        self.cbx_selec_entr.clear()
+        self.cbx_selec_entr.addItem('')
+        for i in value:
+            self.cbx_selec_entr.addItem(i)
+
     @property
     def id(self):
         return self.anim_id.text()
@@ -203,6 +216,7 @@ class VentanaAnimalAcuatico(QDialog):
         self.entr_sexo = ''
         #self.entr_nac = ''
         self.entr_exp = ''
+
 
     def vaciar_tabla(self):
         while self.tabla_animal_acuatico.rowCount() > 0:
