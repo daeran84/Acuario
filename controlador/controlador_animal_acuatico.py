@@ -16,6 +16,7 @@ class ControladorAnimalAcuatico:
     # Window main functions
     def iniciar(self):
         self.__vista.setWindowTitle('Animales Acuaticos')
+        self.cargar_datos()
         self.__vista.show()
 
     def cerrar(self):
@@ -37,8 +38,15 @@ class ControladorAnimalAcuatico:
 
     def datos_entrenador_x_combo(self):
         try:
-            nombre_entr = self.__vista.cbx_selec_entr
-            self.__repositorio.ind_entr_x_nombre(nombre_entr)
+            nombre_entr = self.__vista.combo_entr
+            entrenador = self.__repositorio.entr_x_nombre(nombre_entr)
+            self.__vista.entr_nombre = entrenador.nombre_apellidos
+            self.__vista.entr_nomb_art = entrenador.nombre_artistico
+            self.__vista.entr_ci = entrenador.ci
+            self.__vista.entr_edad = entrenador.edad
+            self.__vista.entr_sexo = entrenador.sexo
+            self.__vista.entr_nac = str(entrenador.fecha_nacimiento)
+            self.__vista.entr_exp = entrenador.anios_experiencia
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
@@ -50,8 +58,8 @@ class ControladorAnimalAcuatico:
         return nombres
 
     def last_id(self):
-        print(1)
         return 1
+
 
     def cargar_datos(self):  # OK
         try:
@@ -68,8 +76,8 @@ class ControladorAnimalAcuatico:
                 self.__vista.agregar_elemento_tabla(i, 6, anim.edad)
                 self.__vista.agregar_elemento_tabla(i, 7, anim.categoria)
                 self.__vista.agregar_elemento_tabla(i, 8, anim.espectaculo)
-                self.__vista.agregar_elemento_tabla(i, 9, anim.fecha_inicio)
-                self.__vista.agregar_elemento_tabla(i, 10, anim.id_entrenador)
+                self.__vista.agregar_elemento_tabla(i, 9, str(anim.fecha_inicio))
+                self.__vista.agregar_elemento_tabla(i, 10, anim.nombre_entrenador)
                 self.__vista.tabla_animal_acuatico.resizeColumnsToContents()
 
         except Exception as e:
@@ -91,8 +99,8 @@ class ControladorAnimalAcuatico:
             entr = ''
             if espectaculo == 'Si':
                 fecha = self.__vista.inicio_espect
-                inicio = fecha.toString(QtCore.Qt.ISODate)
-                entr = self.__vista.entr_ci
+                inicio = date(fecha.getDate()[0], fecha.getDate()[1], fecha.getDate()[2])
+                entr = self.__vista.entr_nombre
             animal = AnimalAquatico(id, nombre, nombre_c, familia, habitat, edad, categoria, cautiverio, espectaculo, inicio, entr)
             self.__repositorio.insertar_especie(animal)
             self.cargar_datos()
@@ -121,8 +129,8 @@ class ControladorAnimalAcuatico:
             entr = ''
             if espectaculo == 'Si':
                 fecha = self.__vista.inicio_espect
-                inicio = fecha.toString(QtCore.Qt.ISODate)
-                entr = self.__vista.entr_ci
+                inicio = date(fecha.getDate()[0], fecha.getDate()[1], fecha.getDate()[2])
+                entr = self.__vista.entr_nombre
             animal = AnimalAquatico(id, nombre, nombre_c, familia, habitat, edad, categoria, cautiverio, espectaculo, inicio, entr)
             self.__repositorio.actualizar_especie(id_ant, animal)
             self.cargar_datos()
@@ -161,9 +169,13 @@ class ControladorAnimalAcuatico:
                 categ = self.__vista.tabla_animal_acuatico.item(ind, 7).text()
                 espect = self.__vista.tabla_animal_acuatico.item(ind, 8).text()
                 inicio = self.__vista.tabla_animal_acuatico.item(ind, 9).text()
-                if inicio != '':
-                    inicio = QDate(int(inicio[0]), int(inicio[1]), int(inicio[2]))
-                id_entr = self.__vista.tabla_animal_acuatico.item(ind, 10).text()
+                if espect == 'Si':
+                    inicio = inicio.split('-')
+                    inicio = date(int(inicio[0]), int(inicio[1]), int(inicio[2]))
+                nombre_entr = self.__vista.tabla_animal_acuatico.item(ind, 10).text()
+                #if inicio != '':
+                #    inicio = date(int(inicio[0]), int(inicio[1]), int(inicio[2]))
+                #nombre_entr = self.__vista.tabla_animal_acuatico.item(ind, 10).text()
 
                 # Dando valores a los atributos
                 self.__vista.id = int(id_esp)
@@ -176,9 +188,10 @@ class ControladorAnimalAcuatico:
                 self.__vista.anim_categoria = categ
                 self.__vista.espectaculo = espect
                 if espect == 'Si':
-                    self.__vista.espectaculo = True
+                    self.__vista.espectaculo = 'Si'
                     self.__vista.inicio_espect = inicio
-                    self.__vista.entr_ci = id_entr
+                    self.__vista.especificar_entr_cbx(nombre_entr)
+                    self.datos_entrenador_x_combo()
 
 
         except Exception as e:

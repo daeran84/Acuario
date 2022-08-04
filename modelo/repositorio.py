@@ -90,10 +90,12 @@ class Repositorio:
 
     # Functions for Lista_entrenadores
 
-    def ind_entr_x_nombre(self, nombre_entr):
+    def entr_x_nombre(self, nombre_entr):
+        entrenador = None
         for i in range(len(self.__lista_entrenadores)):
             if self.__lista_entrenadores[i].es_nombre_entrenador(nombre_entr):
-                return i
+                entrenador = self.__lista_entrenadores[i]
+        return entrenador
 
     def id_entrenador(self, ci):  # OK
         for i in range(len(self.lista_entrenadores)):

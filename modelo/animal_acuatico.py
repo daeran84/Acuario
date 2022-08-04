@@ -3,7 +3,7 @@ from modelo.especie_acuatica import EspecieAcuatica
 
 class AnimalAquatico(EspecieAcuatica):
 
-    def __init__(self, id, nombre, nombre_cientifico, familia, habitat_natural, edad, categoria, reproducido_en_cautiverio, espectaculo, fecha_inicio, id_entrenador):
+    def __init__(self, id, nombre, nombre_cientifico, familia, habitat_natural, edad, categoria, reproducido_en_cautiverio, espectaculo, fecha_inicio, nombre_entrenador):
         EspecieAcuatica.__init__(self, id, nombre_cientifico, familia, habitat_natural)
         self.__nombre = nombre
         self.__reproducido_en_cautiverio = reproducido_en_cautiverio
@@ -11,7 +11,7 @@ class AnimalAquatico(EspecieAcuatica):
         self.__categoria = categoria
         self.__espectaculo = espectaculo
         self.__fecha_inicio = fecha_inicio
-        self.__id_entrenador = id_entrenador
+        self.__nombre_entrenador = nombre_entrenador
 
     @property
     def nombre(self):
@@ -62,9 +62,9 @@ class AnimalAquatico(EspecieAcuatica):
         self.__fecha_inicio = value
 
     @property
-    def id_entrenador(self):
-        return self.__id_entrenador
+    def nombre_entrenador(self):
+        return self.__nombre_entrenador
 
-    @id_entrenador.setter
-    def id_entrenador(self, value):
-        self.__id_entrenador = value
+    @nombre_entrenador.setter
+    def nombre_entrenador(self, value):
+        self.__nombre_entrenador = value

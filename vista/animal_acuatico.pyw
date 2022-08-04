@@ -20,7 +20,7 @@ class VentanaAnimalAcuatico(QDialog):
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_animal_acuatico)
         self.tabla_animal_acuatico.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
         self.tabla_animal_acuatico.setColumnCount(11)
-        self.tabla_animal_acuatico.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'ID Entrenador'])
+        self.tabla_animal_acuatico.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'Entrenador'])
         self.tabla_animal_acuatico.resizeColumnsToContents()
         self.btn_act_combobox.clicked.connect(self.__controlador.cargar_datos_combobox)
         self.cbx_selec_entr.activated[str].connect(self.__controlador.datos_entrenador_x_combo)
@@ -163,6 +163,14 @@ class VentanaAnimalAcuatico(QDialog):
         self.entrenador_carnet_identidad.setText(value)
 
     @property
+    def entr_edad(self):
+        return self.entrenador_edad.text()
+
+    @entr_edad.setter
+    def entr_edad(self, value):
+        self.entrenador_edad.setText(value)
+
+    @property
     def entr_sexo(self):
         return self.entrenador_sexo.text()
     
@@ -176,7 +184,7 @@ class VentanaAnimalAcuatico(QDialog):
     
     @entr_nac.setter
     def entr_nac(self, value):
-        self.entrenador_nacimiento.setText()
+        self.entrenador_nacimiento.setText(value)
 
     @property
     def entr_exp(self):
@@ -199,13 +207,13 @@ class VentanaAnimalAcuatico(QDialog):
         if len(nombre_c) == 0:
             raise Exception(msg.format('nombre artístico'))
 
-    def restablecer_datos(self):
+    def restablecer_datos(self):  # OK
         self.id = self.__controlador.last_id()
         self.nombre = ''
         self.nombre_cientifico = ''
         self.anim_familia = ''
         self.anim_habitat = 'Mar'
-        self.cautiverio = False
+        self.cautiverio = "No"
         self.edad = 0
         self.anim_categoria = ''
         self.espectaculo = 'No'
@@ -213,15 +221,20 @@ class VentanaAnimalAcuatico(QDialog):
         self.entr_nombre = ''
         self.entr_nomb_art = ''
         self.entr_ci = ''
+        self.entr_edad = ''
         self.entr_sexo = ''
-        #self.entr_nac = ''
+        self.entr_nac = ''
         self.entr_exp = ''
+        self.cbx_selec_entr.setCurrentIndex(0)
 
+    def especificar_entr_cbx(self, value):  # OK
+        index = self.cbx_selec_entr.findText(value, QtCore.Qt.MatchFixedString)
+        self.cbx_selec_entr.setCurrentIndex(index)
 
-    def vaciar_tabla(self):
+    def vaciar_tabla(self):  # OK
         while self.tabla_animal_acuatico.rowCount() > 0:
             self.tabla_animal_acuatico.removeRow(0)
 
-    def agregar_elemento_tabla(self, fila, columna, texto):
+    def agregar_elemento_tabla(self, fila, columna, texto):  # OK
         self.tabla_animal_acuatico.setItem(fila, columna, QTableWidgetItem(texto))
 
