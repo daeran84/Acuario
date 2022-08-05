@@ -12,6 +12,7 @@ class ControladorAnimalAcuatico:
         self.__vista = VentanaAnimalAcuatico(self)
         self.__repositorio = repo
         self.cargar_datos_combobox()
+        self.get_id()
 
     # Window main functions
     def iniciar(self):
@@ -57,9 +58,9 @@ class ControladorAnimalAcuatico:
             nombres.append(entrenador.nombre_apellidos)
         return nombres
 
-    def last_id(self):
-        return 1
-
+    def get_id(self):
+        id = self.__repositorio.last_id() + 1
+        self.__vista.id = str(id)
 
     def cargar_datos(self):  # OK
         try:
@@ -67,13 +68,13 @@ class ControladorAnimalAcuatico:
             for anim in self.__repositorio.animal_acuatico():
                 i = self.__vista.tabla_animal_acuatico.rowCount()
                 self.__vista.tabla_animal_acuatico.insertRow(i)
-                self.__vista.agregar_elemento_tabla(i, 0, anim.id)
+                self.__vista.agregar_elemento_tabla(i, 0, str(anim.id))
                 self.__vista.agregar_elemento_tabla(i, 1, anim.nombre)
                 self.__vista.agregar_elemento_tabla(i, 2, anim.nombre_cientifico)
                 self.__vista.agregar_elemento_tabla(i, 3, anim.familia)
                 self.__vista.agregar_elemento_tabla(i, 4, anim.habitat_natural)
                 self.__vista.agregar_elemento_tabla(i, 5, anim.reproducido_en_cautiverio)
-                self.__vista.agregar_elemento_tabla(i, 6, anim.edad)
+                self.__vista.agregar_elemento_tabla(i, 6, str(anim.edad))
                 self.__vista.agregar_elemento_tabla(i, 7, anim.categoria)
                 self.__vista.agregar_elemento_tabla(i, 8, anim.espectaculo)
                 self.__vista.agregar_elemento_tabla(i, 9, str(anim.fecha_inicio))
@@ -86,12 +87,12 @@ class ControladorAnimalAcuatico:
     def insertar_animal_acuatico(self):  # OK
         try:
             self.__vista.validar_datos()
-            id = self.__vista.id
+            id = int(self.__vista.id)
             nombre = self.__vista.nombre
             nombre_c = self.__vista.nombre_cientifico
             familia = self.__vista.anim_familia
             habitat = self.__vista.anim_habitat
-            edad = self.__vista.edad
+            edad = int(self.__vista.edad)
             categoria = self.__vista.anim_categoria
             cautiverio = self.__vista.cautiverio
             espectaculo = self.__vista.espectaculo
@@ -116,7 +117,7 @@ class ControladorAnimalAcuatico:
                 raise Exception('Debe seleccionar una fila para actualizarla')
             id_ant = self.__vista.tabla_animal_acuatico.item(ind, 0).text()
             self.__vista.validar_datos()
-            id = self.__vista.id
+            id = int(self.__vista.id)
             nombre = self.__vista.nombre
             nombre_c = self.__vista.nombre_cientifico
             familia = self.__vista.anim_familia
@@ -173,12 +174,9 @@ class ControladorAnimalAcuatico:
                     inicio = inicio.split('-')
                     inicio = date(int(inicio[0]), int(inicio[1]), int(inicio[2]))
                 nombre_entr = self.__vista.tabla_animal_acuatico.item(ind, 10).text()
-                #if inicio != '':
-                #    inicio = date(int(inicio[0]), int(inicio[1]), int(inicio[2]))
-                #nombre_entr = self.__vista.tabla_animal_acuatico.item(ind, 10).text()
 
                 # Dando valores a los atributos
-                self.__vista.id = int(id_esp)
+                self.__vista.id = id_esp
                 self.__vista.nombre = nombre
                 self.__vista.nombre_cientifico = nombre_c
                 self.__vista.anim_familia = familia
@@ -187,11 +185,13 @@ class ControladorAnimalAcuatico:
                 self.__vista.edad = int(edad)
                 self.__vista.anim_categoria = categ
                 self.__vista.espectaculo = espect
+                self.__vista.frames_enabled(False)
                 if espect == 'Si':
                     self.__vista.espectaculo = 'Si'
                     self.__vista.inicio_espect = inicio
                     self.__vista.especificar_entr_cbx(nombre_entr)
                     self.datos_entrenador_x_combo()
+                    self.__vista.frames_enabled(True)
 
 
         except Exception as e:

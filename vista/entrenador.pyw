@@ -17,6 +17,7 @@ class VentanaEntrenador(QDialog):
         self.btn_incertar.clicked.connect(self.__controlador.insertar_entrenador)
         self.btn_actualizar.clicked.connect(self.__controlador.actualizar_entrenador)
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_entrenador)
+        self.btn_nuevo_reg.clicked.connect(self.restablecer_datos)
         self.tabla_entrenadores.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
         self.tabla_entrenadores.setColumnCount(7)
         self.tabla_entrenadores.setHorizontalHeaderLabels(['Nombre', 'Nombre Artistico', 'CI', 'Edad', 'Sexo', 'Fecha de nacimiento', 'Años de experiencia'])

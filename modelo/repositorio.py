@@ -36,6 +36,15 @@ class Repositorio:
 
     # Functions for lista_especies
 
+    def last_id(self):
+        id = 0
+        if self.lista_especies == []:
+            return id
+        for esp in self.lista_especies:
+            if int(esp.id) > id:
+                id = esp.id
+        return id
+
     def planta_acuatica(self):
         plantas = []
         for esp in self.lista_especies:
@@ -57,7 +66,7 @@ class Repositorio:
 
     def insertar_especie(self, especie):  # OK
         if self.ind_especie(especie.id) != None:
-            raise Exception('La especie acuática ya existe')
+            raise Exception('La especie ya existe')
         self.__lista_especies.append(especie)
         print(self.__lista_especies)
 
@@ -77,7 +86,6 @@ class Repositorio:
         self.__lista_especies.remove(self.__lista_especies[ind])
 
     # Functions for lista_espectaculos
-
 
     def insertar_espectaculo(self):
         pass

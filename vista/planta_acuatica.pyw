@@ -14,9 +14,12 @@ class VentanaPlantaAcuatica(QDialog):
         self.btn_insertar.clicked.connect(self.__controlador.insertar_planta_acuatica)
         self.btn_actualizar.clicked.connect(self.__controlador.actualizar_planta_acuatica)
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_planta_acuatica)
+        self.btn_nuevo_reg.clicked.connect(self.restablecer_datos)
+        self.tabla_planta_acuatica.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
         self.tabla_planta_acuatica.setColumnCount(6)
         self.tabla_planta_acuatica.setHorizontalHeaderLabels(['ID', 'Nombre cientifico', 'Familia', 'habitat natural', 'Numero de ejemplares', 'De aguas profundas'])
         self.tabla_planta_acuatica.resizeColumnsToContents()
+
 
     # PROPS
 
@@ -84,11 +87,11 @@ class VentanaPlantaAcuatica(QDialog):
         pass
 
     def restablecer_datos(self):
-        self.id = ''
+        self.__controlador.get_id()
         self.nombre_cient = ''
         self.planta_familia = ''
         self.planta_habitat = ''
-        self.ejemplares = ''
+        self.ejemplares = 0
         self.aguas_profundas = 'No'
 
     def vaciar_tabla(self):

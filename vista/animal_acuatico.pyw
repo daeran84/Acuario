@@ -18,6 +18,7 @@ class VentanaAnimalAcuatico(QDialog):
         self.btn_insertar.clicked.connect(self.__controlador.insertar_animal_acuatico)
         self.btn_actualizar.clicked.connect(self.__controlador.actualizar_animal_acuatico)
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_animal_acuatico)
+        self.btn_nuevo_reg.clicked.connect(self.restablecer_datos)
         self.tabla_animal_acuatico.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
         self.tabla_animal_acuatico.setColumnCount(11)
         self.tabla_animal_acuatico.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'Entrenador'])
@@ -45,7 +46,7 @@ class VentanaAnimalAcuatico(QDialog):
 
     @id.setter
     def id(self, value):
-        self.anim_id.setValue(value)
+        self.anim_id.setText(value)
 
     @property
     def nombre(self):
@@ -208,7 +209,7 @@ class VentanaAnimalAcuatico(QDialog):
             raise Exception(msg.format('nombre artístico'))
 
     def restablecer_datos(self):  # OK
-        self.id = self.__controlador.last_id()
+        self.__controlador.get_id()
         self.nombre = ''
         self.nombre_cientifico = ''
         self.anim_familia = ''
@@ -218,14 +219,23 @@ class VentanaAnimalAcuatico(QDialog):
         self.anim_categoria = ''
         self.espectaculo = 'No'
         self.inicio_espect = datetime.date(int(1965), int(1), int(1))
-        self.entr_nombre = ''
-        self.entr_nomb_art = ''
-        self.entr_ci = ''
-        self.entr_edad = ''
-        self.entr_sexo = ''
-        self.entr_nac = ''
-        self.entr_exp = ''
         self.cbx_selec_entr.setCurrentIndex(0)
+        self.frames_enabled(False)
+
+    def frames_enabled(self, value):
+        if value:
+            self.frame_entr.setEnabled(True)
+            self.frame_f_inicio.setEnabled(True)
+        else:
+            self.frame_entr.setEnabled(False)
+            self.frame_f_inicio.setEnabled(False)
+            self.entr_nombre = ''
+            self.entr_nomb_art = ''
+            self.entr_ci = ''
+            self.entr_edad = ''
+            self.entr_sexo = ''
+            self.entr_nac = ''
+            self.entr_exp = ''
 
     def especificar_entr_cbx(self, value):  # OK
         index = self.cbx_selec_entr.findText(value, QtCore.Qt.MatchFixedString)
