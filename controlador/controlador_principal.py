@@ -9,6 +9,7 @@ from vista.ventana_principal import VentanaPrincipal
 from controlador.controlador_animal_acuatico import ControladorAnimalAcuatico
 from controlador.controlador_entrenador import ControladorEntrenador
 from controlador.controlador_planta_acuatica import ControladorPlantaAcuatica
+from controlador.controlador_espectaculo import ControladorEspectaculo
 
 
 class ControladorPrincipal:
@@ -64,4 +65,8 @@ class ControladorPrincipal:
 
     def gestion_planta_ac(self):
         pen = ControladorPlantaAcuatica(self.__repositorio)
+        pen.iniciar()
+
+    def gestion_espectaculos(self):
+        pen = ControladorEspectaculo(self.__repositorio)
         pen.iniciar()

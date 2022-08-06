@@ -36,6 +36,7 @@
     <addaction name="btn_animales_acuaticos"/>
     <addaction name="btn_plantas_acuaticas"/>
     <addaction name="btn_entrenadoes"/>
+    <addaction name="btn_espectaculos"/>
    </widget>
    <widget class="QMenu" name="menuReportes">
     <property name="title">
@@ -65,6 +66,11 @@
   <action name="btn_entrenadoes">
    <property name="text">
     <string>Entrenadores</string>
+   </property>
+  </action>
+  <action name="btn_espectaculos">
+   <property name="text">
+    <string>Espectaculos</string>
    </property>
   </action>
  </widget>

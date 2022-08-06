@@ -1,5 +1,6 @@
 from modelo.animal_acuatico import AnimalAquatico
 from modelo.planta_aquatica import PlantaAquatica
+from modelo.espectaculo import Espectaculo
 
 
 class Repositorio:
