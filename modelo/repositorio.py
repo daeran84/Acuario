@@ -69,7 +69,6 @@ class Repositorio:
         if self.ind_especie(especie.id) != None:
             raise Exception('Ese numero de registro ya existe, si desea actualizarlo de clic en actualizar,\n de lo contrario de clic en Nuevo registro para crear uno nuevo')
         self.__lista_especies.append(especie)
-        print(self.__lista_especies)
 
     def actualizar_especie(self, id_esp, especie):  # OK
         ind_ant = self.ind_especie(id_esp)
@@ -88,8 +87,16 @@ class Repositorio:
 
     # Functions for lista_espectaculos
 
-    def insertar_espectaculo(self):
-        pass
+    def ind_espectaculo(self, cod): # Devuelve el indicede la lista que tiene el espectaculo del codigo dado, en caso de existir en la lista
+        for i in range(len(self.__lista_espectaculos)):
+            if self.__lista_espectaculos[i].codigo == cod:
+                return i
+
+    def insertar_espectaculo(self, espect):
+        if self.ind_espectaculo(espect.codigo) != None:
+            raise Exception('Ya existe un Espectáculo con ese código, si desea actualizarlo de clic en actualizar,\n de lo contrario de clic en Nuevo registro para crear uno nuevo')
+        self.__lista_espectaculos.append(espect)
+        print(self.__lista_espectaculos)
 
     def actualizar_espectaculo(self):
         pass
