@@ -78,7 +78,13 @@ class ControladorPlantaAcuatica:
 
     def eliminar_planta_acuatica(self):
         try:
-            pass
+            ind = self.__vista.tabla_planta_acuatica.currentRow()
+            if ind == -1:
+                raise Exception('Debe seleccionar un registro para eliminarlo')
+            id = self.__vista.tabla_planta_acuatica.item(ind, 0).text()
+            self.__repositorio.eliminar_especie(id)
+            self.cargar_datos()
+            self.__vista.restablecer_datos()
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])

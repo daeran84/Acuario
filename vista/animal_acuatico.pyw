@@ -217,9 +217,6 @@ class VentanaAnimalAcuatico(QDialog):
         self.cautiverio = "No"
         self.edad = 0
         self.anim_categoria = ''
-        self.espectaculo = 'No'
-        self.inicio_espect = datetime.date(int(1965), int(1), int(1))
-        self.cbx_selec_entr.setCurrentIndex(0)
         self.frames_enabled(False)
 
     def frames_enabled(self, value):
@@ -229,6 +226,9 @@ class VentanaAnimalAcuatico(QDialog):
         else:
             self.frame_entr.setEnabled(False)
             self.frame_f_inicio.setEnabled(False)
+            self.espectaculo = 'No'
+            self.inicio_espect = datetime.date(int(1965), int(1), int(1))
+            self.cbx_selec_entr.setCurrentIndex(0)
             self.entr_nombre = ''
             self.entr_nomb_art = ''
             self.entr_ci = ''

@@ -144,7 +144,7 @@ class ControladorAnimalAcuatico:
         try:
             ind = self.__vista.tabla_animal_acuatico.currentRow()
             if ind == -1:
-                raise Exception('Debe seleccionar una fila para eliminarla')
+                raise Exception('Debe seleccionar un registro para eliminarlo')
             id = self.__vista.tabla_animal_acuatico.item(ind, 0).text()
             self.__repositorio.eliminar_especie(id)
             self.cargar_datos()
