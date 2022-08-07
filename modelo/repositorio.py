@@ -87,7 +87,7 @@ class Repositorio:
 
     # Functions for lista_espectaculos
 
-    def ind_espectaculo(self, cod): # Devuelve el indicede la lista que tiene el espectaculo del codigo dado, en caso de existir en la lista
+    def ind_espectaculo(self, cod):  # Devuelve el indice de la lista que tiene el espectaculo del codigo dado, en caso de existir en la lista
         for i in range(len(self.__lista_espectaculos)):
             if self.__lista_espectaculos[i].codigo == cod:
                 return i
@@ -98,11 +98,20 @@ class Repositorio:
         self.__lista_espectaculos.append(espect)
         print(self.__lista_espectaculos)
 
-    def actualizar_espectaculo(self):
-        pass
+    def actualizar_espectaculo(self, codigo, espect):
+        ind_ant = self.ind_espectaculo(codigo)
+        if ind_ant == None:
+            raise Exception('El espectaculo no existe')
+        ind_new = self.ind_espectaculo(espect.codigo)
+        if (ind_new != None and ind_new != ind_ant):
+            raise Exception('El entrenador existe en el controlador')
+        self.lista_espectaculos[ind_ant] = espect
 
-    def eliminar_espectaculo(self):
-        pass
+    def eliminar_espectaculo(self, cod):
+        ind = self.ind_especie(cod)
+        if ind == None:
+            raise Exception('El espectaculo no existe')
+        self.lista_espectaculos.remove(self.lista_espectaculos[ind])
 
     # Functions for Lista_entrenadores
 

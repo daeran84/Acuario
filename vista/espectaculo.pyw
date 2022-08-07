@@ -2,7 +2,7 @@ import datetime
 from PyQt5.QtWidgets import QDialog, QMessageBox, QTableWidgetItem
 from PyQt5 import QtCore
 from PyQt5 import uic
-from PyQt5.QtCore import QDate
+from PyQt5.QtCore import QTime
 
 
 class VentanaEspectaculo(QDialog):
@@ -42,7 +42,7 @@ class VentanaEspectaculo(QDialog):
 
     @property
     def inicio(self):
-        return self.time_inicio.QTime()
+        return self.time_inicio.text()
 
     @inicio.setter
     def inicio(self, value):
@@ -50,11 +50,11 @@ class VentanaEspectaculo(QDialog):
         
     @property
     def duracion(self):
-        return self.spb_duracion.value()
+        return self.spb_duracion.text()
     
     @duracion.setter
     def duracion(self, value):
-        self.spb_duracion.setValue()
+        self.spb_duracion.setValue(value)
 
     @property
     def publico(self):
@@ -71,8 +71,12 @@ class VentanaEspectaculo(QDialog):
     def validar_datos(self):
         pass
 
-    def restablecer_datos(self):
-        pass
+    def restablecer_datos(self):  # OK
+        self.codigo = ''
+        self.nombre = ''
+        self.inicio = QTime(0, 0)
+        self.duracion = 0
+        self.publico = ''
 
     def vaciar_tabla(self):
         while self.tabla_espectaculos.rowCount() > 0:
@@ -80,3 +84,17 @@ class VentanaEspectaculo(QDialog):
 
     def agregar_elemento_tabla(self, fila, columna, texto):
         self.tabla_espectaculos.setItem(fila, columna, QTableWidgetItem(texto))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
