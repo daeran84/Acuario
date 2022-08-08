@@ -23,6 +23,9 @@ class VentanaEspectaculo(QDialog):
         self.tabla_espectaculos.setColumnCount(5)
         self.tabla_espectaculos.setHorizontalHeaderLabels(['Código', 'Nombre', 'Hora de inicio', 'Duración', 'Público'])
         self.tabla_espectaculos.resizeColumnsToContents()
+        self.cbx_tipo.activated[str].connect(self.__controlador.cargar_datos_combobox)
+
+    # PROPS
 
     @property
     def codigo(self):
@@ -64,6 +67,95 @@ class VentanaEspectaculo(QDialog):
     def publico(self, value):
         index = self.cbx_publico.findText(value, QtCore.Qt.MatchFixedString)
         self.cbx_publico.setCurrentIndex(index)
+        
+    # Animals selection PROPS
+    
+    @property
+    def tipo(self):
+        return self.cbx_tipo.currentText()
+    
+    @tipo.setter
+    def tipo(self, value):
+        index = self.cbx_tipo.findText(value, QtCore.Qt.MatchFixedString)
+        self.cbx_tipo.setCurrentIndex(index)
+    
+    @property
+    def animal_1(self):
+        return self.cbx_animal_1.currentText()
+    
+    @animal_1.setter
+    def animal_1(self, value):
+        self.cbx_animal_1.clear()
+        self.cbx_animal_1.addItem('')
+        for i in value:
+            self.cbx_animal_1.addItem(i)
+    
+    @property
+    def animal_2(self):
+        return self.cbx_animal_2.currentText()
+    
+    @animal_2.setter
+    def animal_2(self, value):
+        self.cbx_animal_2.clear()
+        self.cbx_animal_2.addItem('')
+        for i in value:
+            self.cbx_animal_2.addItem(i)
+    
+    @property
+    def animal_3(self):
+        return self.cbx_animal_3.currentText()
+    
+    @animal_3.setter
+    def animal_3(self, value):
+        self.cbx_animal_3.clear()
+        self.cbx_animal_3.addItem('')
+        for i in value:
+            self.cbx_animal_3.addItem(i)
+    
+    @property
+    def animal_4(self):
+        return self.cbx_animal_4.currentText()
+    
+    @animal_4.setter
+    def animal_4(self, value):
+        self.cbx_animal_4.clear()
+        self.cbx_animal_4.addItem('')
+        for i in value:
+            self.cbx_animal_4.addItem(i)
+    
+    @property
+    def entr_1(self):
+        return self.lb_entrenador_1.text()
+    
+    @entr_1.setter
+    def entr_1(self, value):
+        self.lb_entrenador_1.setText(value)
+
+    @property
+    def entr_2(self):
+        return self.lb_entrenador_2.text()
+
+    @entr_2.setter
+    def entr_2(self, value):
+        self.lb_entrenador_2.setText()
+
+    @property
+    def entr_3(self):
+        return self.lb_entrenador_3.text()
+
+    @entr_3.setter
+    def entr_3(self, value):
+        self.lb_entrenador_3.setText()
+
+    @property
+    def entr_4(self):
+        return self.lb_entrenador_4.text()
+
+    @entr_4.setter
+    def entr_4(self, value):
+        self.lb_entrenador_4.setText()
+
+    # Functions
 
     def mostrar_error(self, msg):
         QMessageBox.critical(self, 'Error', msg)

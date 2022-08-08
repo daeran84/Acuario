@@ -86,7 +86,7 @@ class ControladorEspectaculo:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def llenar_formulario_x_tabla(self):  # OK
+    def llenar_formulario_x_tabla(self):
         try:
             ind = self.__vista.tabla_espectaculos.currentRow()
             if ind != -1:
@@ -110,8 +110,16 @@ class ControladorEspectaculo:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-
-
+    def cargar_datos_combobox(self):
+        tipo = self.__vista.tipo
+        animales = []
+        for anim in self.__repositorio.animal_acuatico():
+            if anim.espectaculo == 'Si' and anim.familia == tipo:
+                animales.append(anim.nombre)
+        self.__vista.animal_1 = animales
+        self.__vista.animal_2 = animales
+        self.__vista.animal_3 = animales
+        self.__vista.animal_4 = animales
 
 
 
