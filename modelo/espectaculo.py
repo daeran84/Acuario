@@ -2,13 +2,13 @@
 
 class Espectaculo:
 
-    def __init__(self, codigo, nombre, hora_inicio, duracion, publico):
+    def __init__(self, codigo, nombre, hora_inicio, duracion, publico, animales):
         self.__codigo = codigo
         self.__nombre = nombre
         self.__hora_inicio = hora_inicio
         self.__duracion = duracion
         self.__publico = publico
-
+        self.__animales = animales
 
     @property
     def codigo(self):
@@ -49,3 +49,11 @@ class Espectaculo:
     @publico.setter
     def publico(self, value):
         self.__publico = value
+
+    @property
+    def animales(self):
+        return self.__animales
+
+    @animales.setter
+    def animales(self, value):
+        self.__animales = value

@@ -67,7 +67,8 @@ class Repositorio:
 
     def insertar_especie(self, especie):  # OK
         if self.ind_especie(especie.id) != None:
-            raise Exception('Ese numero de registro ya existe, si desea actualizarlo de clic en actualizar,\n de lo contrario de clic en Nuevo registro para crear uno nuevo')
+            raise Exception('Ese numero de registro ya existe, si desea actualizarlo de clic en actualizar,\n '
+                            'de lo contrario de clic en Nuevo registro para crear uno nuevo')
         self.__lista_especies.append(especie)
 
     def actualizar_especie(self, id_esp, especie):  # OK

@@ -26,7 +26,6 @@ class VentanaAnimalAcuatico(QDialog):
         self.btn_act_combobox.clicked.connect(self.__controlador.cargar_datos_combobox)
         self.cbx_selec_entr.activated[str].connect(self.__controlador.datos_entrenador_x_combo)
 
-
     #  PROPS of field values
 
     @property

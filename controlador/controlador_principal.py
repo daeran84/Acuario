@@ -19,18 +19,29 @@ class ControladorPrincipal:
 
         # Carga inicial de entrenadores para pruebas
 
-        entrenador1 = Entrenador('98765432132','Elizabeth Perez Usbert', 'Eli', '26', 'F', date(1998, 6, 16), '3')
-        entrenador2 = Entrenador('20041226321', 'Pedro Hernandez Gonzalez', 'Pepe', '20', 'M', date(2004, 12, 26), '1')
+        entrenador1 = Entrenador('98102632132','Elizabeth Perez Usbert', 'Eli', '26', 'F', date(1998, 6, 16), '5')
+        entrenador2 = Entrenador('00041226321', 'Pedro Hernandez Gonzalez', 'Pepe', '24', 'M', date(2000, 4, 12), '1')
+        entrenador3 = Entrenador('83021965987', 'Juan García Hernández', 'García', '38', 'M', date(1983, 2, 19), '10')
+        entrenador4 = Entrenador('00032654214', 'Maria Benitez Marín', 'Marín', '24', 'M', date(2000, 3, 26), '1')
+        entrenador5 = Entrenador('95041926321', 'Jesus Perez Mayo', 'Mayo', '29', 'M', date(1995, 4, 19), '8')
 
         self.__repositorio.lista_entrenadores.append(entrenador1)
         self.__repositorio.lista_entrenadores.append(entrenador2)
+        self.__repositorio.lista_entrenadores.append(entrenador3)
+        self.__repositorio.lista_entrenadores.append(entrenador4)
+        self.__repositorio.lista_entrenadores.append(entrenador5)
 
         # Carga inicial de especies para pruebas
 
-        animal1 = AnimalAquatico(1, 'Millie', 'Delphinidae', 'delfines', 'Mar', 3, 'Mamíferos', 'Si', 'Si', date(2017, 1, 17), 'Elizabeth Perez Usbert')
+
+        animal1 = AnimalAquatico(1, 'Millie', 'Delphinidae', 'delfines', 'Mar', 3, 'Mamíferos', 'Si', 'No', '', '')
         animal2 = AnimalAquatico(2, 'Bart', 'Otaria flavescens', 'lobos marinos', 'Mar', 3, 'Mamíferos', 'Si', 'Si', date(2006, 5, 28), 'Pedro Hernandez Gonzalez')
         animal3 = AnimalAquatico(7, 'Lili', 'Spheniscidae', 'otros', 'Mar', 1, 'Aves', 'Si', 'No', '', '')
         animal4 = AnimalAquatico(8, 'Bily', 'Spheniscidae', 'otros', 'Mar', 2, 'Aves', 'Si', 'No', '', '')
+        animal5 = AnimalAquatico(9, 'Bob', 'Delphinidae', 'delfines', 'Mar', 10, 'Mamíferos', 'No', 'Si', date(2017, 1, 17), 'Juan García Hernández')
+        animal6 = AnimalAquatico(10, 'Sparky', 'Delphinidae', 'delfines', 'Mar', 9, 'Mamíferos', 'No', 'Si', date(2017, 1, 17), 'Elizabeth Perez Usbert')
+        animal7 = AnimalAquatico(11, 'May', 'Delphinidae', 'delfines', 'Mar', 11, 'Mamíferos', 'No', 'Si', date(2017, 1, 17), 'Juan García Hernández')
+        animal8 = AnimalAquatico(12, 'Juno', 'Delphinidae', 'delfines', 'Mar', 9, 'Mamíferos', 'No', 'Si', date(2017, 1, 17), 'Jesus Perez Mayo')
 
         planta1 = PlantaAquatica(3, 'Nymphaea odorata alba blanca', 'Nympháceas', 'Rio', 26, 'No')
         planta2 = PlantaAquatica(4, 'Limnobium laevigatum', 'Hidrocaritáceas', 'Rio', 7, 'No')
@@ -45,6 +56,10 @@ class ControladorPrincipal:
         self.__repositorio.lista_especies.append(planta4)
         self.__repositorio.lista_especies.append(animal3)
         self.__repositorio.lista_especies.append(animal4)
+        self.__repositorio.lista_especies.append(animal5)
+        self.__repositorio.lista_especies.append(animal6)
+        self.__repositorio.lista_especies.append(animal7)
+        self.__repositorio.lista_especies.append(animal8)
 
     # Main start and child windows call functions
 

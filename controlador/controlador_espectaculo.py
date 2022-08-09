@@ -26,6 +26,7 @@ class ControladorEspectaculo:
         try:
             self.__vista.vaciar_tabla()
             for espect in self.__repositorio.lista_espectaculos:
+                #animales = f'{espect.animales[0]}, {espect.animales[1]}, {espect.animales[2]}, {espect.animales[3]}'
                 i = self.__vista.tabla_espectaculos.rowCount()
                 self.__vista.tabla_espectaculos.insertRow(i)
                 self.__vista.agregar_elemento_tabla(i, 0, espect.codigo)
@@ -33,6 +34,7 @@ class ControladorEspectaculo:
                 self.__vista.agregar_elemento_tabla(i, 2, espect.hora_inicio)
                 self.__vista.agregar_elemento_tabla(i, 3, str(espect.duracion))
                 self.__vista.agregar_elemento_tabla(i, 4, espect.publico)
+                #self.__vista.agregar_elemento_tabla(i, 5, animales)
                 self.__vista.tabla_espectaculos.resizeColumnsToContents()
 
         except Exception as e:
@@ -46,7 +48,9 @@ class ControladorEspectaculo:
             inicio = self.__vista.inicio
             duracion = int(self.__vista.duracion)
             publico = self.__vista.publico
-            espect = Espectaculo(codigo, nombre, inicio, duracion, publico)
+            animales = [self.__vista.animal_1, self.__vista.animal_2, self.__vista.animal_3, self.__vista.animal_4]
+            animales = ' '.join(animales).split()
+            espect = Espectaculo(codigo, nombre, inicio, duracion, publico, animales)
             self.__repositorio.insertar_espectaculo(espect)
             self.cargar_datos()
             self.__vista.restablecer_datos()
@@ -67,7 +71,9 @@ class ControladorEspectaculo:
             inicio = self.__vista.inicio
             duracion = int(self.__vista.duracion)
             publico = self.__vista.publico
-            espect = Espectaculo(codigo, nombre, inicio, duracion, publico)
+            animales = [self.__vista.animal_1, self.__vista.animal_2, self.__vista.animal_3, self.__vista.animal_4]
+            animales = ' '.join(animales).split()
+            espect = Espectaculo(codigo, nombre, inicio, duracion, publico, animales)
             self.__repositorio.actualizar_espectaculo(cod, espect)
             self.cargar_datos()
             self.__vista.restablecer_datos()
@@ -100,12 +106,15 @@ class ControladorEspectaculo:
                     hora = QTime(int(inicio.split(' ')[0].split(":")[0]) + 12, int(inicio.split(' ')[0].split(":")[1]))
                 duracion = self.__vista.tabla_espectaculos.item(ind, 3).text()
                 publico = self.__vista.tabla_espectaculos.item(ind, 4).text()
+                animales = self.__vista.tabla_espectaculos.item(ind, 5).text().split(',')
 
                 self.__vista.codigo = codigo
                 self.__vista.nombre = nombre
                 self.__vista.inicio = hora
                 self.__vista.duracion = int(duracion)
                 self.__vista.publico = publico
+                #self.__vista.animal_1 = animales[0]
+                #self.__vista.animal_2 = animales[1]
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])

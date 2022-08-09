@@ -20,8 +20,8 @@ class VentanaEspectaculo(QDialog):
         self.btn_eliminar.clicked.connect(self.__controlador.eliminar_espectaculo)
         self.btn_nuevo_reg.clicked.connect(self.restablecer_datos)
         self.tabla_espectaculos.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
-        self.tabla_espectaculos.setColumnCount(5)
-        self.tabla_espectaculos.setHorizontalHeaderLabels(['Código', 'Nombre', 'Hora de inicio', 'Duración', 'Público'])
+        self.tabla_espectaculos.setColumnCount(6)
+        self.tabla_espectaculos.setHorizontalHeaderLabels(['Código', 'Nombre', 'Hora de inicio', 'Duración', 'Público', 'Animales que participan'])
         self.tabla_espectaculos.resizeColumnsToContents()
         self.cbx_tipo.activated[str].connect(self.__controlador.cargar_datos_combobox)
 
@@ -122,38 +122,6 @@ class VentanaEspectaculo(QDialog):
         self.cbx_animal_4.addItem('')
         for i in value:
             self.cbx_animal_4.addItem(i)
-    
-    @property
-    def entr_1(self):
-        return self.lb_entrenador_1.text()
-    
-    @entr_1.setter
-    def entr_1(self, value):
-        self.lb_entrenador_1.setText(value)
-
-    @property
-    def entr_2(self):
-        return self.lb_entrenador_2.text()
-
-    @entr_2.setter
-    def entr_2(self, value):
-        self.lb_entrenador_2.setText()
-
-    @property
-    def entr_3(self):
-        return self.lb_entrenador_3.text()
-
-    @entr_3.setter
-    def entr_3(self, value):
-        self.lb_entrenador_3.setText()
-
-    @property
-    def entr_4(self):
-        return self.lb_entrenador_4.text()
-
-    @entr_4.setter
-    def entr_4(self, value):
-        self.lb_entrenador_4.setText()
 
     # Functions
 
@@ -169,6 +137,10 @@ class VentanaEspectaculo(QDialog):
         self.inicio = QTime(0, 0)
         self.duracion = 0
         self.publico = ''
+        self.animal_1 = ''
+        self.animal_2 = ''
+        self.animal_3 = ''
+        self.animal_4 = ''
 
     def vaciar_tabla(self):
         while self.tabla_espectaculos.rowCount() > 0:
