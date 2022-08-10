@@ -6,6 +6,7 @@ class ControladorAnimalesEntrenador:
     def __init__(self, repo):
         self.__vista = VentanaAnimalesEntrenador(self)
         self.__repositorio = repo
+        self.cargar_datos_combobox()
 
     # Window main functions
 
@@ -30,16 +31,18 @@ class ControladorAnimalesEntrenador:
             nombres.append(entrenador.nombre_apellidos)
         return nombres
 
-    def datos_animales(self):
+    def datos_animales(self, entr):
         animales = []
         for anim in self.__repositorio.animal_acuatico():
-            if anim.espectaculo and anim.nombre_entrenador == self.__vista.combo_entr:
+            if anim.espectaculo and anim.nombre_entrenador == entr:
                 animales.append(anim)
+        return animales
 
     def cargar_datos(self):  # OK
         try:
             self.__vista.vaciar_tabla()
-            for anim in self.__repositorio.animal_acuatico():
+            animales = self.datos_animales(self.__vista.combo_entr)
+            for anim in animales:
                 i = self.__vista.tabla_animales_entrenador.rowCount()
                 self.__vista.tabla_animales_entrenador.insertRow(i)
                 self.__vista.agregar_elemento_tabla(i, 0, str(anim.id))
@@ -53,7 +56,7 @@ class ControladorAnimalesEntrenador:
                 self.__vista.agregar_elemento_tabla(i, 8, anim.espectaculo)
                 self.__vista.agregar_elemento_tabla(i, 9, str(anim.fecha_inicio))
                 self.__vista.agregar_elemento_tabla(i, 10, anim.nombre_entrenador)
-                self.__vista.tabla_animal_acuatico.resizeColumnsToContents()
+                self.__vista.tabla_animales_entrenador.resizeColumnsToContents()
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])

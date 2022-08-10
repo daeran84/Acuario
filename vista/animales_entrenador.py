@@ -13,7 +13,7 @@ class VentanaAnimalesEntrenador(QDialog):
         # Buttons & table data configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.cbx_selec_entr.activated[str].connect(self.__controlador.datos_animales)
+        self.cbx_selec_entr.activated[str].connect(self.__controlador.cargar_datos)
         self.tabla_animales_entrenador.setColumnCount(11)
         self.tabla_animales_entrenador.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'Entrenador'])
         self.tabla_animales_entrenador.resizeColumnsToContents()
