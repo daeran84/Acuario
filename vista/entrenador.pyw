@@ -1,7 +1,6 @@
 import datetime
 from PyQt5.QtWidgets import QDialog, QMessageBox, QTableWidgetItem
 from PyQt5 import uic
-from PyQt5.QtCore import QDate
 
 
 class VentanaEntrenador(QDialog):

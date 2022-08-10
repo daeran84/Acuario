@@ -42,6 +42,7 @@
     <property name="title">
      <string>Reportes</string>
     </property>
+    <addaction name="btn_animales_entrenador"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuGestion"/>
@@ -71,6 +72,11 @@
   <action name="btn_espectaculos">
    <property name="text">
     <string>Espectaculos</string>
+   </property>
+  </action>
+  <action name="btn_animales_entrenador">
+   <property name="text">
+    <string>Animales por Entrenador</string>
    </property>
   </action>
  </widget>

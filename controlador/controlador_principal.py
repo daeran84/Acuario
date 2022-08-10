@@ -10,6 +10,7 @@ from controlador.controlador_animal_acuatico import ControladorAnimalAcuatico
 from controlador.controlador_entrenador import ControladorEntrenador
 from controlador.controlador_planta_acuatica import ControladorPlantaAcuatica
 from controlador.controlador_espectaculo import ControladorEspectaculo
+from controlador.controlador_animales_entrenador import ControladorAnimalesEntrenador
 
 
 class ControladorPrincipal:
@@ -32,7 +33,6 @@ class ControladorPrincipal:
         self.__repositorio.lista_entrenadores.append(entrenador5)
 
         # Carga inicial de especies para pruebas
-
 
         animal1 = AnimalAquatico(1, 'Millie', 'Delphinidae', 'delfines', 'Mar', 3, 'Mamíferos', 'Si', 'No', '', '')
         animal2 = AnimalAquatico(2, 'Bart', 'Otaria flavescens', 'lobos marinos', 'Mar', 3, 'Mamíferos', 'Si', 'Si', date(2006, 5, 28), 'Pedro Hernandez Gonzalez')
@@ -84,4 +84,8 @@ class ControladorPrincipal:
 
     def gestion_espectaculos(self):
         pen = ControladorEspectaculo(self.__repositorio)
+        pen.iniciar()
+
+    def gestion_animales_entrenador(self):
+        pen = ControladorAnimalesEntrenador(self.__repositorio)
         pen.iniciar()
