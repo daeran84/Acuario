@@ -13,7 +13,10 @@ class VentanaAnimalesEntrenador(QDialog):
         # Buttons & table data configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.cbx_selec_entr.activated[str].connect(self.__controlador.datos_entrenador_x_combo)
+        self.cbx_selec_entr.activated[str].connect(self.__controlador.datos_animales)
+        self.tabla_animales_entrenador.setColumnCount(11)
+        self.tabla_animales_entrenador.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'Entrenador'])
+        self.tabla_animales_entrenador.resizeColumnsToContents()
 
     # PROPS
 
@@ -33,13 +36,9 @@ class VentanaAnimalesEntrenador(QDialog):
     def mostrar_error(self, msg):
         QMessageBox.critical(self, 'Error', msg)
 
-    def especificar_entr_cbx(self, value):  # OK
-        index = self.cbx_selec_entr.findText(value, QtCore.Qt.MatchFixedString)
-        self.cbx_selec_entr.setCurrentIndex(index)
-
     def vaciar_tabla(self):  # OK
-        while self.tabla_animal_acuatico.rowCount() > 0:
-            self.tabla_animal_acuatico.removeRow(0)
+        while self.tabla_animales_entrenador.rowCount() > 0:
+            self.tabla_animales_entrenador.removeRow(0)
 
     def agregar_elemento_tabla(self, fila, columna, texto):  # OK
-        self.tabla_animal_acuatico.setItem(fila, columna, QTableWidgetItem(texto))
+        self.tabla_animales_entrenador.setItem(fila, columna, QTableWidgetItem(texto))

@@ -25,7 +25,7 @@
   <property name="windowTitle">
    <string>Animales por Entrenador</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="tabla_animales_entrenador">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -48,7 +48,7 @@
     <string>Entrenador:</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="cbx_entrenador">
+  <widget class="QComboBox" name="cbx_selec_entr">
    <property name="geometry">
     <rect>
      <x>90</x>
