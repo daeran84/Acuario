@@ -201,11 +201,29 @@ class VentanaAnimalAcuatico(QDialog):
         msg = 'El atributo {} es obligatorio.'
         nombre = self.nombre
         nombre_c = self.nombre_cientifico
+        familia = self.anim_familia
+        categoria = self.anim_categoria
+        espect = self.espectaculo
+        entrenador = self.combo_entr
 
         if len(nombre) == 0:
             raise Exception(msg.format('nombre'))
+        if not nombre.replace(' ', '').isalpha():
+            raise Exception('El nombre solo puede tener letras')
+
         if len(nombre_c) == 0:
-            raise Exception(msg.format('nombre artístico'))
+            raise Exception(msg.format('nombre cientifico'))
+        if not nombre_c.replace(' ', '').isalpha():
+            raise Exception('El nombre cientifico solo puede tener letras')
+
+        if familia == '':
+            raise Exception(msg.format('familia'))
+
+        if categoria == '':
+            raise Exception(msg.format('categoria'))
+
+        if espect and entrenador == '':
+            raise Exception('Si participa en espectaculos debe seleccionar un entrenador')
 
     def restablecer_datos(self):  # OK
         self.__controlador.get_id()
