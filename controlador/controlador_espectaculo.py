@@ -26,7 +26,6 @@ class ControladorEspectaculo:
         try:
             self.__vista.vaciar_tabla()
             for espect in self.__repositorio.lista_espectaculos:
-                #animales = f'{espect.animales[0]}, {espect.animales[1]}, {espect.animales[2]}, {espect.animales[3]}'
                 i = self.__vista.tabla_espectaculos.rowCount()
                 self.__vista.tabla_espectaculos.insertRow(i)
                 self.__vista.agregar_elemento_tabla(i, 0, espect.codigo)
@@ -34,7 +33,7 @@ class ControladorEspectaculo:
                 self.__vista.agregar_elemento_tabla(i, 2, espect.hora_inicio)
                 self.__vista.agregar_elemento_tabla(i, 3, str(espect.duracion))
                 self.__vista.agregar_elemento_tabla(i, 4, espect.publico)
-                #self.__vista.agregar_elemento_tabla(i, 5, animales)
+                self.__vista.agregar_elemento_tabla(i, 5, espect.animales)
                 self.__vista.tabla_espectaculos.resizeColumnsToContents()
 
         except Exception as e:
@@ -49,9 +48,10 @@ class ControladorEspectaculo:
             duracion = int(self.__vista.duracion)
             publico = self.__vista.publico
             animales = [self.__vista.animal_1, self.__vista.animal_2, self.__vista.animal_3, self.__vista.animal_4]
-            animales = ' '.join(animales).split()
+            animales = self.list_to_string(' '.join(animales).split())
             espect = Espectaculo(codigo, nombre, inicio, duracion, publico, animales)
             self.__repositorio.insertar_espectaculo(espect)
+            self.__repositorio.agregar_reg_tipo_esp({codigo: self.__vista.tipo})
             self.cargar_datos()
             self.__vista.restablecer_datos()
 
@@ -72,7 +72,7 @@ class ControladorEspectaculo:
             duracion = int(self.__vista.duracion)
             publico = self.__vista.publico
             animales = [self.__vista.animal_1, self.__vista.animal_2, self.__vista.animal_3, self.__vista.animal_4]
-            animales = ' '.join(animales).split()
+            animales = self.list_to_string(' '.join(animales).split())
             espect = Espectaculo(codigo, nombre, inicio, duracion, publico, animales)
             self.__repositorio.actualizar_espectaculo(cod, espect)
             self.cargar_datos()
@@ -81,13 +81,15 @@ class ControladorEspectaculo:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def eliminar_espectaculo(self):
+    def eliminar_espectaculo(self):  # OK
         try:
             ind = self.__vista.tabla_espectaculos.currentRow()
             if ind == -1:
-                raise Exception('Debe seleccionar una fila para actualizarla')
+                raise Exception('Debe seleccionar una fila para eliminarla')
             codigo = self.__vista.tabla_espectaculos.item(ind, 0).text()
             self.__repositorio.eliminar_espectaculo(codigo)
+            self.cargar_datos()
+            self.__vista.restablecer_datos()
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
@@ -113,9 +115,16 @@ class ControladorEspectaculo:
                 self.__vista.inicio = hora
                 self.__vista.duracion = int(duracion)
                 self.__vista.publico = publico
-                #self.__vista.animal_1 = animales[0]
-                #self.__vista.animal_2 = animales[1]
-
+                self.__vista.tipo = self.__repositorio.tipo_espectaculo.get(codigo)
+                self.cargar_datos_combobox()
+                self.__vista.especificar_animal_1(animales[0].strip())
+                print(len(animales))
+                if len(animales) >= 2:
+                    self.__vista.especificar_animal_2(animales[1].strip())
+                if len(animales) >= 3:
+                    self.__vista.especificar_animal_3(animales[2].strip())
+                if len(animales) == 4:
+                    self.__vista.especificar_animal_4(animales[3].strip())
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
@@ -129,6 +138,12 @@ class ControladorEspectaculo:
         self.__vista.animal_2 = animales
         self.__vista.animal_3 = animales
         self.__vista.animal_4 = animales
+
+    def list_to_string(self, lista):
+        l = ''
+        for i in (lista):
+            l += f' {i},'
+        return l.strip().strip(',')
 
 
 

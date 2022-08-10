@@ -129,7 +129,7 @@ class VentanaEspectaculo(QDialog):
         QMessageBox.critical(self, 'Error', msg)
 
     def validar_datos(self):
-        pass
+        msg = 
 
     def restablecer_datos(self):  # OK
         self.codigo = ''
@@ -137,10 +137,27 @@ class VentanaEspectaculo(QDialog):
         self.inicio = QTime(0, 0)
         self.duracion = 0
         self.publico = ''
+        self.tipo = ''
         self.animal_1 = ''
         self.animal_2 = ''
         self.animal_3 = ''
         self.animal_4 = ''
+
+    def especificar_animal_1(self, value):  # OK
+        index = self.cbx_animal_1.findText(value, QtCore.Qt.MatchFixedString)
+        self.cbx_animal_1.setCurrentIndex(index)
+
+    def especificar_animal_2(self, value):  # OK
+        index = self.cbx_animal_2.findText(value, QtCore.Qt.MatchFixedString)
+        self.cbx_animal_2.setCurrentIndex(index)
+
+    def especificar_animal_3(self, value):  # OK
+        index = self.cbx_animal_3.findText(value, QtCore.Qt.MatchFixedString)
+        self.cbx_animal_3.setCurrentIndex(index)
+
+    def especificar_animal_4(self, value):  # OK
+        index = self.cbx_animal_4.findText(value, QtCore.Qt.MatchFixedString)
+        self.cbx_animal_4.setCurrentIndex(index)
 
     def vaciar_tabla(self):
         while self.tabla_espectaculos.rowCount() > 0:

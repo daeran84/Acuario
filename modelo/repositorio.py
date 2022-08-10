@@ -8,6 +8,7 @@ class Repositorio:
         self.__lista_especies = []
         self.__lista_espectaculos = []
         self.__lista_entrenadores = []
+        self.__tipo_espectaculo = {}
 
     # PROPS of list values
 
@@ -34,6 +35,24 @@ class Repositorio:
     @lista_entrenadores.setter
     def lista_entrenadores(self, value):
         self.__lista_entrenadores = value
+
+    @property
+    def tipo_espectaculo(self):
+        return self.__tipo_espectaculo
+
+    @tipo_espectaculo.setter
+    def tipo_espectaculo(self, value):
+        self.__tipo_espectaculo = value
+
+    # Functions for Dic
+
+    def agregar_reg_tipo_esp(self, reg):
+        self.tipo_espectaculo.update(reg)
+        print(self.tipo_espectaculo)
+
+    def eliminar_reg_tipo_esp(self, key):
+        self.tipo_espectaculo.pop(key)
+        print(self.tipo_espectaculo)
 
     # Functions for lista_especies
 
@@ -109,10 +128,11 @@ class Repositorio:
         self.lista_espectaculos[ind_ant] = espect
 
     def eliminar_espectaculo(self, cod):
-        ind = self.ind_especie(cod)
+        ind = self.ind_espectaculo(cod)
         if ind == None:
             raise Exception('El espectaculo no existe')
         self.lista_espectaculos.remove(self.lista_espectaculos[ind])
+        self.eliminar_reg_tipo_esp(cod)
 
     # Functions for Lista_entrenadores
 
