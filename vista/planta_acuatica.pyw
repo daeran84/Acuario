@@ -84,7 +84,26 @@ class VentanaPlantaAcuatica(QDialog):
         QMessageBox.critical(self, 'Error', msg)
 
     def validar_datos(self):
-        pass
+        msg = 'El atributo {} es obligatorio.'
+        nombre_c = self.nombre_cient
+        familia = self.planta_familia
+        habitat = self.planta_habitat
+        ejemplares = self.ejemplares
+
+        if nombre_c == '':
+            raise Exception(msg.format('nombre cientifico'))
+        if not nombre_c.replace(' ', '').isalpha():
+            raise Exception('El nombre cientifico solo puede tener letras')
+
+        if familia == '':
+            raise Exception(msg.format('familia'))
+
+        if habitat == '':
+            raise Exception(msg.format('habitat'))
+
+        if ejemplares == '0':
+            raise Exception('los numeros de ejemplares no pueden ser 0')
+
 
     def restablecer_datos(self):
         self.__controlador.get_id()
