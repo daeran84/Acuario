@@ -96,10 +96,12 @@ class VentanaEntrenador(QDialog):
         nar = self.nombre_artistico
 
         if len(na) == 0:
-            raise Exception(msg.format('nombre completo'))
+            raise Exception(msg.format('nombre'))
+        if not na.replace(' ', '').isalpha():
+            raise Exception('El nombre solo puede tener letras')
         if len(nar) == 0:
             raise Exception(msg.format('nombre artistico'))
-        if not nar.isalpha():
+        if not nar.replace(' ', '').isalpha():
             raise Exception('El nombre artistico solo puede tener letras')
         if len(c_i) == 0:
             raise Exception(msg.format('carnet de identidad'))
