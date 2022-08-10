@@ -13,10 +13,15 @@ import sys
 
 l = ['sdf', 'asdfawef']
 
-def to_string(a):
-    li = ''
-    for i in (a):
-        li += f' {i},'
-    return li.strip().strip(',')
+#def to_string(a):
+#    li = ''
+#    for i in (a):
+#       li += f' {i},'
+#    return li.strip().strip(',')
 
-print(to_string(l))
+#print(to_string(l))
+
+a = 'Camilo Rioseco'
+
+b = a.replace(' ', '').isalpha()
+print(b)

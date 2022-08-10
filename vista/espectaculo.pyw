@@ -129,7 +129,40 @@ class VentanaEspectaculo(QDialog):
         QMessageBox.critical(self, 'Error', msg)
 
     def validar_datos(self):
-        msg = 
+        msg = 'El atributo {} es obligatorio.'
+        codigo = self.codigo
+        nombre = self.nombre
+        publico = self.publico
+        tipo = self.tipo
+        animal1 = self.animal_1
+        animal2 = self.animal_2
+        animal3 = self.animal_3
+        animal4 = self.animal_4
+        duracion = self.duracion
+
+        if codigo == '':
+            raise Exception(msg.format('codigo'))
+
+        if not codigo.isdigit():
+            raise Exception('El codigo solo puede tener numeros')
+
+        if nombre == '':
+            raise Exception(msg.format('nombre'))
+
+        if not nombre.replace(' ', '').isalpha():
+            raise Exception('El nombre solo puede tener letras')
+
+        if publico == '':
+            raise Exception(msg.format('publico'))
+
+        if tipo == '':
+            raise Exception(msg.format('tipo'))
+
+        if animal1 == '' and animal2 == '' and animal3 == '' and animal4 == '':
+            raise Exception('Debe seleccionar al menos un animal')
+
+        if duracion == '0':
+            raise Exception('La duracion del espectaculo no puede ser 0')
 
     def restablecer_datos(self):  # OK
         self.codigo = ''
