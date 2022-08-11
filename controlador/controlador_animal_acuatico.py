@@ -120,7 +120,7 @@ class ControladorAnimalAcuatico:
             nombre_c = self.__vista.nombre_cientifico
             familia = self.__vista.anim_familia
             habitat = self.__vista.anim_habitat
-            edad = self.__vista.edad
+            edad = int(self.__vista.edad)
             categoria = self.__vista.anim_categoria
             cautiverio = self.__vista.cautiverio
             espectaculo = self.__vista.espectaculo

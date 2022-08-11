@@ -1,4 +1,5 @@
 from vista.animales_entrenador import VentanaAnimalesEntrenador
+from PyQt5.QtCore import Qt
 
 
 class ControladorAnimalesEntrenador:
@@ -57,6 +58,7 @@ class ControladorAnimalesEntrenador:
                 self.__vista.agregar_elemento_tabla(i, 9, str(anim.fecha_inicio))
                 self.__vista.agregar_elemento_tabla(i, 10, anim.nombre_entrenador)
                 self.__vista.tabla_animales_entrenador.resizeColumnsToContents()
+                self.__vista.tabla_animales_entrenador.sortItems(6, Qt.AscendingOrder)
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
