@@ -3,7 +3,7 @@ from PyQt5 import QtCore, QtGui
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import sys
-
+from datetime import date
 
 #text = '9:35 AM'
 
@@ -21,7 +21,20 @@ l = ['sdf', 'asdfawef']
 
 #print(to_string(l))
 
-a = 'Camilo Rioseco'
+#a = 'Camilo Rioseco'
 
-b = a.replace(' ', '').isalpha()
-print(b)
+#b = a.replace(' ', '').isalpha()
+#print(b)
+
+def calculate_age(born):
+    today = date.today()
+    try:
+        birthday = born.replace(year=today.year)
+    except ValueError: # raised when birth date is February 29 and the current year is not a leap year
+        birthday = born.replace(year=today.year, month=born.month+1, day=1)
+    if birthday > today:
+        return today.year - born.year - 1
+    else:
+        return today.year - born.year
+
+print(calculate_age(date(1984, 10, 11)))

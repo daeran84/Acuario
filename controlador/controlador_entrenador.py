@@ -119,6 +119,17 @@ class ControladorEntrenador:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
+    def age(self, date):
+        today = date.today()
+        try:
+            birthday = date.replace(year=today.year)
+        except ValueError:  # raised when birth date is February 29 and the current year is not a leap year
+            birthday = date.replace(year=today.year, month=date.month + 1, day=1)
+        if birthday > today:
+            return today.year - date.year - 1
+        else:
+            return today.year - date.year
+
 
 
 

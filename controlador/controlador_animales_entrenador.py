@@ -52,13 +52,16 @@ class ControladorAnimalesEntrenador:
                 self.__vista.agregar_elemento_tabla(i, 3, anim.familia)
                 self.__vista.agregar_elemento_tabla(i, 4, anim.habitat_natural)
                 self.__vista.agregar_elemento_tabla(i, 5, anim.reproducido_en_cautiverio)
-                self.__vista.agregar_elemento_tabla(i, 6, str(anim.edad))
+                if anim.edad <= 9:
+                    self.__vista.agregar_elemento_tabla(i, 6, '0' + str(anim.edad))
+                else:
+                    self.__vista.agregar_elemento_tabla(i, 6, str(anim.edad))
                 self.__vista.agregar_elemento_tabla(i, 7, anim.categoria)
                 self.__vista.agregar_elemento_tabla(i, 8, anim.espectaculo)
                 self.__vista.agregar_elemento_tabla(i, 9, str(anim.fecha_inicio))
                 self.__vista.agregar_elemento_tabla(i, 10, anim.nombre_entrenador)
                 self.__vista.tabla_animales_entrenador.resizeColumnsToContents()
-                self.__vista.tabla_animales_entrenador.sortItems(6, Qt.AscendingOrder)
+                self.__vista.tabla_animales_entrenador.sortItems(6, int(Qt.AscendingOrder))
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
