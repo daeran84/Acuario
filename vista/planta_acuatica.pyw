@@ -17,9 +17,8 @@ class VentanaPlantaAcuatica(QDialog):
         self.btn_nuevo_reg.clicked.connect(self.restablecer_datos)
         self.tabla_planta_acuatica.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
         self.tabla_planta_acuatica.setColumnCount(6)
-        self.tabla_planta_acuatica.setHorizontalHeaderLabels(['ID', 'Nombre cientifico', 'Familia', 'habitat natural', 'Numero de ejemplares', 'De aguas profundas'])
+        self.tabla_planta_acuatica.setHorizontalHeaderLabels(['ID', 'Nombre científico', 'Familia', 'hábitat natural', 'Número de ejemplares', 'De aguas profundas'])
         self.tabla_planta_acuatica.resizeColumnsToContents()
-
 
     # PROPS
 
@@ -80,6 +79,8 @@ class VentanaPlantaAcuatica(QDialog):
         else:
             self.check_profundas.setChecked(False)
 
+    # Functions
+
     def mostrar_error(self, msg):
         QMessageBox.critical(self, 'Error', msg)
 
@@ -91,19 +92,18 @@ class VentanaPlantaAcuatica(QDialog):
         ejemplares = self.ejemplares
 
         if nombre_c == '':
-            raise Exception(msg.format('nombre cientifico'))
+            raise Exception(msg.format('nombre científico'))
         if not nombre_c.replace(' ', '').isalpha():
-            raise Exception('El nombre cientifico solo puede tener letras')
+            raise Exception('El nombre científico solo puede tener letras')
 
         if familia == '':
             raise Exception(msg.format('familia'))
 
         if habitat == '':
-            raise Exception(msg.format('habitat'))
+            raise Exception(msg.format('hábitat'))
 
         if ejemplares == '0':
-            raise Exception('los numeros de ejemplares no pueden ser 0')
-
+            raise Exception('los números de ejemplares no pueden ser 0')
 
     def restablecer_datos(self):
         self.__controlador.get_id()

@@ -11,7 +11,7 @@ class VentanaAnimalAcuatico(QDialog):
         QDialog.__init__(self)
         uic.loadUi('vista/ui/animal_acuatico.ui', self)
 
-        # Auxiliary window call & buttons configuration
+        # Auxiliary windows call, table & buttons configuration
 
         self.btn_cerrar.clicked.connect(self.close)
         self.btn_adm_entrenador.clicked.connect(self.__controlador.admin_entrenadores)
@@ -136,7 +136,7 @@ class VentanaAnimalAcuatico(QDialog):
     def inicio_espect(self, value):
         self.valor_inicio.setDate(value)
 
-    #  PROPS del entrenador
+    #  PROPS trainer values
 
     @property
     def entr_nombre(self):
@@ -194,6 +194,8 @@ class VentanaAnimalAcuatico(QDialog):
     def entr_exp(self, value):
         self.entrenador_experiencia.setText(value)
 
+    # Functions
+
     def mostrar_error(self, msg):
         QMessageBox.critical(self, 'Error', msg)
 
@@ -212,20 +214,20 @@ class VentanaAnimalAcuatico(QDialog):
             raise Exception('El nombre solo puede tener letras')
 
         if len(nombre_c) == 0:
-            raise Exception(msg.format('nombre cientifico'))
+            raise Exception(msg.format('nombre científico'))
         if not nombre_c.replace(' ', '').isalpha():
-            raise Exception('El nombre cientifico solo puede tener letras')
+            raise Exception('El nombre científico solo puede tener letras')
 
         if familia == '':
             raise Exception(msg.format('familia'))
 
         if categoria == '':
-            raise Exception(msg.format('categoria'))
+            raise Exception(msg.format('categoría'))
 
         if espect and entrenador == '':
-            raise Exception('Si participa en espectaculos debe seleccionar un entrenador')
+            raise Exception('Si participa en espectáculos debe seleccionar un entrenador')
 
-    def restablecer_datos(self):  # OK
+    def restablecer_datos(self):
         self.__controlador.get_id()
         self.nombre = ''
         self.nombre_cientifico = ''
@@ -254,7 +256,7 @@ class VentanaAnimalAcuatico(QDialog):
             self.entr_nac = ''
             self.entr_exp = ''
 
-    def especificar_entr_cbx(self, value):  # OK
+    def especificar_entr_cbx(self, value):
         index = self.cbx_selec_entr.findText(value, QtCore.Qt.MatchFixedString)
         self.cbx_selec_entr.setCurrentIndex(index)
 
@@ -262,6 +264,6 @@ class VentanaAnimalAcuatico(QDialog):
         while self.tabla_animal_acuatico.rowCount() > 0:
             self.tabla_animal_acuatico.removeRow(0)
 
-    def agregar_elemento_tabla(self, fila, columna, texto):  # OK
+    def agregar_elemento_tabla(self, fila, columna, texto):
         self.tabla_animal_acuatico.setItem(fila, columna, QTableWidgetItem(texto))
 

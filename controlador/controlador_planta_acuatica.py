@@ -17,11 +17,11 @@ class ControladorPlantaAcuatica:
     def cerrar(self):
         self.__vista.close()
 
-    def get_id(self):
+    def get_id(self):  # mover a Repositorio
         id = self.__repositorio.last_id() + 1
         self.__vista.id = str(id)
 
-    def cargar_datos(self):  # OK
+    def cargar_datos(self):
         try:
             self.__vista.vaciar_tabla()
             for plant in self.__repositorio.planta_acuatica():
@@ -38,7 +38,7 @@ class ControladorPlantaAcuatica:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def insertar_planta_acuatica(self):  # OK
+    def insertar_planta_acuatica(self):
         try:
             self.__vista.validar_datos()
             id = int(self.__vista.id)

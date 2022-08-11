@@ -100,7 +100,7 @@
     <item row="1" column="0" colspan="2">
      <widget class="QLabel" name="label_16">
       <property name="text">
-       <string>Nombre Artistico:</string>
+       <string>Nombre Artístico:</string>
       </property>
      </widget>
     </item>

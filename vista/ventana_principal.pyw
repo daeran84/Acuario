@@ -3,7 +3,6 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QMessageBox
 
 
-
 class VentanaPrincipal(QMainWindow):
 
     def __init__(self, controlador):

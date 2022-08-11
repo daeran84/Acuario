@@ -18,9 +18,9 @@ class ControladorPrincipal:
     def __init__(self):
         self.__repositorio = Repositorio()
 
-        # Carga inicial de entrenadores para pruebas
+        # Trainers Test Cases
 
-        entrenador1 = Entrenador('98102632132','Elizabeth Perez Usbert', 'Eli', '26', 'F', date(1998, 6, 16), '5')
+        entrenador1 = Entrenador('98102632132', 'Elizabeth Perez Usbert', 'Eli', '26', 'F', date(1998, 6, 16), '5')
         entrenador2 = Entrenador('00041226321', 'Pedro Hernandez Gonzalez', 'Pepe', '24', 'M', date(2000, 4, 12), '1')
         entrenador3 = Entrenador('83021965987', 'Juan García Hernández', 'García', '38', 'M', date(1983, 2, 19), '10')
         entrenador4 = Entrenador('00032654214', 'Maria Benitez Marín', 'Marín', '24', 'M', date(2000, 3, 26), '1')
@@ -32,16 +32,21 @@ class ControladorPrincipal:
         self.__repositorio.lista_entrenadores.append(entrenador4)
         self.__repositorio.lista_entrenadores.append(entrenador5)
 
-        # Carga inicial de especies para pruebas
+        # Species Test Cases
 
         animal1 = AnimalAquatico(1, 'Millie', 'Delphinidae', 'delfines', 'Mar', 3, 'Mamíferos', 'Si', 'No', '', '')
-        animal2 = AnimalAquatico(2, 'Bart', 'Otaria flavescens', 'lobos marinos', 'Mar', 3, 'Mamíferos', 'Si', 'Si', date(2006, 5, 28), 'Pedro Hernandez Gonzalez')
+        animal2 = AnimalAquatico(2, 'Bart', 'Otaria flavescens', 'lobos marinos', 'Mar', 3, 'Mamíferos', 'Si', 'Si',
+                                 date(2006, 5, 28), 'Pedro Hernandez Gonzalez')
         animal3 = AnimalAquatico(7, 'Lili', 'Spheniscidae', 'otros', 'Mar', 1, 'Aves', 'Si', 'No', '', '')
         animal4 = AnimalAquatico(8, 'Bily', 'Spheniscidae', 'otros', 'Mar', 2, 'Aves', 'Si', 'No', '', '')
-        animal5 = AnimalAquatico(9, 'Bob', 'Delphinidae', 'delfines', 'Mar', 10, 'Mamíferos', 'No', 'Si', date(2017, 1, 17), 'Juan García Hernández')
-        animal6 = AnimalAquatico(10, 'Sparky', 'Delphinidae', 'delfines', 'Mar', 9, 'Mamíferos', 'No', 'Si', date(2017, 1, 17), 'Elizabeth Perez Usbert')
-        animal7 = AnimalAquatico(11, 'May', 'Delphinidae', 'delfines', 'Mar', 11, 'Mamíferos', 'No', 'Si', date(2017, 1, 17), 'Juan García Hernández')
-        animal8 = AnimalAquatico(12, 'Juno', 'Delphinidae', 'delfines', 'Mar', 9, 'Mamíferos', 'No', 'Si', date(2017, 1, 17), 'Jesus Perez Mayo')
+        animal5 = AnimalAquatico(9, 'Bob', 'Delphinidae', 'delfines', 'Mar', 10, 'Mamíferos', 'No', 'Si',
+                                 date(2017, 1, 17), 'Juan García Hernández')
+        animal6 = AnimalAquatico(10, 'Sparky', 'Delphinidae', 'delfines', 'Mar', 9, 'Mamíferos', 'No', 'Si',
+                                 date(2017, 1, 17), 'Elizabeth Perez Usbert')
+        animal7 = AnimalAquatico(11, 'May', 'Delphinidae', 'delfines', 'Mar', 11, 'Mamíferos', 'No', 'Si',
+                                 date(2017, 1, 17), 'Juan García Hernández')
+        animal8 = AnimalAquatico(12, 'Juno', 'Delphinidae', 'delfines', 'Mar', 9, 'Mamíferos', 'No', 'Si',
+                                 date(2017, 1, 17), 'Jesus Perez Mayo')
 
         planta1 = PlantaAquatica(3, 'Nymphaea odorata alba blanca', 'Nympháceas', 'Rio', 26, 'No')
         planta2 = PlantaAquatica(4, 'Limnobium laevigatum', 'Hidrocaritáceas', 'Rio', 7, 'No')

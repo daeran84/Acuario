@@ -17,7 +17,7 @@ class ControladorAnimalesEntrenador:
     def cerrar(self):
         self.__vista.close()
 
-    # Functions for list management
+    # Functions for list & view interactions
 
     def cargar_datos_combobox(self):
         nombres = []
@@ -38,7 +38,7 @@ class ControladorAnimalesEntrenador:
                 animales.append(anim)
         return animales
 
-    def cargar_datos(self):  # OK
+    def cargar_datos(self):
         try:
             self.__vista.vaciar_tabla()
             animales = self.datos_animales(self.__vista.combo_entr)

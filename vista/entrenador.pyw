@@ -23,7 +23,7 @@ class VentanaEntrenador(QDialog):
         self.tabla_entrenadores.horizontalHeaderItem(3).setToolTip('Carnet de Identidad')
         self.tabla_entrenadores.resizeColumnsToContents()
 
-    # PROPS of fields working
+    # PROPS
 
     @property
     def ci(self):
@@ -88,6 +88,8 @@ class VentanaEntrenador(QDialog):
     def anios_experiencia(self, value):
         self.valor_experiencia.setValue(value)
 
+    # Functions
+
     def validar_datos(self):
         msg = 'El atributo {} es obligatorio.'
         c_i = self.ci
@@ -99,15 +101,15 @@ class VentanaEntrenador(QDialog):
         if not na.replace(' ', '').isalpha():
             raise Exception('El nombre solo puede tener letras')
         if len(nar) == 0:
-            raise Exception(msg.format('nombre artistico'))
+            raise Exception(msg.format('nombre artístico'))
         if not nar.replace(' ', '').isalpha():
-            raise Exception('El nombre artistico solo puede tener letras')
+            raise Exception('El nombre artístico solo puede tener letras')
         if len(c_i) == 0:
             raise Exception(msg.format('carnet de identidad'))
         if not c_i.isdigit():
-            raise Exception('El carnet de identidad solo puede tener digitos')
+            raise Exception('El carnet de identidad solo puede tener dígitos')
         if len(c_i) != 11:
-            raise Exception('El carnet de identidad debe tener 11 digitos')
+            raise Exception('El carnet de identidad debe tener 11 dígitos')
 
     def restablecer_datos(self):
         self.ci = ''

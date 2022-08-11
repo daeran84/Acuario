@@ -1,7 +1,6 @@
 from vista.espectaculo import VentanaEspectaculo
 from modelo.espectaculo import Espectaculo
 from PyQt5.QtCore import QTime
-from datetime import date
 
 
 class ControladorEspectaculo:
@@ -20,9 +19,9 @@ class ControladorEspectaculo:
     def cerrar(self):
         self.__vista.close()
 
-    # Functions for list management
+    # Functions for list & view interactions
 
-    def cargar_datos(self):  # OK
+    def cargar_datos(self):
         try:
             self.__vista.vaciar_tabla()
             for espect in self.__repositorio.lista_espectaculos:
@@ -39,7 +38,7 @@ class ControladorEspectaculo:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def insertar_espectaculo(self):  # OK
+    def insertar_espectaculo(self):
         try:
             self.__vista.validar_datos()
             codigo = self.__vista.codigo
@@ -58,11 +57,11 @@ class ControladorEspectaculo:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def actualizar_espectaculo(self):  # OK
+    def actualizar_espectaculo(self):
         try:
             ind = self.__vista.tabla_espectaculos.currentRow()
             if ind == -1:
-                raise Exception('Debe seleccionar una fila para actualizarla')
+                raise Exception('Debe seleccionar un registro para actualizarlo')
             cod = self.__vista.tabla_espectaculos.item(ind, 0).text()
             self.__vista.validar_datos()
             self.__vista.validar_datos()
@@ -81,11 +80,11 @@ class ControladorEspectaculo:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def eliminar_espectaculo(self):  # OK
+    def eliminar_espectaculo(self):
         try:
             ind = self.__vista.tabla_espectaculos.currentRow()
             if ind == -1:
-                raise Exception('Debe seleccionar una fila para eliminarla')
+                raise Exception('Debe seleccionar un registro para eliminarlo')
             codigo = self.__vista.tabla_espectaculos.item(ind, 0).text()
             self.__repositorio.eliminar_espectaculo(codigo)
             self.cargar_datos()
@@ -98,7 +97,6 @@ class ControladorEspectaculo:
         try:
             ind = self.__vista.tabla_espectaculos.currentRow()
             if ind != -1:
-
                 codigo = self.__vista.tabla_espectaculos.item(ind, 0).text()
                 nombre = self.__vista.tabla_espectaculos.item(ind, 1).text()
                 inicio = self.__vista.tabla_espectaculos.item(ind, 2).text()

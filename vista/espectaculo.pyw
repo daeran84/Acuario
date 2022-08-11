@@ -141,10 +141,10 @@ class VentanaEspectaculo(QDialog):
         duracion = self.duracion
 
         if codigo == '':
-            raise Exception(msg.format('codigo'))
+            raise Exception(msg.format('código'))
 
         if not codigo.isdigit():
-            raise Exception('El codigo solo puede tener numeros')
+            raise Exception('El código solo puede tener numeros')
 
         if nombre == '':
             raise Exception(msg.format('nombre'))
@@ -153,7 +153,7 @@ class VentanaEspectaculo(QDialog):
             raise Exception('El nombre solo puede tener letras')
 
         if publico == '':
-            raise Exception(msg.format('publico'))
+            raise Exception(msg.format('público'))
 
         if tipo == '':
             raise Exception(msg.format('tipo'))
@@ -162,9 +162,9 @@ class VentanaEspectaculo(QDialog):
             raise Exception('Debe seleccionar al menos un animal')
 
         if duracion == '0':
-            raise Exception('La duracion del espectaculo no puede ser 0')
+            raise Exception('La duracion del espectáculo no puede ser 0')
 
-    def restablecer_datos(self):  # OK
+    def restablecer_datos(self):
         self.codigo = ''
         self.nombre = ''
         self.inicio = QTime(0, 0)

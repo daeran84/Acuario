@@ -20,9 +20,9 @@ class ControladorEntrenador:
     def cerrar(self):
         self.__vista.close()
 
-    # Functions for list management
+    # Functions for list & view interactions
 
-    def cargar_datos(self):  # OK
+    def cargar_datos(self):
         try:
             self.__vista.vaciar_tabla()
             for entrenadores in self.__repositorio.lista_entrenadores:
@@ -40,7 +40,7 @@ class ControladorEntrenador:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def insertar_entrenador(self):  # OK
+    def insertar_entrenador(self):
         try:
             self.__vista.validar_datos()
             ci = self.__vista.ci
@@ -59,11 +59,11 @@ class ControladorEntrenador:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def actualizar_entrenador(self):  # OK
+    def actualizar_entrenador(self):
         try:
             ind = self.__vista.tabla_entrenadores.currentRow()
             if ind == -1:
-                raise Exception('Debe seleccionar una fila para actualizarla')
+                raise Exception('Debe seleccionar un registro para actualizarlo')
             ci_ant = self.__vista.tabla_entrenadores.item(ind, 2).text()
             self.__vista.validar_datos()
             ci = self.__vista.ci
@@ -82,11 +82,11 @@ class ControladorEntrenador:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def eliminar_entrenador(self):  # OK
+    def eliminar_entrenador(self):
         try:
             ind = self.__vista.tabla_entrenadores.currentRow()
             if ind == -1:
-                raise Exception('Debe seleccionar una fila para eliminarla')
+                raise Exception('Debe seleccionar un registro para eliminarlo')
             ci = self.__vista.tabla_entrenadores.item(ind, 2).text()
             self.__repositorio.eliminar_entrenador(ci)
             self.cargar_datos()
@@ -97,11 +97,8 @@ class ControladorEntrenador:
 
     def llenar_formulario_x_tabla(self):  # OK
         try:
-            # Obteniendo la fila a mostrar
             ind = self.__vista.tabla_entrenadores.currentRow()
             if ind != -1:
-
-                # Obteniendo datos de las columnas
                 nombre = self.__vista.tabla_entrenadores.item(ind, 0).text()
                 nombre_art = self.__vista.tabla_entrenadores.item(ind, 1).text()
                 ci = self.__vista.tabla_entrenadores.item(ind, 2).text()
@@ -111,7 +108,6 @@ class ControladorEntrenador:
                 nacimiento = QDate(int(nac[0]), int(nac[1]), int(nac[2]))
                 experiencia = self.__vista.tabla_entrenadores.item(ind, 6).text()
 
-                # dando valores a las variables
                 self.__vista.nombre_apellidos = nombre
                 self.__vista.nombre_artistico = nombre_art
                 self.__vista.ci = ci

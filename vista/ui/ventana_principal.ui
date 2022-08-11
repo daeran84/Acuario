@@ -31,7 +31,7 @@
    </widget>
    <widget class="QMenu" name="menuGestion">
     <property name="title">
-     <string>Gestion</string>
+     <string>Gestión</string>
     </property>
     <addaction name="btn_animales_acuaticos"/>
     <addaction name="btn_plantas_acuaticas"/>
@@ -56,12 +56,12 @@
   </action>
   <action name="btn_animales_acuaticos">
    <property name="text">
-    <string>Animales acuaticos</string>
+    <string>Animales acuáticos</string>
    </property>
   </action>
   <action name="btn_plantas_acuaticas">
    <property name="text">
-    <string>Plantas acuaticas</string>
+    <string>Plantas acuáticas</string>
    </property>
   </action>
   <action name="btn_entrenadoes">
@@ -71,7 +71,7 @@
   </action>
   <action name="btn_espectaculos">
    <property name="text">
-    <string>Espectaculos</string>
+    <string>Espectáculos</string>
    </property>
   </action>
   <action name="btn_animales_entrenador">

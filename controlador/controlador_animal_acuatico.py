@@ -1,8 +1,6 @@
 from vista.animal_acuatico import VentanaAnimalAcuatico
 from modelo.animal_acuatico import AnimalAquatico
 from controlador.controlador_entrenador import ControladorEntrenador
-from PyQt5.QtCore import QDate
-from PyQt5 import QtCore
 from datetime import date
 
 
@@ -29,7 +27,7 @@ class ControladorAnimalAcuatico:
         pen = ControladorEntrenador(self.__repositorio)
         pen.iniciar()
 
-    # Functions for list management
+    # Functions for list & view interactions
 
     def cargar_datos_combobox(self):
         nombres = []
@@ -58,11 +56,11 @@ class ControladorAnimalAcuatico:
             nombres.append(entrenador.nombre_apellidos)
         return nombres
 
-    def get_id(self):
+    def get_id(self):  # mover a Repositorio
         id = self.__repositorio.last_id() + 1
         self.__vista.id = str(id)
 
-    def cargar_datos(self):  # OK
+    def cargar_datos(self):
         try:
             self.__vista.vaciar_tabla()
             for anim in self.__repositorio.animal_acuatico():
@@ -84,7 +82,7 @@ class ControladorAnimalAcuatico:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def insertar_animal_acuatico(self):  # OK
+    def insertar_animal_acuatico(self):
         try:
             self.__vista.validar_datos()
             id = int(self.__vista.id)
@@ -110,11 +108,11 @@ class ControladorAnimalAcuatico:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def actualizar_animal_acuatico(self):  # OK
+    def actualizar_animal_acuatico(self):
         try:
             ind = self.__vista.tabla_animal_acuatico.currentRow()
             if ind == -1:
-                raise Exception('Debe seleccionar una fila para actualizarla')
+                raise Exception('Debe seleccionar un registro para actualizarlo')
             id_ant = self.__vista.tabla_animal_acuatico.item(ind, 0).text()
             self.__vista.validar_datos()
             id = int(self.__vista.id)
@@ -140,7 +138,7 @@ class ControladorAnimalAcuatico:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def eliminar_animal_acuatico(self):  # ok
+    def eliminar_animal_acuatico(self):
         try:
             ind = self.__vista.tabla_animal_acuatico.currentRow()
             if ind == -1:
@@ -153,13 +151,10 @@ class ControladorAnimalAcuatico:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def llenar_formulario_x_tabla(self):  # OK
+    def llenar_formulario_x_tabla(self):
         try:
-            # Obteniendo fila a mostrar
             ind = self.__vista.tabla_animal_acuatico.currentRow()
             if ind != -1:
-
-                # Obteniendo datos de las columnas
                 id_esp = self.__vista.tabla_animal_acuatico.item(ind, 0).text()
                 nombre = self.__vista.tabla_animal_acuatico.item(ind, 1).text()
                 nombre_c = self.__vista.tabla_animal_acuatico.item(ind, 2).text()
@@ -175,7 +170,6 @@ class ControladorAnimalAcuatico:
                     inicio = date(int(inicio[0]), int(inicio[1]), int(inicio[2]))
                 nombre_entr = self.__vista.tabla_animal_acuatico.item(ind, 10).text()
 
-                # Dando valores a los atributos
                 self.__vista.id = id_esp
                 self.__vista.nombre = nombre
                 self.__vista.nombre_cientifico = nombre_c
@@ -192,7 +186,6 @@ class ControladorAnimalAcuatico:
                     self.__vista.especificar_entr_cbx(nombre_entr)
                     self.datos_entrenador_x_combo()
                     self.__vista.frames_enabled(True)
-
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
