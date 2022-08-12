@@ -68,3 +68,15 @@ class AnimalAquatico(EspecieAcuatica):
     @nombre_entrenador.setter
     def nombre_entrenador(self, value):
         self.__nombre_entrenador = value
+
+    # Class functions
+
+    def ind_acep(self):
+        acept = self.ind_acep_base()
+        if self.reproducido_en_cautiverio == 'Si':
+            acept += 0.1
+        if self.espectaculo == 'Si':
+            acept += 0.5
+        acept += (self.edad / 100)
+
+        return acept

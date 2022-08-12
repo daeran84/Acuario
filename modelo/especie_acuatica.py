@@ -43,4 +43,10 @@ class EspecieAcuatica:
 
     def es_id_especie(self, id):
         return int(self.id) == int(id)
+
+    def ind_acep_base(self):
+        if self.habitat_natural == 'Mar':
+            return 0.9
+        if self.habitat_natural == 'Rio':
+            return 0.75
     

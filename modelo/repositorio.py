@@ -56,9 +56,12 @@ class Repositorio:
 
     # Functions for lista_especies
 
+    def ind_acep(self, id):
+        pass
+
     def last_id(self):
         id = 0
-        if self.lista_especies == []:
+        if not self.lista_especies:
             return id
         for esp in self.lista_especies:
             if int(esp.id) > id:
@@ -107,8 +110,7 @@ class Repositorio:
 
     # Functions for lista_espectaculos
 
-    def ind_espectaculo(self,
-                        cod):  # Devuelve el indice de la lista que tiene el espectaculo del codigo dado, en caso de existir en la lista
+    def ind_espectaculo(self, cod):  # Devuelve el indice de la lista que tiene el espectaculo del codigo dado
         for i in range(len(self.__lista_espectaculos)):
             if self.__lista_espectaculos[i].codigo == cod:
                 return i
