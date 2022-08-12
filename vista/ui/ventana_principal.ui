@@ -43,6 +43,7 @@
      <string>Reportes</string>
     </property>
     <addaction name="btn_animales_entrenador"/>
+    <addaction name="btn_indice_acept"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuGestion"/>
@@ -77,6 +78,11 @@
   <action name="btn_animales_entrenador">
    <property name="text">
     <string>Animales por Entrenador</string>
+   </property>
+  </action>
+  <action name="btn_indice_acept">
+   <property name="text">
+    <string>Índice Aceptación</string>
    </property>
   </action>
  </widget>

@@ -29,4 +29,4 @@ class PlantaAquatica(EspecieAcuatica):
         if self.aguas_profundas == 'Si':
             acept += 0.05
         acept += (self.num_ejemplares / 100)
-        return acept
+        return round(acept, 2)

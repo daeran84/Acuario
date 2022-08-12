@@ -11,6 +11,7 @@ from controlador.controlador_entrenador import ControladorEntrenador
 from controlador.controlador_planta_acuatica import ControladorPlantaAcuatica
 from controlador.controlador_espectaculo import ControladorEspectaculo
 from controlador.controlador_animales_entrenador import ControladorAnimalesEntrenador
+from controlador.controlador_indice_aceptacion import ControladorIndiceAceptacion
 
 
 class ControladorPrincipal:
@@ -91,6 +92,10 @@ class ControladorPrincipal:
         pen = ControladorEspectaculo(self.__repositorio)
         pen.iniciar()
 
-    def gestion_animales_entrenador(self):
+    def reportes_animales_entrenador(self):
         pen = ControladorAnimalesEntrenador(self.__repositorio)
+        pen.iniciar()
+
+    def reportes_indice_aceptacion(self):
+        pen = ControladorIndiceAceptacion(self.__repositorio)
         pen.iniciar()

@@ -78,5 +78,4 @@ class AnimalAquatico(EspecieAcuatica):
         if self.espectaculo == 'Si':
             acept += 0.5
         acept += (self.edad / 100)
-
-        return acept
+        return round(acept, 2)

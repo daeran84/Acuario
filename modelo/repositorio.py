@@ -57,7 +57,9 @@ class Repositorio:
     # Functions for lista_especies
 
     def ind_acep(self, id):
-        pass
+        for esp in self.lista_especies:
+            if int(esp.id) == id:
+                return esp.ind_acep()
 
     def last_id(self):
         id = 0
@@ -120,7 +122,6 @@ class Repositorio:
             raise Exception(
                 'Ya existe un Espectáculo con ese código, si desea actualizarlo de clic en actualizar,\n de lo contrario de clic en Nuevo registro para crear uno nuevo')
         self.__lista_espectaculos.append(espect)
-        print(self.__lista_espectaculos)
 
     def actualizar_espectaculo(self, codigo, espect):
         ind_ant = self.ind_espectaculo(codigo)
