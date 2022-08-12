@@ -37,4 +37,4 @@ def calculate_age(born):
     else:
         return today.year - born.year
 
-print(calculate_age(date(1984, 10, 11)))
+print(calculate_age(date(int(1977), int(1), int(1))))

@@ -51,7 +51,7 @@ class VentanaEntrenador(QDialog):
 
     @property
     def edad(self):
-        return self.valor_edad.text().strip()
+        return self.valor_edad.value()
 
     @edad.setter
     def edad(self, value):
@@ -82,7 +82,7 @@ class VentanaEntrenador(QDialog):
 
     @property
     def anios_experiencia(self):
-        return self.valor_experiencia.text().strip()
+        return self.valor_experiencia.value()
 
     @anios_experiencia.setter
     def anios_experiencia(self, value):
@@ -95,6 +95,8 @@ class VentanaEntrenador(QDialog):
         c_i = self.ci
         na = self.nombre_apellidos
         nar = self.nombre_artistico
+        edad = self.edad
+        exp = self.anios_experiencia
 
         if len(na) == 0:
             raise Exception(msg.format('nombre'))
@@ -110,13 +112,17 @@ class VentanaEntrenador(QDialog):
             raise Exception('El carnet de identidad solo puede tener dígitos')
         if len(c_i) != 11:
             raise Exception('El carnet de identidad debe tener 11 dígitos')
+        if edad != self.__controlador.age(self.fecha_nacimiento):
+            raise Exception('la edad no concuerda con la fecha de nacimiento')
+        if exp > (edad - 18):
+            raise Exception('La experiencia debe ser menor que la diferencia entre la edad  y la edad mínima laborable')
 
     def restablecer_datos(self):
         self.ci = ''
         self.nombre_apellidos = ''
         self.nombre_artistico = ''
         self.edad = 20
-        self.fecha_nacimiento = datetime.date(int(1965), int(1), int(1))
+        self.fecha_nacimiento = datetime.date(int(1977), int(1), int(1))
         self.anios_experiencia = 0
         self.sexo = 'M'
 

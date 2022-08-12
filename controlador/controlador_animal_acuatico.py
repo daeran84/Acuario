@@ -38,14 +38,15 @@ class ControladorAnimalAcuatico:
     def datos_entrenador_x_combo(self):
         try:
             nombre_entr = self.__vista.combo_entr
-            entrenador = self.__repositorio.entr_x_nombre(nombre_entr)
-            self.__vista.entr_nombre = entrenador.nombre_apellidos
-            self.__vista.entr_nomb_art = entrenador.nombre_artistico
-            self.__vista.entr_ci = entrenador.ci
-            self.__vista.entr_edad = entrenador.edad
-            self.__vista.entr_sexo = entrenador.sexo
-            self.__vista.entr_nac = str(entrenador.fecha_nacimiento)
-            self.__vista.entr_exp = entrenador.anios_experiencia
+            if nombre_entr != '':
+                entrenador = self.__repositorio.entr_x_nombre(nombre_entr)
+                self.__vista.entr_nombre = entrenador.nombre_apellidos
+                self.__vista.entr_nomb_art = entrenador.nombre_artistico
+                self.__vista.entr_ci = entrenador.ci
+                self.__vista.entr_edad = entrenador.edad
+                self.__vista.entr_sexo = entrenador.sexo
+                self.__vista.entr_nac = str(entrenador.fecha_nacimiento)
+                self.__vista.entr_exp = entrenador.anios_experiencia
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
@@ -90,7 +91,7 @@ class ControladorAnimalAcuatico:
             nombre_c = self.__vista.nombre_cientifico
             familia = self.__vista.anim_familia
             habitat = self.__vista.anim_habitat
-            edad = int(self.__vista.edad)
+            edad = self.__vista.edad
             categoria = self.__vista.anim_categoria
             cautiverio = self.__vista.cautiverio
             espectaculo = self.__vista.espectaculo
@@ -120,7 +121,7 @@ class ControladorAnimalAcuatico:
             nombre_c = self.__vista.nombre_cientifico
             familia = self.__vista.anim_familia
             habitat = self.__vista.anim_habitat
-            edad = int(self.__vista.edad)
+            edad = self.__vista.edad
             categoria = self.__vista.anim_categoria
             cautiverio = self.__vista.cautiverio
             espectaculo = self.__vista.espectaculo

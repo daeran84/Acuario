@@ -31,10 +31,10 @@ class ControladorEntrenador:
                 self.__vista.agregar_elemento_tabla(i, 0, entrenadores.nombre_apellidos)
                 self.__vista.agregar_elemento_tabla(i, 1, entrenadores.nombre_artistico)
                 self.__vista.agregar_elemento_tabla(i, 2, entrenadores.ci)
-                self.__vista.agregar_elemento_tabla(i, 3, entrenadores.edad)
+                self.__vista.agregar_elemento_tabla(i, 3, str(entrenadores.edad))
                 self.__vista.agregar_elemento_tabla(i, 4, entrenadores.sexo)
                 self.__vista.agregar_elemento_tabla(i, 5, str(entrenadores.fecha_nacimiento))
-                self.__vista.agregar_elemento_tabla(i, 6, entrenadores.anios_experiencia)
+                self.__vista.agregar_elemento_tabla(i, 6, str(entrenadores.anios_experiencia))
                 self.__vista.tabla_entrenadores.resizeColumnsToContents()
 
         except Exception as e:
@@ -119,16 +119,17 @@ class ControladorEntrenador:
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])
 
-    def age(self, date):
+    def age(self, fecha):
+        fecha = date(fecha.getDate()[0], fecha.getDate()[1], fecha.getDate()[2])
         today = date.today()
         try:
-            birthday = date.replace(year=today.year)
+            birthday = fecha.replace(year=today.year)
         except ValueError:  # raised when birth date is February 29 and the current year is not a leap year
-            birthday = date.replace(year=today.year, month=date.month + 1, day=1)
+            birthday = fecha.replace(year=today.year, month=fecha.month + 1, day=1)
         if birthday > today:
-            return today.year - date.year - 1
+            return today.year - fecha.year - 1
         else:
-            return today.year - date.year
+            return today.year - fecha.year
 
 
 

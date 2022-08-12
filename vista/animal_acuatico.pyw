@@ -83,7 +83,7 @@ class VentanaAnimalAcuatico(QDialog):
 
     @property
     def edad(self):
-        return self.anim_edad.text()
+        return self.anim_edad.value()
 
     @edad.setter
     def edad(self, value):
@@ -224,7 +224,7 @@ class VentanaAnimalAcuatico(QDialog):
         if categoria == '':
             raise Exception(msg.format('categoría'))
 
-        if espect and entrenador == '':
+        if espect == 'Si' and entrenador == '':
             raise Exception('Si participa en espectáculos debe seleccionar un entrenador')
 
     def restablecer_datos(self):
