@@ -9,6 +9,7 @@ class Repositorio:
         self.__lista_espectaculos = []
         self.__lista_entrenadores = []
         self.__tipo_espectaculo = {}
+        self.__plantas_x_familia = {}
 
     # PROPS of list values
 
@@ -44,6 +45,14 @@ class Repositorio:
     def tipo_espectaculo(self, value):
         self.__tipo_espectaculo = value
 
+    @property
+    def plantas_x_familia(self):
+        return self.__plantas_x_familia
+
+    @plantas_x_familia.setter
+    def plantas_x_familia(self, value):
+        self.__plantas_x_familia = value
+
     # Functions for Dic
 
     def agregar_reg_tipo_esp(self, reg):
@@ -55,6 +64,15 @@ class Repositorio:
         print(self.tipo_espectaculo)
 
     # Functions for lista_especies
+
+    def aceptacion_plantas_x_familia(self):
+        plantas = self.planta_acuatica()
+        for planta in plantas:
+            if planta.familia not in self.plantas_x_familia.keys():
+                self.plantas_x_familia.update({planta.familia: 0})
+            value = (self.__plantas_x_familia[planta.familia]) + planta.ind_acep()
+            self.plantas_x_familia.update({planta.familia: value})
+        print(self.plantas_x_familia)
 
     def ind_acep(self, id):
         for esp in self.lista_especies:
