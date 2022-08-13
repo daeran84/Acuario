@@ -20,7 +20,3 @@ class VentanaFamiliaPlantas(QDialog):
     def familia(self, value):
         self.lb_familia.setText(value)
     
-    # Functions
-
-    def mostrar_error(self, msg):
-        QMessageBox.critical(self, 'Error', msg)

@@ -91,6 +91,11 @@
     <string>Familia de Plantas más representada</string>
    </property>
   </action>
+  <action name="btn_cambiar_entrenador">
+   <property name="text">
+    <string>Cambiar entrenador de animal acuático</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
