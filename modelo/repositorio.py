@@ -9,7 +9,7 @@ class Repositorio:
         self.__lista_espectaculos = []
         self.__lista_entrenadores = []
         self.__tipo_espectaculo = {}
-        self.__plantas_x_familia = {}
+        self.__indice_familias_plantas = {}
 
     # PROPS of list values
 
@@ -46,12 +46,12 @@ class Repositorio:
         self.__tipo_espectaculo = value
 
     @property
-    def plantas_x_familia(self):
-        return self.__plantas_x_familia
+    def indice_familias_plantas(self):
+        return self.__indice_familias_plantas
 
-    @plantas_x_familia.setter
-    def plantas_x_familia(self, value):
-        self.__plantas_x_familia = value
+    @indice_familias_plantas.setter
+    def indice_familias_plantas(self, value):
+        self.__indice_familias_plantas = value
 
     # Functions for Dic
 
@@ -65,14 +65,13 @@ class Repositorio:
 
     # Functions for lista_especies
 
-    def aceptacion_plantas_x_familia(self):
+    def get_familia_plantas(self):
         plantas = self.planta_acuatica()
         for planta in plantas:
-            if planta.familia not in self.plantas_x_familia.keys():
-                self.plantas_x_familia.update({planta.familia: 0})
-            value = (self.__plantas_x_familia[planta.familia]) + planta.ind_acep()
-            self.plantas_x_familia.update({planta.familia: value})
-        print(self.plantas_x_familia)
+            if planta.familia not in self.indice_familias_plantas.keys():
+                self.indice_familias_plantas.update({planta.familia: 0})
+            value = (self.indice_familias_plantas[planta.familia]) + planta.ind_acep()
+            self.indice_familias_plantas.update({planta.familia: value})
 
     def ind_acep(self, id):
         for esp in self.lista_especies:

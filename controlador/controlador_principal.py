@@ -12,6 +12,7 @@ from controlador.controlador_planta_acuatica import ControladorPlantaAcuatica
 from controlador.controlador_espectaculo import ControladorEspectaculo
 from controlador.controlador_animales_entrenador import ControladorAnimalesEntrenador
 from controlador.controlador_indice_aceptacion import ControladorIndiceAceptacion
+from controlador.controlador_familia_plantas import ControladorFamiliaPlantas
 
 
 class ControladorPrincipal:
@@ -98,4 +99,8 @@ class ControladorPrincipal:
 
     def reportes_indice_aceptacion(self):
         pen = ControladorIndiceAceptacion(self.__repositorio)
+        pen.iniciar()
+
+    def reportes_aceptacion_familia_plantas(self):
+        pen = ControladorFamiliaPlantas(self.__repositorio)
         pen.iniciar()

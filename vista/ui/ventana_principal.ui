@@ -44,6 +44,7 @@
     </property>
     <addaction name="btn_animales_entrenador"/>
     <addaction name="btn_indice_acept"/>
+    <addaction name="btn_familia_plantas_mas_repr"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuGestion"/>
@@ -83,6 +84,11 @@
   <action name="btn_indice_acept">
    <property name="text">
     <string>Índice Aceptación</string>
+   </property>
+  </action>
+  <action name="btn_familia_plantas_mas_repr">
+   <property name="text">
+    <string>Familia de Plantas más representada</string>
    </property>
   </action>
  </widget>
