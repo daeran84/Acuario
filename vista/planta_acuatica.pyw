@@ -5,17 +5,17 @@ from PyQt5 import uic
 
 class VentanaPlantaAcuatica(QDialog):
 
-    def __init__(self, controlador):
-        self.__controlador = controlador
+    def __init__(self, presentador):
+        self.__presentador = presentador
         QDialog.__init__(self)
         uic.loadUi('vista/ui/planta_acuatica.ui', self)
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.btn_insertar.clicked.connect(self.__controlador.insertar_planta_acuatica)
-        self.btn_actualizar.clicked.connect(self.__controlador.actualizar_planta_acuatica)
-        self.btn_eliminar.clicked.connect(self.__controlador.eliminar_planta_acuatica)
+        self.btn_insertar.clicked.connect(self.__presentador.insertar_planta_acuatica)
+        self.btn_actualizar.clicked.connect(self.__presentador.actualizar_planta_acuatica)
+        self.btn_eliminar.clicked.connect(self.__presentador.eliminar_planta_acuatica)
         self.btn_nuevo_reg.clicked.connect(self.restablecer_datos)
-        self.tabla_planta_acuatica.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
+        self.tabla_planta_acuatica.itemClicked.connect(self.__presentador.llenar_formulario_x_tabla)
         self.tabla_planta_acuatica.setColumnCount(6)
         self.tabla_planta_acuatica.setHorizontalHeaderLabels(['ID', 'Nombre científico', 'Familia', 'hábitat natural', 'Número de ejemplares', 'De aguas profundas'])
         self.tabla_planta_acuatica.resizeColumnsToContents()
@@ -106,7 +106,7 @@ class VentanaPlantaAcuatica(QDialog):
             raise Exception('los números de ejemplares no pueden ser 0')
 
     def restablecer_datos(self):
-        self.__controlador.get_id()
+        self.__presentador.get_id()
         self.nombre_cient = ''
         self.planta_familia = ''
         self.planta_habitat = ''

@@ -5,19 +5,19 @@ from PyQt5 import uic
 
 class VentanaEntrenador(QDialog):
 
-    def __init__(self, controlador):
-        self.__controlador = controlador
+    def __init__(self, presentador):
+        self.__presentador = presentador
         QDialog.__init__(self)
         uic.loadUi('vista/ui/entrenador.ui', self)
 
         # Buttons & table data configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.btn_incertar.clicked.connect(self.__controlador.insertar_entrenador)
-        self.btn_actualizar.clicked.connect(self.__controlador.actualizar_entrenador)
-        self.btn_eliminar.clicked.connect(self.__controlador.eliminar_entrenador)
+        self.btn_incertar.clicked.connect(self.__presentador.insertar_entrenador)
+        self.btn_actualizar.clicked.connect(self.__presentador.actualizar_entrenador)
+        self.btn_eliminar.clicked.connect(self.__presentador.eliminar_entrenador)
         self.btn_nuevo_reg.clicked.connect(self.restablecer_datos)
-        self.tabla_entrenadores.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
+        self.tabla_entrenadores.itemClicked.connect(self.__presentador.llenar_formulario_x_tabla)
         self.tabla_entrenadores.setColumnCount(7)
         self.tabla_entrenadores.setHorizontalHeaderLabels(['Nombre', 'Nombre Artistico', 'CI', 'Edad', 'Sexo', 'Fecha de nacimiento', 'Años de experiencia'])
         self.tabla_entrenadores.horizontalHeaderItem(3).setToolTip('Carnet de Identidad')
@@ -112,7 +112,7 @@ class VentanaEntrenador(QDialog):
             raise Exception('El carnet de identidad solo puede tener dígitos')
         if len(c_i) != 11:
             raise Exception('El carnet de identidad debe tener 11 dígitos')
-        if edad != self.__controlador.age(self.fecha_nacimiento):
+        if edad != self.__presentador.age(self.fecha_nacimiento):
             raise Exception('la edad no concuerda con la fecha de nacimiento')
         if exp > (edad - 18):
             raise Exception('La experiencia debe ser menor que la diferencia entre la edad  y la edad mínima laborable')

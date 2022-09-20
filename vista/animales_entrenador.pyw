@@ -4,15 +4,15 @@ from PyQt5 import uic
 
 class VentanaAnimalesEntrenador(QDialog):
 
-    def __init__(self, controlador):
-        self.__controlador = controlador
+    def __init__(self, presentador):
+        self.__presentador = presentador
         QDialog.__init__(self)
         uic.loadUi('vista/ui/animales_entrenador.ui', self)
 
         # Buttons & table data configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.cbx_selec_entr.activated[str].connect(self.__controlador.cargar_datos)
+        self.cbx_selec_entr.activated[str].connect(self.__presentador.cargar_datos)
         self.tabla_animales_entrenador.setColumnCount(11)
         self.tabla_animales_entrenador.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'Entrenador'])
         self.tabla_animales_entrenador.resizeColumnsToContents()

@@ -7,23 +7,23 @@ from PyQt5.QtCore import QTime
 
 class VentanaEspectaculo(QDialog):
 
-    def __init__(self, controlador):
-        self.__controlador = controlador
+    def __init__(self, presentador):
+        self.__presentador = presentador
         QDialog.__init__(self)
         uic.loadUi('vista/ui/espectaculo.ui', self)
 
         # Buttons & table data configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.btn_insertar.clicked.connect(self.__controlador.insertar_espectaculo)
-        self.btn_actualizar.clicked.connect(self.__controlador.actualizar_espectaculo)
-        self.btn_eliminar.clicked.connect(self.__controlador.eliminar_espectaculo)
+        self.btn_insertar.clicked.connect(self.__presentador.insertar_espectaculo)
+        self.btn_actualizar.clicked.connect(self.__presentador.actualizar_espectaculo)
+        self.btn_eliminar.clicked.connect(self.__presentador.eliminar_espectaculo)
         self.btn_nuevo_reg.clicked.connect(self.restablecer_datos)
-        self.tabla_espectaculos.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
+        self.tabla_espectaculos.itemClicked.connect(self.__presentador.llenar_formulario_x_tabla)
         self.tabla_espectaculos.setColumnCount(6)
         self.tabla_espectaculos.setHorizontalHeaderLabels(['Código', 'Nombre', 'Hora de inicio', 'Duración', 'Público', 'Animales que participan'])
         self.tabla_espectaculos.resizeColumnsToContents()
-        self.cbx_tipo.activated[str].connect(self.__controlador.cargar_datos_combobox)
+        self.cbx_tipo.activated[str].connect(self.__presentador.cargar_datos_combobox)
 
     # PROPS
 

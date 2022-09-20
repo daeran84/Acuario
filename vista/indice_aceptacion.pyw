@@ -4,13 +4,13 @@ from PyQt5 import uic
 
 class VentanaIndiceAceptacion(QDialog):
 
-    def __init__(self, controlador):
-        self.__controlador = controlador
+    def __init__(self, presentador):
+        self.__presentador = presentador
         QDialog.__init__(self)
         uic.loadUi('vista/ui/indice_aceptacion.ui', self)
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.btn_calcular.clicked.connect(self.__controlador.get_indice)
+        self.btn_calcular.clicked.connect(self.__presentador.get_indice)
 
     # PROPS
 

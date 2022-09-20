@@ -6,25 +6,25 @@ from PyQt5 import uic
 
 class VentanaAnimalAcuatico(QDialog):
 
-    def __init__(self, controlador):
-        self.__controlador = controlador
+    def __init__(self, presentador):
+        self.__presentador = presentador
         QDialog.__init__(self)
         uic.loadUi('vista/ui/animal_acuatico.ui', self)
 
         # Auxiliary windows call, table & buttons configuration
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.btn_adm_entrenador.clicked.connect(self.__controlador.admin_entrenadores)
-        self.btn_insertar.clicked.connect(self.__controlador.insertar_animal_acuatico)
-        self.btn_actualizar.clicked.connect(self.__controlador.actualizar_animal_acuatico)
-        self.btn_eliminar.clicked.connect(self.__controlador.eliminar_animal_acuatico)
+        self.btn_adm_entrenador.clicked.connect(self.__presentador.admin_entrenadores)
+        self.btn_insertar.clicked.connect(self.__presentador.insertar_animal_acuatico)
+        self.btn_actualizar.clicked.connect(self.__presentador.actualizar_animal_acuatico)
+        self.btn_eliminar.clicked.connect(self.__presentador.eliminar_animal_acuatico)
         self.btn_nuevo_reg.clicked.connect(self.restablecer_datos)
-        self.tabla_animal_acuatico.itemClicked.connect(self.__controlador.llenar_formulario_x_tabla)
+        self.tabla_animal_acuatico.itemClicked.connect(self.__presentador.llenar_formulario_x_tabla)
         self.tabla_animal_acuatico.setColumnCount(11)
         self.tabla_animal_acuatico.setHorizontalHeaderLabels(['ID', 'Nombre', 'Nombre cientifico', 'Familia', 'Habitat natural', 'Reproducido en cautiverio', 'Edad', 'Categoria', 'Participa en Espectaculos', 'Fecha de inicio', 'Entrenador'])
         self.tabla_animal_acuatico.resizeColumnsToContents()
-        self.btn_act_combobox.clicked.connect(self.__controlador.cargar_datos_combobox)
-        self.cbx_selec_entr.activated[str].connect(self.__controlador.datos_entrenador_x_combo)
+        self.btn_act_combobox.clicked.connect(self.__presentador.cargar_datos_combobox)
+        self.cbx_selec_entr.activated[str].connect(self.__presentador.datos_entrenador_x_combo)
 
     #  PROPS of field values
 
@@ -228,7 +228,7 @@ class VentanaAnimalAcuatico(QDialog):
             raise Exception('Si participa en espectáculos debe seleccionar un entrenador')
 
     def restablecer_datos(self):
-        self.__controlador.get_id()
+        self.__presentador.get_id()
         self.nombre = ''
         self.nombre_cientifico = ''
         self.anim_familia = ''
