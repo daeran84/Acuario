@@ -3,7 +3,7 @@ from modelo.espectaculo import Espectaculo
 from PyQt5.QtCore import QTime
 
 
-class ControladorEspectaculo:
+class PresentadorEspectaculo:
 
     def __init__(self, repo):
         self.__vista = VentanaEspectaculo(self)
@@ -113,10 +113,9 @@ class ControladorEspectaculo:
                 self.__vista.inicio = hora
                 self.__vista.duracion = int(duracion)
                 self.__vista.publico = publico
-                self.__vista.tipo = self.__repositorio.tipo_espectaculo.get(codigo)
+                self.__vista.tipo = self.__repositorio.tipo_espectaculo(codigo)
                 self.cargar_datos_combobox()
                 self.__vista.especificar_animal_1(animales[0].strip())
-                print(len(animales))
                 if len(animales) >= 2:
                     self.__vista.especificar_animal_2(animales[1].strip())
                 if len(animales) >= 3:
@@ -130,7 +129,7 @@ class ControladorEspectaculo:
         tipo = self.__vista.tipo
         animales = []
         for anim in self.__repositorio.animal_acuatico():
-            if anim.espectaculo == 'Si' and anim.familia == tipo:
+            if anim.espectaculo == 'Si' and anim.familia == tipo and anim.nombre_entrenador != '':
                 animales.append(anim.nombre)
         self.__vista.animal_1 = animales
         self.__vista.animal_2 = animales

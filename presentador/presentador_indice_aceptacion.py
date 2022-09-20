@@ -1,7 +1,7 @@
 from vista.indice_aceptacion import VentanaIndiceAceptacion
 
 
-class ControladorIndiceAceptacion:
+class PresentadorIndiceAceptacion:
 
     def __init__(self, repo):
         self.__vista = VentanaIndiceAceptacion(self)

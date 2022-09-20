@@ -1,10 +1,10 @@
 from vista.animal_acuatico import VentanaAnimalAcuatico
 from modelo.animal_acuatico import AnimalAquatico
-from controlador.controlador_entrenador import ControladorEntrenador
+from presentador.presentador_entrenador import PresentadorEntrenador
 from datetime import date
 
 
-class ControladorAnimalAcuatico:
+class PresentadorAnimalAcuatico:
 
     def __init__(self, repo):
         self.__vista = VentanaAnimalAcuatico(self)
@@ -24,7 +24,7 @@ class ControladorAnimalAcuatico:
     # Windows calls functions
 
     def admin_entrenadores(self):
-        pen = ControladorEntrenador(self.__repositorio)
+        pen = PresentadorEntrenador(self.__repositorio)
         pen.iniciar()
 
     # Functions for list & view interactions

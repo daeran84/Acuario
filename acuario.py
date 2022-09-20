@@ -1,5 +1,5 @@
-from controlador.controlador_principal import ControladorPrincipal
+from presentador.presentador_principal import PresentadorPrincipal
 
 if __name__ == '__main__':
-    app = ControladorPrincipal()
+    app = PresentadorPrincipal()
     app.iniciar()

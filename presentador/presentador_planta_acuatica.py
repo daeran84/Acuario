@@ -2,7 +2,7 @@ from vista.planta_acuatica import VentanaPlantaAcuatica
 from modelo.planta_aquatica import PlantaAquatica
 
 
-class ControladorPlantaAcuatica:
+class PresentadorPlantaAcuatica:
 
     def __init__(self, repo):
         self.__vista = VentanaPlantaAcuatica(self)

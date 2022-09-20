@@ -4,104 +4,102 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>238</x>
-      <y>329</y>
+      <x>175</x>
+      <y>301</y>
       <w>168</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>EspecieAcuatica
 --
--identificador: int
--nombre_cientifico: str
--familia: str
--habitat_natural: tuple(mar, rio)
++identificador: int
++nombre_cientifico: str
++familia: str
++habitat_natural: str
 --
--indice_aceptacion()
++indice_aceptacion()
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>147</x>
-      <y>532</y>
+      <x>84</x>
+      <y>504</y>
       <w>161</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>PlantaAquatica
 --
--num_ejemplares: int
--aguas_profundas: bool
++num_ejemplares: int
++aguas_profundas: bool
 --
--indice_aceptacion()</panel_attributes>
++indice_aceptacion()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>329</x>
-      <y>532</y>
+      <x>266</x>
+      <y>504</y>
       <w>161</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>AnimalAcuatico
 --
--nombre: str
--reproducido_en_cautiverio: bool
--edad: int
--categoria: str
--participa_espectaculo: bool
--primera_participacion: date
--entrenador: str
++nombre: str
++reproducido_en_cautiverio: bool
++edad: int
++categoria: str
++participa_espectaculo: bool
++primera_participacion: date
++entrenador: str
 --
--indice_aceptacion()</panel_attributes>
++indice_aceptacion()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>35</y>
+      <x>252</x>
+      <y>7</y>
       <w>175</w>
       <h>231</h>
     </coordinates>
     <panel_attributes>Acuario
 --
--nombre: str
--lista_especies: list[especies]
--lista_entrenadores: list[entrenadores]
--lista_espectaculos: list[espectaculos]
++nombre: str
+
 --
--insertar_animal()
--actualizar_animal()
--eliminar_animal()
--listar_animal()
--insertar_planta()
--actualizar_planta()
--eliminar_planta()
--listar_planta()
--listar_entrenador()
--índice de aceptación()
++insertar_animal()
++actualizar_animal()
++eliminar_animal()
++listar_animal()
++insertar_planta()
++actualizar_planta()
++eliminar_planta()
++listar_planta()
++listar_entrenador()
++índice de aceptación()
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>441</x>
-      <y>329</y>
+      <x>378</x>
+      <y>301</y>
       <w>168</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>Entrenador
 --
--ci: str
--nombre_apellidos: str
--nombre_artistico: str
--edad: int
--sexo: str
--fecha_nacimiento: date
--annos_experiencia: int
++ci: str
++nombre_apellidos: str
++nombre_artistico: str
++edad: int
++sexo: str
++fecha_nacimiento: date
++annos_experiencia: int
 --
 </panel_attributes>
     <additional_attributes/>
@@ -109,45 +107,41 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>623</x>
-      <y>35</y>
+      <x>560</x>
+      <y>7</y>
       <w>259</w>
       <h>175</h>
     </coordinates>
     <panel_attributes>Espectaculo
 --
--codigo: int
--nombre: str
--hora_comienzo: str
--duracion: str
--tipo_publico: tuple(niños, jóvenes, adultos o todas las edades)
--animales_participan: str(comma separated)
++codigo: int
++nombre: str
++hora_comienzo: str
++duracion: str
++tipo_publico: tuple(niños, jóvenes, adultos o todas las edades)
++animales_participan: str(comma separated)
 --
--inscertar_espectaculo()
--insertar_entrenador()
--actualizar_entrenador()
--eliminar_entrenador()
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>413</x>
-      <y>259</y>
-      <w>63</w>
+      <x>364</x>
+      <y>231</y>
+      <w>105</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m1=1
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0;70.0;70.0;70.0;100.0</additional_attributes>
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>130.0;100.0;130.0;70.0;10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>455</y>
+      <x>273</x>
+      <y>427</y>
       <w>91</w>
       <h>91</h>
     </coordinates>
@@ -157,8 +151,8 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>217</x>
-      <y>455</y>
+      <x>154</x>
+      <y>427</y>
       <w>84</w>
       <h>91</h>
     </coordinates>
@@ -168,102 +162,27 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>259</y>
-      <w>63</w>
+      <x>252</x>
+      <y>231</y>
+      <w>84</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m1=1
-m2=*</panel_attributes>
-    <additional_attributes>60.0;10.0;60.0;70.0;10.0;70.0;10.0;100.0</additional_attributes>
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;70.0;90.0;70.0;90.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>483</x>
-      <y>161</y>
+      <x>420</x>
+      <y>126</y>
       <w>154</w>
       <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m1=1
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;200.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>462</x>
-      <y>455</y>
-      <w>28</w>
-      <h>91</h>
-    </coordinates>
-    <panel_attributes>lt=..
-m1=n
-m2=n</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>448</x>
-      <y>483</y>
-      <w>49</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>Entrena
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>483</x>
-      <y>203</y>
-      <w>266</w>
-      <h>392</h>
-    </coordinates>
-    <panel_attributes>lt=..
-m1=n
-m2=n</panel_attributes>
-    <additional_attributes>350.0;10.0;350.0;530.0;10.0;530.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>707</x>
-      <y>434</y>
-      <w>56</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>Participa
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>546</x>
-      <y>203</y>
-      <w>140</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>lt=..
-m1=n
-m2=n</panel_attributes>
-    <additional_attributes>170.0;10.0;170.0;130.0;10.0;130.0;10.0;180.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>581</x>
-      <y>266</y>
-      <w>56</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>Participa
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

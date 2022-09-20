@@ -10,8 +10,8 @@ class VentanaFamiliaPlantas(QDialog):
         uic.loadUi('vista/ui/familia_plantas.ui', self)
 
         self.btn_cerrar.clicked.connect(self.close)
-        self.btn_calcular.clicked.connect(self.__controlador.get_indice_familia)
-    
+        self.btn_calcular.clicked.connect(self.__controlador.get_familia_plantas_mas_representada)
+
     @property
     def familia(self):
         return self.lb_familia.text()

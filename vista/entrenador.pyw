@@ -129,6 +129,9 @@ class VentanaEntrenador(QDialog):
     def mostrar_error(self, msg):
         QMessageBox.critical(self, 'Error', msg)
 
+    def mostrar_info(self, msg):
+        QMessageBox.information(self, 'Información', msg)
+
     def vaciar_tabla(self):  # OK
         while self.tabla_entrenadores.rowCount() > 0:
             self.tabla_entrenadores.removeRow(0)

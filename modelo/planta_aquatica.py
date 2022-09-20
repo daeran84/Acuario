@@ -25,7 +25,7 @@ class PlantaAquatica(EspecieAcuatica):
         self.__aguas_profundas = value
 
     def ind_acep(self):
-        acept = self.ind_acep_base()
+        acept = EspecieAcuatica.ind_acep(self)
         if self.aguas_profundas == 'Si':
             acept += 0.05
         acept += (self.num_ejemplares / 100)

@@ -72,7 +72,7 @@ class AnimalAquatico(EspecieAcuatica):
     # Class functions
 
     def ind_acep(self):
-        acept = self.ind_acep_base()
+        acept = EspecieAcuatica.ind_acep(self)
         if self.reproducido_en_cautiverio == 'Si':
             acept += 0.1
         if self.espectaculo == 'Si':

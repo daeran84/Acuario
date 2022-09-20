@@ -4,7 +4,7 @@ from PyQt5.QtCore import QDate
 from datetime import date
 
 
-class ControladorEntrenador:
+class PresentadorEntrenador:
 
     def __init__(self, repo):
         self.__vista = VentanaEntrenador(self)
@@ -87,10 +87,19 @@ class ControladorEntrenador:
             ind = self.__vista.tabla_entrenadores.currentRow()
             if ind == -1:
                 raise Exception('Debe seleccionar un registro para eliminarlo')
+            animales = self.__repositorio.animales_del_entrenador(self.__vista.tabla_entrenadores.item(ind, 0).text())
             ci = self.__vista.tabla_entrenadores.item(ind, 2).text()
             self.__repositorio.eliminar_entrenador(ci)
             self.cargar_datos()
             self.__vista.restablecer_datos()
+            if len(animales) == 1:
+                self.__vista.mostrar_info(f'El animale acuático {animales[0]} ya no tiene entrenador, debe asignarle uno para que pueda participar en un espectáculo')
+            if len(animales) > 1:
+                animales_str = f' y {animales[-1]}'
+                for i in range(len(animales)-1):
+                    animales_str = f', {animales[i]}' + animales_str
+                    animales.pop()
+                self.__vista.mostrar_info(f"Los animales acuáticos {animales_str.strip(',').strip()} ya no tienen entrenador, debe asignarles uno para que puedan participar en un espectáculo")
 
         except Exception as e:
             self.__vista.mostrar_error(e.args[0])

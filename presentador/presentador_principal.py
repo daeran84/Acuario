@@ -6,16 +6,16 @@ from modelo.entrenador import Entrenador
 from modelo.animal_acuatico import AnimalAquatico
 from modelo.planta_aquatica import PlantaAquatica
 from vista.ventana_principal import VentanaPrincipal
-from controlador.controlador_animal_acuatico import ControladorAnimalAcuatico
-from controlador.controlador_entrenador import ControladorEntrenador
-from controlador.controlador_planta_acuatica import ControladorPlantaAcuatica
-from controlador.controlador_espectaculo import ControladorEspectaculo
-from controlador.controlador_animales_entrenador import ControladorAnimalesEntrenador
-from controlador.controlador_indice_aceptacion import ControladorIndiceAceptacion
-from controlador.controlador_familia_plantas import ControladorFamiliaPlantas
+from presentador.presentador_animal_acuatico import PresentadorAnimalAcuatico
+from presentador.presentador_entrenador import PresentadorEntrenador
+from presentador.presentador_planta_acuatica import PresentadorPlantaAcuatica
+from presentador.presentador_espectaculo import PresentadorEspectaculo
+from presentador.presentador_animales_entrenador import PresentadorAnimalesEntrenador
+from presentador.presentador_indice_aceptacion import PresentadorIndiceAceptacion
+from presentador.presentador_familia_plantas import PresentadorFamiliaPlantas
 
 
-class ControladorPrincipal:
+class PresentadorPrincipal:
 
     def __init__(self):
         self.__repositorio = Repositorio()
@@ -78,29 +78,29 @@ class ControladorPrincipal:
         app.exec_()
 
     def gestion_anim_ac(self):
-        pen = ControladorAnimalAcuatico(self.__repositorio)
+        pen = PresentadorAnimalAcuatico(self.__repositorio)
         pen.iniciar()
 
     def gestion_entrenadores(self):
-        pen = ControladorEntrenador(self.__repositorio)
+        pen = PresentadorEntrenador(self.__repositorio)
         pen.iniciar()
 
     def gestion_planta_ac(self):
-        pen = ControladorPlantaAcuatica(self.__repositorio)
+        pen = PresentadorPlantaAcuatica(self.__repositorio)
         pen.iniciar()
 
     def gestion_espectaculos(self):
-        pen = ControladorEspectaculo(self.__repositorio)
+        pen = PresentadorEspectaculo(self.__repositorio)
         pen.iniciar()
 
     def reportes_animales_entrenador(self):
-        pen = ControladorAnimalesEntrenador(self.__repositorio)
+        pen = PresentadorAnimalesEntrenador(self.__repositorio)
         pen.iniciar()
 
     def reportes_indice_aceptacion(self):
-        pen = ControladorIndiceAceptacion(self.__repositorio)
+        pen = PresentadorIndiceAceptacion(self.__repositorio)
         pen.iniciar()
 
     def reportes_aceptacion_familia_plantas(self):
-        pen = ControladorFamiliaPlantas(self.__repositorio)
+        pen = PresentadorFamiliaPlantas(self.__repositorio)
         pen.iniciar()

@@ -2,7 +2,7 @@ from vista.animales_entrenador import VentanaAnimalesEntrenador
 from PyQt5.QtCore import Qt
 
 
-class ControladorAnimalesEntrenador:
+class PresentadorAnimalesEntrenador:
 
     def __init__(self, repo):
         self.__vista = VentanaAnimalesEntrenador(self)
@@ -32,17 +32,10 @@ class ControladorAnimalesEntrenador:
             nombres.append(entrenador.nombre_apellidos)
         return nombres
 
-    def datos_animales(self, entr):
-        animales = []
-        for anim in self.__repositorio.animal_acuatico():
-            if anim.espectaculo and anim.nombre_entrenador == entr:
-                animales.append(anim)
-        return animales
-
     def cargar_datos(self):
         try:
             self.__vista.vaciar_tabla()
-            animales = self.datos_animales(self.__vista.combo_entr)
+            animales = self.__repositorio.datos_animales(self.__vista.combo_entr)
             for anim in animales:
                 i = self.__vista.tabla_animales_entrenador.rowCount()
                 self.__vista.tabla_animales_entrenador.insertRow(i)
@@ -52,10 +45,7 @@ class ControladorAnimalesEntrenador:
                 self.__vista.agregar_elemento_tabla(i, 3, anim.familia)
                 self.__vista.agregar_elemento_tabla(i, 4, anim.habitat_natural)
                 self.__vista.agregar_elemento_tabla(i, 5, anim.reproducido_en_cautiverio)
-                if anim.edad <= 9:
-                    self.__vista.agregar_elemento_tabla(i, 6, '0' + str(anim.edad))
-                else:
-                    self.__vista.agregar_elemento_tabla(i, 6, str(anim.edad))
+                self.__vista.agregar_elemento_tabla(i, 6, str(anim.edad))
                 self.__vista.agregar_elemento_tabla(i, 7, anim.categoria)
                 self.__vista.agregar_elemento_tabla(i, 8, anim.espectaculo)
                 self.__vista.agregar_elemento_tabla(i, 9, str(anim.fecha_inicio))
