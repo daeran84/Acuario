@@ -113,7 +113,7 @@ class PresentadorEspectaculo:
                 self.__vista.inicio = hora
                 self.__vista.duracion = int(duracion)
                 self.__vista.publico = publico
-                self.__vista.tipo = self.__repositorio.tipo_espectaculo(codigo)
+                self.__vista.tipo = self.__repositorio.tipo_espectaculo[codigo]
                 self.cargar_datos_combobox()
                 self.__vista.especificar_animal_1(animales[0].strip())
                 if len(animales) >= 2:
